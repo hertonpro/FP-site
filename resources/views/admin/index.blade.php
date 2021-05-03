@@ -4,6 +4,8 @@
 <head>
 
     <x-meta/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
 </head>
 
@@ -25,8 +27,6 @@
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                             <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                             <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -153,9 +153,10 @@
     
     
                     <li>
-                        <a href="login.html">
-                            <i class="fa fa-sign-out"></i> Log out
-                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            <button class="dropdown-item" type="submit"><i class="fa fa-sign-out"></i> Log out</button>
+                            @csrf
+                        </form>
                     </li>
                     <li>
                         <a class="right-sidebar-toggle">

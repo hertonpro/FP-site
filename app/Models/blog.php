@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class blog extends Model
 {
-    protected $guarded =[];
+    protected $fillable = ['titre','type','article','tag','state','editeur'];
 }

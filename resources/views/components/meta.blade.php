@@ -1,7 +1,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
 
-<title>Fondation Panzi</title>
+@php
+    if(isset($article)){
+        $titre=$article->titre;
+    }else {
+        $titre="Fondation Panzi";
+    }
+@endphp
+<title>{{$titre}}</title>
 
 <!-- Fonts -->
 
@@ -19,14 +27,23 @@
 
 <link href="{{ asset('css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css') }}" rel="stylesheet">
 
+<link href="{{ asset('css/plugins/dropzone/basic.css')}}" rel="stylesheet">
+<link href="{{ asset('css/plugins/dropzone/dropzone.css')}}" rel="stylesheet">
+
 <!-- Mainly scripts -->
 <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
 <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+</script>
 
-<!-- include summernote css/js --><link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 {{-- 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"> --}}
 

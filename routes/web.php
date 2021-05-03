@@ -4,6 +4,7 @@ use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,12 @@ Route::get('/ok', function () {
 });
 
 Route::resource('/user', UserController::class);
-Route::resource('/blogs', BlogController::class);
+Route::resource('/blogs', BlogController::class)->middleware(['auth']);
+Route::get('/nwes', [NwesController::class,'index']);
 Route::get('/admin', function(){
     return view('admin.index');
 })->middleware(['auth'])->name('dashboard');
 
-
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::post('/files/fileupload/{article}', [FilesController::class, 'fileupload'])->name('files.fileupload');
 
 require __DIR__.'/auth.php';
