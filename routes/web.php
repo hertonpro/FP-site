@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FilesController;
+use App\Http\Controllers\NwesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/ok', function () {
 
 Route::resource('/user', UserController::class);
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
-Route::get('/nwes', [NwesController::class,'index']);
+Route::get('nwes',[NwesController::class,'index'] );
 Route::get('/admin', function(){
     return view('admin.index');
 })->middleware(['auth'])->name('dashboard');

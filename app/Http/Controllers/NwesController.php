@@ -7,5 +7,19 @@ use App\Models\blog;
 
 class NwesController extends Controller
 {
+    public function index()
+    {
+        //affiches les 50 dernieres articles posters
+        $blogs = blog::all()->where('state', '1')->sortBy('id');
+       //dd($blogs);
+        return view('nwes', compact('blogs'));
+    }
+
     
+    public function show($blog)
+    {
+        $article = blog::find($blog);
+        //dd($article);
+        return view('blog.show', compact('article'));
+    }
 }
