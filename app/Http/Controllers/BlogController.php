@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class BlogController extends Controller
 {
@@ -62,6 +63,7 @@ class BlogController extends Controller
             'article'=>'nullable',
             'tag'=>'nullable',
             'state'=>'nullable',
+            'img'=>'nullable',
             'editeur'=>'nullable'
         ]);
     
@@ -80,7 +82,7 @@ class BlogController extends Controller
     {
         $article = blog::find($blog);
         //dd($article);
-        return view('blog.show', compact('article'));
+        return view('blog.show', compact('article'))->with('message','edition');
     }
 
 
@@ -109,7 +111,7 @@ class BlogController extends Controller
         //$post=blog::findOrFail($blog);
         $article = blog::find($blog);
         $article->update($request->all());
-        return view('blog.show', compact('article'));
+        return Redirect::back()->with('message','les modifications ont été faits avec succès');
     }
 
     /**©

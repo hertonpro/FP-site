@@ -10,9 +10,9 @@ class NwesController extends Controller
     public function index()
     {
         //affiches les 50 dernieres articles posters
-        $blogs = blog::all()->where('state', '1')->sortBy('id');
+        $blogs = blog::all()->where('state', '1')->sortByDesc('id');
        //dd($blogs);
-        return view('nwes', compact('blogs'));
+        return view('blog.nwes', compact('blogs'));
     }
 
     

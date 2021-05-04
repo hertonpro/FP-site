@@ -2,12 +2,6 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="col-12">
-            @if ($article->state != 1)
-                <button class="btn btn-primary btn-xs" type="button">Publier</button>
-            @endif
-
-        </div>
         <div class="col-lg-12 text-dark">
             <div class="row">
                 <div class="col">
@@ -19,10 +13,17 @@
                     <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Album</a>
                 </div>
                 <div class="col-lg-7 ">
+                    @if ($article->state!=1)
+                        <div class="alert alert-primary" role="alert">
+                        Retourner à la page d'<a href="{{ route('blogs.edit', $article->id) }}" class="alert-link">édition</a>
+                    </div>
+                    @endif
+                    
                     <p class="h2 text-warning"><strong>{{ $article->titre }}</strong></p>
                     <footer class="blockquote-footer">{{ $article->tag }}<br>
                         <strong><i>{{ $article->type }}</i> <i>{{ date_format($article->updated_at,"d/m/Y H:i")}}</i></strong>
                     </footer>
+                    <img src="{{ asset($article->img) }}" class="img-thumbnail art-img" alt="">
                     <div class="row">
                         @php
                             echo '<p style=" img { max-width: 100%;}">' . $article->article . '</p>';

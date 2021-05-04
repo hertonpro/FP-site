@@ -6,6 +6,11 @@
             <div class="ibox-content">
                 <div class="row m-2">
                     <div class="col-lg-12">
+                        @if (Session::get('message'))
+                            <div class="alert alert-success" role="alert">
+                            {{Session::get('message')}}                            
+                            </div>
+                        @endif
                         <form action="{{ route('blogs.update', ['blog' => $article->id]) }}" method="post">
                             @method('patch')
                             <h3 class="m-t-none m-b"> <strong class=" text-warning ">Titre: </strong></h3>
@@ -30,8 +35,8 @@
                                 </div>
                             </div>
                             {{-- Editeur d'article --}}
+                            <label for="exampleFormControlSelect1"><strong>Editer l'article</strong></label>
                             <div class="form-group pl-3">
-                                <label for="my-input">Editeur d'article</label>
                                 <textarea id="summernote" name="article">{{ $article->article }}</textarea>
                             </div>
 
@@ -46,16 +51,30 @@
                                 name="tag">{{ $article->tag }}</textarea>
                             <label> <strong>Metre l'article en ligne </strong></label> <br>
                             <div class="form-group">
-                                <input type="checkbox" class="form-check-input" name="state" value="1">
-                                <label class="form-check-label" for="exampleCheck1">Publier</label>
+                                <div class="btn btn-info" type="button">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1" value="1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Puvlier
+                                        </label>
+                                      </div>
+                                </div>
                             </div>
-
+                            <div class="form-group">
+                                <label for="my-input">Images</label>
+                                <input id="my-input" class="form-control" type="text" name="img" value="{{ $article->img }}">
+                            </div>
                             @csrf
-                            <div class="pb-5">
-                                <button class="btn btn-sm btn-primary float-right m-t-n-xs">
-                                    <strong>Enregistrer</strong>
-                                </button>
+                            <div class="pb-5 btn-group">
+                                <button class="btn btn-sm btn-info float-right m-t-n-xs">
+                                    <strong><i class="fa fa-save"></i> Enregistrer</strong>
+                                </button> 
+                                <a class="btn btn-sm btn-primary float-right m-t-n-xs" href="{{route('blogs.show', $article->id)}}">
+                                <strong><i class="fa fa-eye"></i> Aperçu</strong>
+                            </a>
                             </div>
+                            
+
                         </form>
                         
 

@@ -20,6 +20,7 @@ class CreateBlogsTable extends Migration
             $table->longText('article')->nullable();
             $table->string('state')->default('0')->nullable();
             $table->longText('tag')->nullable();
+            $table->string('img')->nullable();
             $table->string('editeur')->nullable();
             $table->timestamps();
         });
