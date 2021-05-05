@@ -12,7 +12,7 @@ class BlogController extends Controller
     /**
      * Instantiate a new UserController instance.
      */
-    
+
     public function __construct()
     {
         $editId = Auth::id();
@@ -41,7 +41,7 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
     public function create()
     {
         $blogs = blog::all();
@@ -54,23 +54,23 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
     public function store(Request $request)
     {
         $request->validate([
             'titre' => 'required',
-            'type'=>'nullable',
-            'article'=>'nullable',
-            'tag'=>'nullable',
-            'state'=>'nullable',
-            'img'=>'nullable',
-            'editeur'=>'nullable'
+            'type' => 'nullable',
+            'article' => 'nullable',
+            'tag' => 'nullable',
+            'state' => 'nullable',
+            'img' => 'nullable',
+            'editeur' => 'nullable'
         ]);
-    
+
         blog::create($request->all());
-     
+
         return redirect()->route('blogs.create')
-                        ->with('success','votre article à etais enregistre dans les brouillons');
+            ->with('success', 'votre article à etais enregistre dans les brouillons');
     }
     /**
      * Display the specified resource.
@@ -82,7 +82,7 @@ class BlogController extends Controller
     {
         $article = blog::find($blog);
         //dd($article);
-        return view('blog.show', compact('article'))->with('message','edition');
+        return view('blog.show', compact('article'))->with('message', 'edition');
     }
 
 
@@ -111,7 +111,7 @@ class BlogController extends Controller
         //$post=blog::findOrFail($blog);
         $article = blog::find($blog);
         $article->update($request->all());
-        return Redirect::back()->with('message','les modifications ont été faits avec succès');
+        return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
     }
 
     /**©
@@ -125,7 +125,7 @@ class BlogController extends Controller
         $blog = blog::findOrFail($blog);
 
         $blog->delete();
-    
-        return redirect()->route('blogs.create');
+
+        return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
     }
 }

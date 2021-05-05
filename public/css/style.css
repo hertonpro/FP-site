@@ -16,9 +16,14 @@
   height: 270px; 
   object-fit: cover;
 }
+/* costomerser */
 .art-img:hover{
   height: auto; 
 }
+.nav-link:hover .dropdown-menu {
+  display: block;
+} 
+/* costomerser */
 .glyphicon {
   position: relative;
   top: 1px;

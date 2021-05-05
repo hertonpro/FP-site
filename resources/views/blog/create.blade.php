@@ -23,8 +23,8 @@
                                         d'article</strong></label>
                                 <select class="form-control col-md-3" id="exampleFormControlSelect1" name="type">
                                     <option>Blog</option>
-                                    <option>Panzi nwez</option>
-                                    <option>Panzi hébdo</option>
+                                    <option>Panzi-news</option>
+                                    <option>Panzi-hébdo</option>
                                     <option>Médias</option>
                                     <option>vidéo</option>
                                 </select>

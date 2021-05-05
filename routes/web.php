@@ -24,8 +24,9 @@ Route::get('/ok', function () {
 
 Route::resource('/user', UserController::class);
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
-Route::get('nwes',[NwesController::class,'index'] );
+Route::get('nwes',[NwesController::class,'index'] )->name('news');
 Route::get('nwes/{id}',[NwesController::class,'show'])->name('news.show');
+Route::get('nwes/cat/{cat}',[NwesController::class,'media'] )->name('cat');
 Route::get('/admin', function(){
     return view('admin.index');
 })->middleware(['auth'])->name('dashboard');

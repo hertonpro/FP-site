@@ -12,7 +12,17 @@ class NwesController extends Controller
         //affiches les 50 dernieres articles posters
         $blogs = blog::all()->where('state', '1')->sortByDesc('id');
        //dd($blogs);
-        return view('blog.nwes', compact('blogs'));
+        $page = 'news';
+        return view('blog.nwes', compact('blogs','page'));
+    }
+
+    public function media($cat)
+    {
+        //affiches les 50 dernieres articles posters
+        $blogs = blog::all()->where('state', '1')->where('type',$cat)->sortByDesc('id');
+       //dd($blogs);
+        $page = 'news';
+        return view('blog.nwes', compact('blogs','page'));
     }
 
     
@@ -20,6 +30,7 @@ class NwesController extends Controller
     {
         $article = blog::find($blog);
         //dd($article);
-        return view('blog.show', compact('article'));
+        $page = 'news';
+        return view('blog.show', compact('article','page'));
     }
 }

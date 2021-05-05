@@ -1,20 +1,15 @@
 @extends('layouts.layout')
 
 @section('content')
+
     <div class="container-fluid">
+        
         <div class="col-lg-12 text-dark mb-5">
             <div class="row">
-                <div class="col">
-                    <a class="btn btn-block btn-primary btn-xs active rounded-lg" href="#">Média</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Panzi-news</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Panzi-hébdo</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Blogs</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Vidéos</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Album</a>
-                </div>
+                <x-catNews/>
                 <div class="col-lg-7 ">
                     @foreach ($blogs as $blog)
-                        @if ($loop->last)
+                        @if ($loop->first)
                             <img src="{{ asset($blog->img) }}" width="100%"
                                 style="height: 270px; object-fit: cover; object-position: 0 0" alt="">
                             <p class="lead">{{ $blog->titre }}</p>
@@ -52,7 +47,7 @@
                 <div class="col-lg-9">
                     <div class="row d-flex justify-content-around">
                         @foreach ($blogs as $blog)
-                            @if (!$loop->last)
+                            @if (!$loop->first)
                                 <div class="col-lg-4 ">
                                     <a href="{{ route('news.show', $blog->id) }}">
                                         <img src="{{ asset($blog->img) }}" class="card-img-top"

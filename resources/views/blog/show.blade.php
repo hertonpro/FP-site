@@ -4,14 +4,7 @@
     <div class="container-fluid">
         <div class="col-lg-12 text-dark">
             <div class="row">
-                <div class="col">
-                    <a class="btn btn-block btn-primary btn-xs active rounded-lg" href="#">Média</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Panzi-news</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Panzi-hébdo</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Blogs</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Vidéos</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#">Album</a>
-                </div>
+                <x-catNews/>
                 <div class="col-lg-7 ">
                     @if ($article->state!=1)
                         <div class="alert alert-primary" role="alert">

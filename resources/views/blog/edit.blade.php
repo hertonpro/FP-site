@@ -8,7 +8,7 @@
                     <div class="col-lg-12">
                         @if (Session::get('message'))
                             <div class="alert alert-success" role="alert">
-                            {{Session::get('message')}}                            
+                                {{ Session::get('message') }}
                             </div>
                         @endif
                         <form action="{{ route('blogs.update', ['blog' => $article->id]) }}" method="post">
@@ -53,30 +53,33 @@
                             <div class="form-group">
                                 <div class="btn btn-info" type="button">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1" value="1">
+                                        <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
+                                            value="1">
                                         <label class="form-check-label" for="flexRadioDefault1">
-                                          Puvlier
+                                            Puvlier
                                         </label>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="my-input">Images</label>
-                                <input id="my-input" class="form-control" type="text" name="img" value="{{ $article->img }}">
+                                <input id="my-input" class="form-control" type="text" name="img"
+                                    value="{{ $article->img }}">
                             </div>
                             @csrf
                             <div class="pb-5 btn-group">
                                 <button class="btn btn-sm btn-info float-right m-t-n-xs">
                                     <strong><i class="fa fa-save"></i> Enregistrer</strong>
-                                </button> 
-                                <a class="btn btn-sm btn-primary float-right m-t-n-xs" href="{{route('blogs.show', $article->id)}}">
-                                <strong><i class="fa fa-eye"></i> Aperçu</strong>
-                            </a>
+                                </button>
+                                <a class="btn btn-sm btn-primary float-right m-t-n-xs"
+                                    href="{{ route('blogs.show', $article->id) }}">
+                                    <strong><i class="fa fa-eye"></i> Aperçu</strong>
+                                </a>
                             </div>
-                            
+
 
                         </form>
-                        
+
 
 
                         <form id="delete-{{ $article->id }}" method="post"
@@ -87,7 +90,7 @@
                                 onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $article->id }}').submit();"
                                 class="btn btn-sm btn-outline-danger py-0"><i class="fa fa-times"></i></a>
                         </form>
-                        
+
 
                         {{-- Aficher les images des l'article --}}
                         <h3>Les fichiers </h3>
@@ -96,32 +99,34 @@
                             <strong>Copiez</strong> le lien de l'image pour l'insérer dans l'article
                         </p>
                         <?php
-                            $dir = './files/' . $article->id;
-                            if (is_dir($dir)){
-                                $scandir = scandir($dir);
-                            
-                                foreach ($scandir as $fichier) {
-                                    if (preg_match("#\.(jpg|jpeg|png|gif|bmp|tif)$#", strtolower($fichier))) {
-                                        $url = asset('files/' . $article->id . '/' . $fichier);
-                                        $image = '';
+                        $dir = './files/' . $article->id;
+                        if (is_dir($dir)) {
+                        $scandir = scandir($dir);
+
+                        foreach ($scandir as $fichier) {
+                        if (preg_match("#\.(jpg|jpeg|png|gif|bmp|tif)$#", strtolower($fichier))) {
+
+                        $url = asset('files/' . $article->id . '/' . $fichier);
+                        $image = '';
                         ?>
 
-                        <img src=" {{ $url }}" alt="{{ $url }}" class="img-thumbnail m-1" width="100" height="100">
+                        <img src=" {{ $url }}" alt="{{ $url }}" class="img-thumbnail m-1" width="100"
+                            height="100">
 
                         <?php
-                                }
-                                }
-                                foreach ($scandir as $fichier) {
-                                    if (is_dir($fichier) and $fichier != '.' and $fichier != '..') {
-                                        echo $fichier . '<br />';
-                                    }
-                                }
-                                foreach ($scandir as $fichier) {
-                                    if (substr(strtolower($fichier), -4, 4) == '.php') {
-                                        echo "$fichier<br />";
-                                    }
-                                }
-                            }
+                        }
+                        }
+                        foreach ($scandir as $fichier) {
+                        if (is_dir($fichier) and $fichier != '.' and $fichier != '..') {
+                        echo $fichier . '<br />';
+                        }
+                        }
+                        foreach ($scandir as $fichier) {
+                        if (substr(strtolower($fichier), -4, 4) == '.php') {
+                        echo "$fichier<br />";
+                        }
+                        }
+                        }
                         ?>
 
                         {{-- Ajouter des images Dropezone --}}
@@ -158,65 +163,52 @@
         </div>
         <div class="col-lg-4">
             <div class="ibox ">
-                <form action="">
-                    <div class="ibox-title">
-                        <h5>Articles brouillons</h5>
-                        <div class="ibox-tools">
-                            <a href="/blog/create" class="btn btn-primary p-1"> <i class="fa fa-paper-plane"></i> Tout
-                                publier</a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="table-responsive">
-                            <table class="table table-sm" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Titre de l'article</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($blogs as $blog)
-                                        <tr class="gradeX">
-                                            @if ($blog->editeur == auth()->user()->id)
-                                                <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                                <td>
-                                                    @csrf
-                                                    @method('DELETE')
+                <div class="ibox-title">
+                    <h5>Articles brouillons</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-sm" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Titre de l'article</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($blogs as $blog)
+                                    <tr class="gradeX">
+                                        @if ($blog->editeur == auth()->user()->id)
+                                            <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
+                                            <td>
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="list-group list-group-horizontal">
                                                     <a href=""
-                                                        onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();"
-                                                        class="btn btn-sm btn-outline-danger py-0"><i
-                                                            class="fa fa-times"></i></a>
-                                                    <form id="delete-{{ $blog->id }}" method="post"
-                                                        action="{{ route('blogs.destroy', $blog->id) }}"
-                                                        style="display: none;">
-
-                                                        <a href="{{ route('blogs.destroy', ['blog' => $article->id]) }}">
-                                                            <i class="fa fa-times"></i>
-                                                        </a>
-                                                        <a href="/blogs/{{ $blog->id }}/edit">
-                                                            <i class="fa fa-edit"></i>
-                                                        </a>
-                                                        <a href="/blogs/{{ $blog->id }}">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                        <form action="{{ route('blogs.update', ['blog' => $blog->id]) }}"
-                                                            method="post">
-                                                            <input name="state" hidden value="1">
-                                                            <button class="btn btn-info btn-xs">Publier</button>
-                                                        </form>
-                                                </td>
-                                            @endif
-
-                                        @empty
-                                            <td class="text-warning">Pas d'article disponible !!!</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
+                                                        onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();">
+                                                        <button class="btn text-danger" type="button"><i
+                                                                class="fa fa-times "></i></button>
+                                                    </a>
+                                                    <a href="/blogs/{{ $blog->id }}/edit">
+                                                        <button class="btn text-info" type="button"><i
+                                                                class="fa fa-edit"></i></button>
+                                                    </a>
+                                                    <a href="/blogs/{{ $blog->id }}">
+                                                        <button class="btn text-info" type="button"><i
+                                                                class="fa fa-eye"></i></button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        @endif
+            
+                                    @empty
+                                        <td class="text-warning">Pas d'article disponible !!!</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

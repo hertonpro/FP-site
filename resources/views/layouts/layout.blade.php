@@ -3,6 +3,24 @@
 
 <head>
     <x-meta />
+    <style>
+        .dropdown:hover .dropdown-menu{
+            display: block;
+        }
+        .dropdown-menu{
+            margin-top: 0;
+        }
+    </style>
+    <script>
+    $(document).ready(function(){
+        $(".dropdown").hover(function(){
+            var dropdownMenu = $(this).children(".dropdown-menu");
+            if(dropdownMenu.is(":visible")){
+                dropdownMenu.parent().toggleClass("open");
+            }
+        });
+    });     
+    </script>
 </head>
 
 <body class=" bg-light text-secondary">
@@ -38,17 +56,22 @@
                                         aria-expanded="false">Nos activité</a>
                                     <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item border-bottom" href="#">Prise en charge médicale</a>
-                                        <a class="dropdown-item border-bottom" href="#">Prise en charge psycho-sociale</a>
+                                        <a class="dropdown-item border-bottom" href="#">Prise en charge
+                                            psycho-sociale</a>
                                         <a class="dropdown-item border-bottom" href="#">Assistance légale</a>
                                         <a class="dropdown-item border-bottom" href="#">Réinsertion socio-économique</a>
                                     </div>
                                 </div>
-                                <div class="nav-item dropdown"><a href="#"
-                                        class=" nav-link h3 border-right dropdown-toggle" id="navbarDropdown"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true"
+
+                                <div class="nav-item dropdown">
+
+                                    <a href="" class=" nav-link h3 border-right dropdown-toggle
+                                    <?php if ($page == "news") { echo 'active';} ?>"
+                                        id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">Actualités</a>
-                                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item border-bottom" href="#">Média</a>
+                                        
+                                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item border-bottom" href="{{ route('news') }}">General</a>
                                         <a class="dropdown-item border-bottom" href="#">Panzi-news</a>
                                         <a class="dropdown-item border-bottom" href="#">Panzi-hébdo</a>
                                         <a class="dropdown-item border-bottom" href="#">Blogs</a>
@@ -57,9 +80,9 @@
                                     </div>
                                 </div>
                                 <div class="nav-item dropdown"><a href="#"
-                                    class=" nav-link h3 border-right dropdown-toggle" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">A propos</a>
+                                        class=" nav-link h3 border-right dropdown-toggle" id="navbarDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">A propos</a>
                                     <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item border-bottom" href="#">Panzi</a>
                                         <a class="dropdown-item border-bottom" href="#">One stope center</a>
@@ -201,31 +224,7 @@
                     <!-- Copyright -->
 
                 </footer>
-                <!-- Footer -->
-                {{-- <footer>
-                    <div class="row bg-secondary text-light p-5" style="padding-bottom: 0.5%;">
-                        <section class="colxs-2 col-sm-5">
-                            <h4>Contacts</h4>
-                            <p>info@fondationpanzirdc.org</p>
-                            <p>+243 81 95 03 254</p>
-                            <p>Bukavu, RDC, Q. Panzi, N0: 625</p>
-                            
-                        </section>
-
-                        <section class="col-md-2 col-sm-6">
-                            <h4>Raccoursis</h4>
-                            <ul class="list-unstyled">
-                                <li><a style="color: gainsboro" href="#">Dr. Drenis Mukwege</a></li>
-                                <li><a style="color: gainsboro" href="#">Rapport annuel</a></li>
-                                <li><a style="color: gainsboro" href="#">Panzi nwes </a></li>
-                                <li><a style="color: gainsboro" href="#">Galerie</a></li>
-                                <li><a style="color: gainsboro" href="#">Fundraising</a></li>
-                            </ul>
-                        </section>
-                    </div>
-
-
-                </footer> --}}
+               
             </div>
             <div class="col"></div>
         </div>

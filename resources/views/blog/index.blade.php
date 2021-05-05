@@ -30,26 +30,27 @@
                             </thead>
                             <tbody>
                                 @forelse ($blogs as $blog)
-                                    <tr class="gradeX">
-
-                                        <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <a href="/blogs/{{ $blog->id }}">
-                                                <i class="fa fa-times"></i>
-                                            </a>
-                                            <a href="/blogs/{{ $blog->id }}/edit">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="/blogs/{{ $blog->id }}">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </td>
-                                    @empty
-                                        <td class="text-warning">Pas d'article disponible !!!</td>
-
+                                    @if ($blog->editeur == auth()->user()->id)
+                                        <tr class="gradeX">
+                                            <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <a href="/blogs/{{ $blog->id }}">
+                                                    <i class="fa fa-times"></i>
+                                                </a>
+                                                <a href="/blogs/{{ $blog->id }}/edit">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="/blogs/{{ $blog->id }}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </td>
+                                    @endif
+                                @empty
+                                    <td class="text-warning">Pas d'article disponible !!!</td>
                                     </tr>
+
                                 @endforelse
                             </tbody>
                             <tfoot>
@@ -77,48 +78,52 @@
         <div class="col-lg-4">
             <div class="ibox ">
                 <form action="">
-                <div class="ibox-title">
-                    <h5>Articles brouillons</h5>
-                    <div class="ibox-tools">
-                        <a href="/blog/create" class="btn btn-primary p-1"> <i class="fa fa-paper-plane"></i> Tout publier</a>
+                    <div class="ibox-title">
+                        <h5>Articles brouillons</h5>
                     </div>
-                </div>
-                <div class="ibox-content">
-                    <div class="table-responsive">
-                        <table class="table table-sm" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Titre de l'article</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($blogs as $blog)
-                                    <tr class="gradeX">
-
-                                        <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                        <td>
-                                            <a href="/blogs/{{ $blog->id }}">
-                                                <i class="fa fa-times"></i>
-                                            </a>
-                                            <a href="/blogs/{{ $blog->id }}/edit">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="/blogs/{{ $blog->id }}">
-                                                <i class="fa fa-eye"></i>
-                                            </a> 
-                                            <button type="submit" class="btn btn-info btn-xs">Publier</button>
-                                            
-                                        </td>
-                                        <td></td>
-                                    @empty
-                                        <td class="text-warning">Pas d'article disponible !!!</td>
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="table table-sm" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Titre de l'article</th>
+                                        <th></th>
                                     </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @forelse ($blogs as $blog)
+                                        <tr class="gradeX">
+                                            @if ($blog->editeur == auth()->user()->id)
+                                                <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
+                                                <td>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div class="list-group list-group-horizontal">
+                                                        <a href=""
+                                                            onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();">
+                                                            <button class="btn text-danger" type="button"><i
+                                                                    class="fa fa-times "></i></button>
+                                                        </a>
+                                                        <a href="/blogs/{{ $blog->id }}/edit">
+                                                            <button class="btn text-info" type="button"><i
+                                                                    class="fa fa-edit"></i></button>
+                                                        </a>
+                                                        <a href="/blogs/{{ $blog->id }}">
+                                                            <button class="btn text-info" type="button"><i
+                                                                    class="fa fa-eye"></i></button>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            @endif
+
+                                        @empty
+                                            <td class="text-warning">Pas d'article disponible !!!</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
