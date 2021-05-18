@@ -4,17 +4,19 @@
     <div class="container-fluid">
         <div class="col-lg-12 text-dark">
             <div class="row">
-                <x-catNews/>
+                <x-catNews />
                 <div class="col-lg-7 ">
-                    @if ($article->state!=1)
+                    @if ($article->state != 1)
                         <div class="alert alert-primary" role="alert">
-                        Retourner à la page d'<a href="{{ route('blogs.edit', $article->id) }}" class="alert-link">édition</a>
-                    </div>
+                            Retourner à la page d'<a href="{{ route('blogs.edit', $article->id) }}"
+                                class="alert-link">édition</a>
+                        </div>
                     @endif
-                    
+
                     <p class="h2 text-warning"><strong>{{ $article->titre }}</strong></p>
                     <footer class="blockquote-footer">{{ $article->tag }}<br>
-                        <strong><i>{{ $article->type }}</i> <i>{{ date_format($article->updated_at,"d/m/Y H:i")}}</i></strong>
+                        <strong><i>{{ $article->type }}</i>
+                            <i>{{ date_format($article->updated_at, 'd/m/Y H:i') }}</i></strong>
                     </footer>
                     <img src="{{ asset($article->img) }}" class="img-thumbnail art-img" alt="">
                     <div class="row">
@@ -22,25 +24,28 @@
                             echo '<p style=" img { max-width: 100%;}">' . $article->article . '</p>';
                         @endphp
                     </div>
-
+                    {{-- Image relatife à l'article --}}
                     <div>
-                        <h4>Quelques images relatives à l'article</h4>
-                        {{-- Aficher les images des l'article --}}
-
                         <?php
                         $dir = './files/' . $article->id;
-                        $scandir = scandir($dir);
+                        if (is_dir($dir)) {
+                        $scandir = scandir($dir); ?>
+                        <h4>Quelques images relatives à l'article</h4>
+                        {{-- Aficher les images des l'article --}}
+                        <?php
                         foreach ($scandir as $fichier) {
                         if (preg_match("#\.(jpg|jpeg|png|gif|bmp|tif)$#", strtolower($fichier))) {
 
                         $url = asset('files/' . $article->id . '/' . $fichier);
                         $image = '';
                         ?>
+
                         <img src=" {{ $url }}" alt="{{ $url }}" class="img-thumbnail m-1" width="100"
                             height="100">
+
                         <?php
                         }
-                        }
+
                         foreach ($scandir as $fichier) {
                         if (is_dir($fichier) and $fichier != '.' and $fichier != '..') {
                         echo $fichier . '<br />';
@@ -51,11 +56,72 @@
                         echo "$fichier<br />";
                         }
                         }
+                        }
+                        echo '<br><a href="#" class="btn btn-primary" type="button">Ouvrire l\'album</a>';
+
+                        }
                         ?>
-                        <br><a href="#" class="btn btn-primary" type="button">Ouvrire l'album</a>
+
                     </div>
+                    <div class="small text-right">
+                        <a href="#comment">
+                            <div class="btn btn-primary btn-xs">Ajouter commenter...</div>
+                        </a>
+                    </div>
+                    <hr>
+                    {{-- Commentaires --}}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Partager:</h5>
+                            <button class="btn btn-primary btn-xs" type="button">Facebook</button>
+                            <button class="btn btn-white btn-xs" type="button">Twiter</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-right">
+                                <h5>Stats:</h5>
+                                <div> <i class="fa fa-comments-o"> </i> {{count($comments)}} comments </div>
+                                <i class="fa fa-eye"> </i> 144 views
+                            </div>
+                        </div>
+                    </div>
+                    <section id="comment">
+                        <div class="row">
+                            <div class="mb-3 col-12">
+                                <h3>Ajouter un commentaire</h3>
+                                <form action="{{ route('comment')}}" method="POST">
+                                    <input hidden type="text" name="blog_id" value="{{ $article->id }}">
+                                    <input hidden type="text" name="user_id" value="{{auth()->user()->id}}">
+                                    <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
 
-
+                                    <div class="small text-right mt-1">
+                                        @csrf
+                                        <button class="btn btn-primary btn-xs" type="submit">commentez</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                    @foreach ($comments as $comment)
+                        <div class="social-feed-box">
+                        <div class="social-avatar">
+                            <a href="" class="float-left">
+                                <img alt="image" src="{{asset('img/profile_small.jpg')}}">
+                            </a>
+                            <div class="media-body">
+                                <a href="#">
+                                    {{$comment->user->name}}
+                                </a>
+                                <small class="text-muted">{{ date_format($comment->created_at, 'd/m/Y H:i') }}</small>
+                            </div>
+                        </div>
+                        <div class="social-body">
+                            <p>
+                                {{$comment->comment}}
+                            </p>
+                        </div>
+                    </div>
+                    @endforeach
+                    
 
                 </div>
                 <div class="col-lg-3 ">
@@ -80,31 +146,7 @@
 
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-9">
-                    <div class="row">
-                        <div class="col">
 
-                        </div>
-                        <div class="col-11">
-                            <p class="h2 text-warning mx-3"><strong>Autres publications </strong></p>
-                            <div class="card" style="width: 18rem;">
-                                <img src="{{ asset('./files/ChocolateFruit-scaled.jpg1619439480.jpg') }}"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text text-warning h5">Some quick example text to build on the card title
-                                        and make up the
-                                        bulk of the card's content.</p>
-                                    <p>Mardi 5.12.2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-
-                </div>
-            </div>
         </div>
     </div>
 

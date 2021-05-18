@@ -117,7 +117,7 @@
                 <ul class="list-unstyled">
                     <li><a style="color: gainsboro" href="#">Dr. Drenis Mukwege</a></li>
                     <li><a style="color: gainsboro" href="#">Rapport annuel</a></li>
-                    <li><a style="color: gainsboro" href="#">Panzi nwes </a></li>
+                    <li><a style="color: gainsboro" href="#">Panzi news </a></li>
                     <li><a style="color: gainsboro" href="#">Galerie</a></li>
                     <li><a style="color: gainsboro" href="#">Fundraising</a></li>
                 </ul>

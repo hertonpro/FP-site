@@ -63,6 +63,12 @@
                     </div>
                 </div>
             </div>
+            <div class="container mt-4">
+                <h1 class=" text-warning"> <strong>Plus d'articles</strong> </h1>
+                @livewire('live-search')
+            </div>
+            @livewireScripts
+            
         </div>
     </div>
 

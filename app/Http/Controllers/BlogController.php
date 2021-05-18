@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -72,6 +73,19 @@ class BlogController extends Controller
         return redirect()->route('blogs.create')
             ->with('success', 'votre article à etais enregistre dans les brouillons');
     }
+
+    public function comment(Request $request)
+    {
+        $request->validate([
+            'blog_id' => 'required',
+            'comment' => 'required'
+        ]);
+
+        Comment::create($request->all());
+        return Redirect::back();
+        
+    }
+
     /**
      * Display the specified resource.
      *

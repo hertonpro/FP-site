@@ -11,6 +11,7 @@
 @endphp
 <title>{{$titre}}</title>
 
+@livewireStyles()
 <!-- Fonts -->
 
 

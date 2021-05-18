@@ -66,17 +66,17 @@
                                 <div class="nav-item dropdown">
 
                                     <a href="" class=" nav-link h3 border-right dropdown-toggle
-                                    <?php if ($page == "news") { echo 'active';} ?>"
+                                    
                                         id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">Actualités</a>
                                         
                                         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item border-bottom" href="{{ route('news') }}">General</a>
-                                        <a class="dropdown-item border-bottom" href="#">Panzi-news</a>
-                                        <a class="dropdown-item border-bottom" href="#">Panzi-hébdo</a>
-                                        <a class="dropdown-item border-bottom" href="#">Blogs</a>
-                                        <a class="dropdown-item border-bottom" href="#">Vidéos</a>
-                                        <a class="dropdown-item border-bottom" href="#">Album</a>
+                                        <a class="dropdown-item border-bottom" href="{{ route('news.index') }}">General</a>
+                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Panzi-news') }}">Panzi-news</a>
+                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Panzi-hébdo') }}">Panzi-hébdo</a>
+                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Blog') }}">Blogs</a>
+                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Vidéos') }}">Vidéos</a>
+                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Album') }}">Album</a>
                                     </div>
                                 </div>
                                 <div class="nav-item dropdown"><a href="#"
@@ -92,8 +92,24 @@
                                     </div>
                                 </div>
                                 <a href="#" class="nav-item nav-link h3 border-right">Rejoignez-nous</a>
-                                <a href="#" class="nav-item nav-link h3 " tabindex="-1"><strong class="text-warning">Se
+                                @if (isset(auth()->user()->id))
+                                <div class="dropdown">
+                                    <a href="/profil" class="nav-item nav-link h3 dropdown-toggle" tabindex="-1"><strong class="text-warning">Profil</strong></a>
+                                    
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="#"><span class="fa fa-gift"></span> My panzi</a>
+                                      <a class="dropdown-item" href="#"><span class="fa fa-wrench"></span> Parametre</a>
+                                      <a class="dropdown-item" href="#"><span class="fa fa-bell"></span> notification <span class="label label-success float-right">26</span></a>
+                                      <div class="dropdown-divider"></div>
+                                      <form class="dropdown-item" action="logout" method="POST">
+                                          <button class="btn-block btn btn-primary" type="submit">logout</button>
+                                      </form>
+                                    </div>
+                                  </div>
+                                @else
+                                  <a href="/login" class="nav-item nav-link h3 " tabindex="-1"><strong class="text-warning">Se
                                         connecter</strong></a>
+                                @endif
                             </div>
 
                         </div>
@@ -181,7 +197,7 @@
                                 <ul class="list-unstyled">
                                     <li><a style="color: gainsboro" href="#">Dr. Drenis Mukwege</a></li>
                                     <li><a style="color: gainsboro" href="#">Rapport annuel</a></li>
-                                    <li><a style="color: gainsboro" href="#">Panzi nwes </a></li>
+                                    <li><a style="color: gainsboro" href="#">Panzi news </a></li>
                                     <li><a style="color: gainsboro" href="#">Galerie</a></li>
                                     <li><a style="color: gainsboro" href="#">Fundraising</a></li>
                                 </ul>
@@ -229,7 +245,7 @@
             <div class="col"></div>
         </div>
     </div>
-
+@livewireScripts()
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
