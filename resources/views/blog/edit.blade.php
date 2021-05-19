@@ -44,7 +44,6 @@
                                 $(document).ready(function() {
                                     $('#summernote').summernote();
                                 });
-
                             </script>
                             <label> <strong>Ajouter une déscription</strong> </label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
@@ -102,10 +101,8 @@
                         $dir = './files/' . $article->id;
                         if (is_dir($dir)) {
                         $scandir = scandir($dir);
-
                         foreach ($scandir as $fichier) {
                         if (preg_match("#\.(jpg|jpeg|png|gif|bmp|tif)$#", strtolower($fichier))) {
-
                         $url = asset('files/' . $article->id . '/' . $fichier);
                         $image = '';
                         ?>
@@ -145,7 +142,6 @@
                         <!-- Script -->
                         <script>
                             var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-
                             Dropzone.autoDiscover = false;
                             var myDropzone = new Dropzone(".dropzone", {
                                 maxFilesize: 6, // 3 mb
@@ -154,7 +150,6 @@
                             myDropzone.on("sending", function(file, xhr, formData) {
                                 formData.append("_token", CSRF_TOKEN);
                             });
-
                         </script>
                     </div>
                 </div>

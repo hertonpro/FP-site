@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Projet;
+use App\Models\bailleur;
 use Illuminate\Http\Request;
 
-class ProjetController extends Controller
+class BailleurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        return view('activite.index');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class ProjetController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Projet  $projet
+     * @param  \App\Models\bailleur  $bailleur
      * @return \Illuminate\Http\Response
      */
-    public function show(Projet $projet)
+    public function show(bailleur $bailleur)
     {
         //
     }
@@ -52,10 +52,10 @@ class ProjetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Projet  $projet
+     * @param  \App\Models\bailleur  $bailleur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Projet $projet)
+    public function edit(bailleur $bailleur)
     {
         //
     }
@@ -64,10 +64,10 @@ class ProjetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Projet  $projet
+     * @param  \App\Models\bailleur  $bailleur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Projet $projet)
+    public function update(Request $request, bailleur $bailleur)
     {
         //
     }
@@ -75,10 +75,10 @@ class ProjetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Projet  $projet
+     * @param  \App\Models\bailleur  $bailleur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Projet $projet)
+    public function destroy(bailleur $bailleur)
     {
         //
     }

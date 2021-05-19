@@ -101,7 +101,8 @@
                                       <a class="dropdown-item" href="#"><span class="fa fa-wrench"></span> Parametre</a>
                                       <a class="dropdown-item" href="#"><span class="fa fa-bell"></span> notification <span class="label label-success float-right">26</span></a>
                                       <div class="dropdown-divider"></div>
-                                      <form class="dropdown-item" action="logout" method="POST">
+                                      <form class="dropdown-item" action="{{route('logout')}}" method="POST">
+                                          @csrf
                                           <button class="btn-block btn btn-primary" type="submit">logout</button>
                                       </form>
                                     </div>

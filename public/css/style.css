@@ -23,6 +23,29 @@
 .nav-link:hover .dropdown-menu {
   display: block;
 } 
+
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+
+.accord{
+  width: 100%;
+  border:0px;
+  color: #707070;
+  background-color: #FFC20C;
+  margin-top: 2px;
+}
+.accord-ft{
+border-radius: 20px 20px 0px 0px;
+}
+.accord-lt{
+  height: 15px;
+  width: 100%;
+  border:0px;
+  background-color: #FFC20C;
+  border-radius: 0px 0px 20px 20px;
+  }
 /* costomerser */
 .glyphicon {
   position: relative;

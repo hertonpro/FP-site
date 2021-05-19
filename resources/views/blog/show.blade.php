@@ -79,7 +79,7 @@
                         <div class="col-md-6">
                             <div class="small text-right">
                                 <h5>Stats:</h5>
-                                <div> <i class="fa fa-comments-o"> </i> {{count($comments)}} comments </div>
+                                <div> <i class="fa fa-comments-o"> </i> {{ count($comments) }} comments </div>
                                 <i class="fa fa-eye"> </i> 144 views
                             </div>
                         </div>
@@ -88,40 +88,50 @@
                         <div class="row">
                             <div class="mb-3 col-12">
                                 <h3>Ajouter un commentaire</h3>
-                                <form action="{{ route('comment')}}" method="POST">
+                                <form action="{{ route('comment') }}" method="POST">
                                     <input hidden type="text" name="blog_id" value="{{ $article->id }}">
-                                    <input hidden type="text" name="user_id" value="{{auth()->user()->id}}">
-                                    <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    @if (isset(auth()->user()->id))
+                                        <input hidden type="text" name="user_id" value="{{ auth()->user()->id }}">
+                                        <textarea class="form-control" name="comment" id="exampleFormControlTextarea1"
+                                        rows="3"></textarea>
 
                                     <div class="small text-right mt-1">
                                         @csrf
                                         <button class="btn btn-primary btn-xs" type="submit">commentez</button>
                                     </div>
+                                    @else
+                                        <div class="alert alert-danger" role="alert">
+                                            Connectez-vous <strong><a href="/login">ici</a></strong> pour commenter !!!
+                                        </div>
+                                    @endif
+
+                                    
                                 </form>
                             </div>
                         </div>
                     </section>
                     @foreach ($comments as $comment)
                         <div class="social-feed-box">
-                        <div class="social-avatar">
-                            <a href="" class="float-left">
-                                <img alt="image" src="{{asset('img/profile_small.jpg')}}">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    {{$comment->user->name}}
+                            <div class="social-avatar">
+                                <a href="" class="float-left">
+                                    <img alt="image" src="{{ asset('img/profile_small.jpg') }}">
                                 </a>
-                                <small class="text-muted">{{ date_format($comment->created_at, 'd/m/Y H:i') }}</small>
+                                <div class="media-body">
+                                    <a href="#">
+                                        {{ $comment->user->name }}
+                                    </a>
+                                    <small
+                                        class="text-muted">{{ date_format($comment->created_at, 'd/m/Y H:i') }}</small>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p>
+                                    {{ $comment->comment }}
+                                </p>
                             </div>
                         </div>
-                        <div class="social-body">
-                            <p>
-                                {{$comment->comment}}
-                            </p>
-                        </div>
-                    </div>
                     @endforeach
-                    
+
 
                 </div>
                 <div class="col-lg-3 ">
