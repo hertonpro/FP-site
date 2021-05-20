@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PillierController;
 use App\Http\Controllers\ProjetController;
 
 /*
@@ -35,6 +35,8 @@ Route::get('/admin', function(){
 Route::post('comment',[blogController::class,'comment'] )->middleware(['auth'])->name('comment');
 
 Route::resource('activite', ProjetController::class);
+Route::resource('pillier', PillierController::class);
+Route::resource('projet', ProjetController::class);
 
 Route::post('/files/fileupload/{article}', [FilesController::class, 'fileupload'])->name('files.fileupload');
 

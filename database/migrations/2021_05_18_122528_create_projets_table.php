@@ -18,6 +18,7 @@ class CreateProjetsTable extends Migration
             $table->text('denomination');
             $table->longText('description');
             $table->integer('pillier');
+            $table->integer('bailleur');
             $table->text('files');
             $table->timestamps();
         });

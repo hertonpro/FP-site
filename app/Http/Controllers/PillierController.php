@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pillier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PillierController extends Controller
 {
@@ -14,7 +15,8 @@ class PillierController extends Controller
      */
     public function index()
     {
-        //
+        $pilliers =Pillier::all();
+        return view('pillier.create',compact('pilliers'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PillierController extends Controller
      */
     public function create()
     {
-        //
+        return view('pillier.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class PillierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'denomination'=>'required',
+            'description'=>'nullable'
+        ]);
+        $pilliers =Pillier::all();
+        Pillier::create($request->all());
+
+        return redirect()->route('pillier.create',compact('pilliers'))
+            ->with('success', 'votre pillier à etais ajouter avec succes');
     }
 
     /**
@@ -46,7 +56,8 @@ class PillierController extends Controller
      */
     public function show(Pillier $pillier)
     {
-        //
+        $pilliers = Pillier::all();
+        return view('pillier.show', compact('pilliers','pillier'));
     }
 
     /**
@@ -57,7 +68,8 @@ class PillierController extends Controller
      */
     public function edit(Pillier $pillier)
     {
-        //
+        $pilliers = Pillier::all();
+        return view('pillier.create', compact('pilliers','pillier'));
     }
 
     /**
@@ -67,9 +79,11 @@ class PillierController extends Controller
      * @param  \App\Models\Pillier  $pillier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pillier $pillier)
+    public function update(Request $request, $id)
     {
-        //
+        $pillier = Pillier::find($id);
+        $pillier->update($request->all());
+        return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
     }
 
     /**
