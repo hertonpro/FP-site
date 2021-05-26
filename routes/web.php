@@ -8,6 +8,8 @@ use App\Http\Controllers\FilesController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PillierController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\StaticPagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +39,17 @@ Route::post('comment',[blogController::class,'comment'] )->middleware(['auth'])-
 Route::resource('activite', ProjetController::class);
 Route::resource('pillier', PillierController::class);
 Route::resource('projet', ProjetController::class);
+Route::resource('panzi', AboutController::class);
 
 Route::post('/files/fileupload/{article}', [FilesController::class, 'fileupload'])->name('files.fileupload');
 
 require __DIR__.'/auth.php';
+
+Route::get('onesc', [StaticPagesController::class,'onesc']);
+Route::get('cj', [StaticPagesController::class,'cj']);
+Route::get('icart', [StaticPagesController::class,'icart']);
+Route::get('md', [StaticPagesController::class,'md']);
+Route::get('joie', [StaticPagesController::class,'joie']);
+Route::get('fp', [StaticPagesController::class,'fp']);
+Route::get('dr', [StaticPagesController::class,'dr']);
+Route::get('eq', [StaticPagesController::class,'eq']);

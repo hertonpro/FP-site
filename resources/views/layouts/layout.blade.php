@@ -3,24 +3,28 @@
 
 <head>
     <x-meta />
-    <style>
-        .dropdown:hover .dropdown-menu{
-            display: block;
-        }
-        .dropdown-menu{
-            margin-top: 0;
-        }
-    </style>
-    <script>
-    $(document).ready(function(){
-        $(".dropdown").hover(function(){
-            var dropdownMenu = $(this).children(".dropdown-menu");
-            if(dropdownMenu.is(":visible")){
-                dropdownMenu.parent().toggleClass("open");
+
+    <style type="text/css">
+        /* ============ desktop view ============ */
+        @media all and (min-width: 992px) {
+            .navbar .nav-item .dropdown-menu {
+                display: none;
             }
-        });
-    });     
-    </script>
+
+            .navbar .nav-item:hover .nav-link {}
+
+            .navbar .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+
+            .navbar .nav-item .dropdown-menu {
+                margin-top: 0;
+            }
+        }
+
+        /* ============ desktop view .end// ============ */
+
+    </style>
 </head>
 
 <body class=" bg-light text-secondary">
@@ -33,89 +37,9 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-lg-10 bg-white">
-                <header>
-                    <nav class="navbar navbar-expand-md navbar-light bg-white">
+                    <x-menu></x-menu>
 
-                        <a class="navbar-brand" href="#">
-                            <img src="{{ asset('img/Logo-fondation-panzi-site-web.png') }}" width="" height="80"
-                                class="d-inline-block align-top" alt="">
-                        </a>
-                        <button type="button" class="navbar-toggler" data-toggle="collapse"
-                            data-target="#navbarCollapse">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="navbar-nav ">
-
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
-
-                            <div class="navbar-nav ml-auto">
-                                <div class="nav-item dropdown"><a href="#"
-                                        class=" nav-link h3 border-right dropdown-toggle" id="navbarDropdown"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">Nos activité</a>
-                                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item border-bottom" href="#">Prise en charge médicale</a>
-                                        <a class="dropdown-item border-bottom" href="#">Prise en charge
-                                            psycho-sociale</a>
-                                        <a class="dropdown-item border-bottom" href="#">Assistance légale</a>
-                                        <a class="dropdown-item border-bottom" href="#">Réinsertion socio-économique</a>
-                                    </div>
-                                </div>
-
-                                <div class="nav-item dropdown">
-
-                                    <a href="" class=" nav-link h3 border-right dropdown-toggle
-                                    
-                                        id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">Actualités</a>
-                                        
-                                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item border-bottom" href="{{ route('news.index') }}">General</a>
-                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Panzi-news') }}">Panzi-news</a>
-                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Panzi-hébdo') }}">Panzi-hébdo</a>
-                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Blog') }}">Blogs</a>
-                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Vidéos') }}">Vidéos</a>
-                                        <a class="dropdown-item border-bottom" href="{{ route('cat', 'Album') }}">Album</a>
-                                    </div>
-                                </div>
-                                <div class="nav-item dropdown"><a href="#"
-                                        class=" nav-link h3 border-right dropdown-toggle" id="navbarDropdown"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">A propos</a>
-                                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item border-bottom" href="#">Panzi</a>
-                                        <a class="dropdown-item border-bottom" href="#">One stope center</a>
-                                        <a class="dropdown-item border-bottom" href="#">Modele de Panzi</a>
-                                        <a class="dropdown-item border-bottom" href="#">Dr. Mukwege</a>
-                                        <a class="dropdown-item border-bottom" href="#">Notre equipe</a>
-                                    </div>
-                                </div>
-                                <a href="#" class="nav-item nav-link h3 border-right">Rejoignez-nous</a>
-                                @if (isset(auth()->user()->id))
-                                <div class="dropdown">
-                                    <a href="/profil" class="nav-item nav-link h3 dropdown-toggle" tabindex="-1"><strong class="text-warning">Profil</strong></a>
-                                    
-                                    <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="#"><span class="fa fa-gift"></span> My panzi</a>
-                                      <a class="dropdown-item" href="#"><span class="fa fa-wrench"></span> Parametre</a>
-                                      <a class="dropdown-item" href="#"><span class="fa fa-bell"></span> notification <span class="label label-success float-right">26</span></a>
-                                      <div class="dropdown-divider"></div>
-                                      <form class="dropdown-item" action="{{route('logout')}}" method="POST">
-                                          @csrf
-                                          <button class="btn-block btn btn-primary" type="submit">logout</button>
-                                      </form>
-                                    </div>
-                                  </div>
-                                @else
-                                  <a href="/login" class="nav-item nav-link h3 " tabindex="-1"><strong class="text-warning">Se
-                                        connecter</strong></a>
-                                @endif
-                            </div>
-
-                        </div>
-                    </nav>
-                </header>
+                <!-- ============= COMPONENT ============== -->
 
                 <div class="row">
                     @yield("content")
@@ -227,10 +151,8 @@
                             <div class="col">
 
                             </div>
-
                         </div>
                         <!-- Grid row -->
-
                     </div>
                     <!-- Footer Links -->
 
@@ -241,12 +163,11 @@
                     <!-- Copyright -->
 
                 </footer>
-               
             </div>
             <div class="col"></div>
         </div>
     </div>
-@livewireScripts()
+    @livewireScripts()
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pillier;
+use App\Models\Projet;
+use App\View\Components\projet as ComponentsProjet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -16,7 +18,8 @@ class PillierController extends Controller
     public function index()
     {
         $pilliers =Pillier::all();
-        return view('pillier.create',compact('pilliers'));
+        $projets = Projet::all();
+        return view('pillier.index',compact('pilliers','projets'));
     }
 
     /**
@@ -57,7 +60,8 @@ class PillierController extends Controller
     public function show(Pillier $pillier)
     {
         $pilliers = Pillier::all();
-        return view('pillier.show', compact('pilliers','pillier'));
+        $projets = Projet::all();
+        return view('pillier.show', compact('pilliers','pillier','projets'));
     }
 
     /**

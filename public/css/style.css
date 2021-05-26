@@ -16,7 +16,7 @@
   height: 270px; 
   object-fit: cover;
 }
-/* costomerser */
+/* ------------------------costomerser------------------------ */
 .art-img:hover{
   height: auto; 
 }
@@ -37,6 +37,7 @@
   margin-top: 2px;
 }
 .accord-ft{
+  margin-top: 0px;
 border-radius: 20px 20px 0px 0px;
 }
 .accord-lt{
@@ -46,7 +47,102 @@ border-radius: 20px 20px 0px 0px;
   background-color: #FFC20C;
   border-radius: 0px 0px 20px 20px;
   }
-/* costomerser */
+
+  .arrow {
+    width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid;
+      margin-top: 10px;
+      margin-left: 5px;
+  }
+    .ja{
+      color: #707070;
+    }
+   .ja:hover{
+     color: #FFC20C;
+   }
+
+
+
+  /*------------------------------*/
+  header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  header .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  @media (pointer: coarse) and (hover: none) {
+    header {
+      background: url('../files/1.webm') black no-repeat center center scroll;
+    }
+    header video {
+      display: none;
+    }
+  }
+
+  /* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+	.dropdown-menu li{ position: relative; 	}
+	.nav-item .submenu{ 
+		display: none;
+		position: absolute;
+		left:100%; top:-7px;
+    background-color: white;
+    text-decoration: none;
+    list-style-type : none;
+	}
+	.nav-item .submenu-left{ 
+		right:100%; left:auto;
+	}
+	.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+	.dropdown-menu > li:hover > .submenu{ display: block; }
+}	
+/* ============ small devices ============ */
+@media (max-width: 991px) {
+  .dropdown-menu {
+      margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
+  }
+}	
+/* ============ small devices .end// ============ */
+
+/* ------------------------costomerser------------------------ */
+
 .glyphicon {
   position: relative;
   top: 1px;
