@@ -140,8 +140,88 @@ border-radius: 20px 20px 0px 0px;
   }
 }	
 /* ============ small devices .end// ============ */
+.cont>div{
+  height:100%;
+  position:relative;
+  overflow:hidden;
+}
+.cont>div:before{
+  content:'';
+  position:absolute;
+  top:0; right:0;
+  width:100%; height:100%;
+  background-color: rgb(255, 255, 255);
+  border-right:40px solid rgba(253, 253, 253, 0.8);
+
+  -webkit-transform-origin:100% 100%;
+  -ms-transform-origin:100% 100%;
+  transform-origin:100% 100%;
+
+  -webkit-transform:skewX(30deg);
+  -ms-transform:skewX(30deg);
+  transform:skewX(25deg);
+}
+
+
+/******  FOR THE DEMO  *******/
+
+.cont{
+  background: url(../img/fp/jur.jpg);
+  background-size:cover;
+  margin:0;padding:0;
+  height:100%;
+}
 
 /* ------------------------costomerser------------------------ */
+
+
+/*teste*/
+* {
+  box-sizing: border-box;
+}
+
+.page-banner {
+  position: relative;
+  background: url(https://www.fillmurray.com/300/900) center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;         /* hide overflowing bits of circle */
+  min-height: 300px;        /* just give enough height to fit text at smallest screen width size */
+}
+
+.circle {
+  background-color: rgba(50, 108, 116, 0.9);   /* use rgba for transparent effect */
+  color: white;
+  transform: translate(-50%, -50%);            /* move the circle left 50% of it's own width and up 50% of it's own height */
+  
+  padding-top: 100%;                           /* this gives us a responsive square */
+  position: absolute;
+  top:50%;                                     /* this vertically centers the circle */
+  left:0;
+  width:100%;
+  min-width:600px;                              /* this is the miniimum dimensions to allow circle to fill smaller screens */
+  min-height:600px;
+}
+.circle::before{
+  position: absolute;
+  top: 0;
+  left:0;
+width: 100%;
+height: 100%;
+  background-color: #DAA60D;
+  transform: translateX(-50%) skewX(15deg);
+}
+
+.page-banner-text {
+  position: absolute;                           /* just positions the text on the right of the cirecle */
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding:2em;
+  width:40%;
+}
+
+/*teste*/
 
 .glyphicon {
   position: relative;

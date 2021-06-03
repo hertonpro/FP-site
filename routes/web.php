@@ -10,6 +10,8 @@ use App\Http\Controllers\PillierController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\StaticPagesController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OffreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +42,10 @@ Route::resource('activite', ProjetController::class);
 Route::resource('pillier', PillierController::class);
 Route::resource('projet', ProjetController::class);
 Route::resource('panzi', AboutController::class);
+Route::resource('offre', OffreController::class)->middleware(['auth']);
 
 Route::post('/files/fileupload/{article}', [FilesController::class, 'fileupload'])->name('files.fileupload');
+Route::post('/files/upload/{article}', [FilesController::class, 'upload'])->name('files.upload');
 
 require __DIR__.'/auth.php';
 
@@ -53,3 +57,5 @@ Route::get('joie', [StaticPagesController::class,'joie']);
 Route::get('fp', [StaticPagesController::class,'fp']);
 Route::get('dr', [StaticPagesController::class,'dr']);
 Route::get('eq', [StaticPagesController::class,'eq']);
+
+Route::get('contact', [ContactController::class,'contact']);

@@ -5,6 +5,7 @@
             <h1 class="font-bold">Faire un don</h1>
         </button>
     </a>
+    
     <div class="card" style="width: 18rem;">
         <img src="{{ asset('./files/ChocolateFruit-scaled.jpg1619439480.jpg') }}" class="card-img-top"
             alt="...">
