@@ -1,7 +1,7 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="ml-5">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('img/Logo-fondation-panzi-site-web.png') }}" width="" height="80"
                     class="d-inline-block align-top" alt="">
             </a>
@@ -11,7 +11,7 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse h4" id="main_nav">
+        <div class="collapse navbar-collapse h5" id="main_nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link border-right" href="/pillier">Nos activités<i class="arrow down"></i> </a>

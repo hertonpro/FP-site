@@ -26,12 +26,23 @@
                                             d'offre</strong></label>
                                     <select class="form-control col-md-3" id="exampleFormControlSelect1" name="type">
                                         @if (Auth()->user()->role == 2)
-                                            <option value="1">Offre d'emploi</option>
+                                            <option value="1">Temps plein</option>
+                                            <option value="2">Temps partiel</option>
+                                            <option value="3">Consultant</option>
+                                            <option value="4">Journalier</option>
                                         @elseif (Auth()->user()->role==1)
-                                            <option value="2">Appele d'offres</option>
+                                            <option value="5">Appele d'offres</option>
                                         @endif
                                     </select>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"><strong>Image</strong></label>
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <input type="file" name="..."/></span>
+                                    <span class="fileinput-filename"></span>
+                                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
+                                </div>                                  
                             </div>
                             {{-- Editeur d'offre --}}
                             <label for="exampleFormControlSelect1"><strong>Editer l'offre</strong></label>

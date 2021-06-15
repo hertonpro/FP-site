@@ -26,9 +26,9 @@ class OffreController extends Controller
     public function index()
     {
         //affiches les 50 dernieres articles posters
-        $Offres = offre::all();
+        $offres = offre::all();
         //dd($Offres);
-        return view('offre.index', compact('Offres'));
+        return view('offre.index', compact('offres'));
     }
 
     /**
@@ -64,7 +64,9 @@ class OffreController extends Controller
             'description' => 'nullable',
             'projet' => 'nullable',
             'formulaire ' => 'nullable',
-            'state' => 'nullable'
+            'state' => 'nullable',
+            'deadline' => 'nullable',
+            'lieu'=>'nullable'
         ]);
 
         offre::create($request->all());

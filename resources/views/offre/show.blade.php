@@ -12,10 +12,18 @@
                                 class="alert-link">édition</a>
                         </div>
                     @endif
-
-                    <p class="h2 text-warning"><strong>{{ $offre->titre }}</strong></p>
-                    <strong><i>{{ $offre->type }}</i>
-                        <i>{{ date_format($offre->updated_at, 'd/m/Y H:i') }}</i></strong>
+                    <div class="servive-block rounded servive-block-yellow">
+                        <h2 class="heading-md">{{ $offre->titre }}</h2>
+                        @php
+                            $type = ['1' => 'Temps plein', '2' => 'Temps partiel', '3' => 'Consultant', '4' => 'Journalier', '5' => "Appele d'offres"];
+                        @endphp
+                        <p>
+                            <span class="badge"><i class="fa fa-history" aria-hidden="true"></i>  {{ $type[1] }}   </span>
+                            <span class="badge"><i class="fa fa-map-marker" aria-hidden="true"></i>  {{ $offre->lieu}}</span> 
+                        </p>
+                        <span>Date limite: <strong>{{ date_format($offre->updated_at, 'd/m/Y') }}</strong></span>
+                        <a href="#p"><span class="badge badge-success">Postiler</span></a>
+                    </div>
                     </footer>
                     <div class="row">
                         @php
@@ -24,12 +32,21 @@
                     </div>
 
                     <hr>
-                    @php
-                        $file = $offre->titre . '_' . $offre->id;
-                    @endphp
-                    <a href="{{ asset('files/doc/offre_' . $file . '.pdf') }}">
-                        <strong><i class="fa fa-file"></i>Télecharger l'offre</strong>
-                    </a><br><br>
+                    <section id="p">
+                        @php
+                            $file = $offre->titre . '_' . $offre->id;
+                        @endphp
+                        <a href="{{ asset('files/doc/offre_' . $file . '.pdf') }}">
+                            <strong><i class="fa fa-download"></i>Télecharger l'offre</strong>
+                        </a>
+                        <p class="h3">Soumetre ta cadidature</p>
+                        <iframe width="640px" height="480px"
+                            src="{{ url('https://forms.office.com/Pages/ResponsePage.aspx?id=' . $offre->formulaire) }}"
+                            frameborder="0" marginwidth="0" marginheight="0"
+                            style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen
+                            mozallowfullscreen msallowfullscreen> </iframe>
+                        <br><br>
+                    </section>
                 </div>
                 <div class="col-lg-3 ">
                     <x-offre></x-offre>

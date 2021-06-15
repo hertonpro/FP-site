@@ -43,6 +43,7 @@ Route::resource('pillier', PillierController::class);
 Route::resource('projet', ProjetController::class);
 Route::resource('panzi', AboutController::class);
 Route::resource('offre', OffreController::class)->middleware(['auth']);
+Route::get('offrev/{id}', [OffreController::class, 'show']);
 
 Route::post('/files/fileupload/{article}', [FilesController::class, 'fileupload'])->name('files.fileupload');
 Route::post('/files/upload/{article}', [FilesController::class, 'upload'])->name('files.upload');

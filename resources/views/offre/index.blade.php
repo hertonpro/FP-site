@@ -13,7 +13,7 @@
                 <div class="ibox-title">
                     <h5>Liste des articles publiées</h5>
                     <div class="ibox-tools">
-                        <a href="/blogs/create" class="btn btn-primary p-1"> <i class="fa fa-plus"></i> Ajouter</a>
+                        <a href="/offres/create" class="btn btn-primary p-1"> <i class="fa fa-plus"></i> Ajouter</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -22,31 +22,37 @@
                         <table id="datateble" class="display compact" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Titre de l'article</th>
-                                    <th>Editeur</th>
-                                    <th>Type</th>
+                                    <th>Titre de l'offre</th>
+                                    <th>statut</th>
+                                    <th>deadline</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($blogs as $blog)
-                                    @if ($blog->editeur == auth()->user()->id)
+                                @forelse ($offres as $offre)
                                         <tr class="gradeX">
-                                            <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                            <td></td>
-                                            <td></td>
+                                            <td> <a href="/offres/{{ $offre->id }}">{{ $offre->titre }}</a> </td>
                                             <td>
-                                                <a href="/blogs/{{ $blog->id }}">
-                                                    <i class="fa fa-times"></i>
+                                                @if (strtotime($offre->deadline)>strtotime(date('Y-m-d H:i:s')))
+                                                    <span class="badge badge-sm badge-info badge-pill" >active</span>
+                                                @else
+                                                    <span class="badge badge-sm badge-danger badge-pill">expiré</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                {{ date("d-m-Y",strtotime($offre->deadline)) }}
+                                            </td>
+                                            <td>
+                                                <a href="/offre/{{ $offre->id }}">
+                                                    <i class="fa fa-times text-danger"></i>
                                                 </a>
-                                                <a href="/blogs/{{ $blog->id }}/edit">
+                                                <a href="/offre/{{ $offre->id }}/edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="/blogs/{{ $blog->id }}">
-                                                    <i class="fa fa-eye"></i>
+                                                <a href="/offre/{{ $offre->id }}">
+                                                    <i class="fa fa-eye text-info"></i>
                                                 </a>
                                             </td>
-                                    @endif
                                 @empty
                                     <td class="text-warning">Pas d'article disponible !!!</td>
                                     </tr>
@@ -55,9 +61,9 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Titre de l'article</th>
-                                    <th>Editeur</th>
-                                    <th>Type</th>
+                                    <th>Titre de l'offre</th>
+                                    <th>statut</th>
+                                    <th>deadline</th>
                                     <th>Options</th>
                                 </tr>
                             </tfoot>
@@ -91,24 +97,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($blogs as $blog)
+                                    @forelse ($offres as $offre)
                                         <tr class="gradeX">
-                                            @if ($blog->editeur == auth()->user()->id)
-                                                <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
+                                            @if ($offre->editeur == auth()->user()->id)
+                                                <td> <a href="/offres/{{ $offre->id }}">{{ $offre->titre }}</a> </td>
                                                 <td>
                                                     @csrf
                                                     @method('DELETE')
                                                     <div class="list-group list-group-horizontal">
                                                         <a href=""
-                                                            onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();">
+                                                            onclick="if(confirm('Do you want to delete this offres?'))event.preventDefault(); document.getElementById('delete-{{ $offre->id }}').submit();">
                                                             <button class="btn text-danger" type="button"><i
                                                                     class="fa fa-times "></i></button>
                                                         </a>
-                                                        <a href="/blogs/{{ $blog->id }}/edit">
+                                                        <a href="/offres/{{ $offre->id }}/edit">
                                                             <button class="btn text-info" type="button"><i
                                                                     class="fa fa-edit"></i></button>
                                                         </a>
-                                                        <a href="/blogs/{{ $blog->id }}">
+                                                        <a href="/offres/{{ $offre->id }}">
                                                             <button class="btn text-info" type="button"><i
                                                                     class="fa fa-eye"></i></button>
                                                         </a>

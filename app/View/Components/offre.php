@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\offre as ModelsOffre;
 use Illuminate\View\Component;
 
 class offre extends Component
@@ -23,6 +24,7 @@ class offre extends Component
      */
     public function render()
     {
-        return view('components.offre');
+        $offres=ModelsOffre::all();
+        return view('components.offre',compact('offres'));
     }
 }
