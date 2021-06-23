@@ -2,42 +2,174 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="col-lg-12 text-dark">
+        <div class="col-lg-lg-12 text-dark">
             <div class="row">
-                <div class="col-2">
-                    <div class="col">
-                        <br>
-                        <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Appele d'offres</a>
-                        <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Offre d'emploi</a>
-                        <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Stage</a>
-                        <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">volontaire</a>
-                    </div>
+                <div class="col-lg-2">
+                    <br>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">fundraising</a>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Stage</a>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">volontaire</a>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Les offres</a>
                 </div>
-                <div class="col-lg-7 ">
-                    <h1><strong>Rejoignez-nous</strong></h1>
-                    <div class="page-banner">
-                        <div class="circle">
-                          <div class="page-banner-text">
-                            <h1 class="block-title">Programs For Adults</h1>
-                            <p>Programs to help children with disabilities in Western MA at all ages and levels of need.</p>
-                            <div id="banner-donate-button"><a href="#" class="" target="_self" title="Donate">DONATE</a></div>
-                          </div>
-                        </div>
-                      </div>
-                    <div class="cont">
-                        <div>
-                            <div class="row">
-                                <div class="col-5">
-                                    <p>Mise en place des cliniques juridiques locales dans les territoires de la province du Sud Kivu. Actuellement 5 cliniques juridiques locales sont fonctionnelles : à Kabare, plus précisément à Kavumu, à Kalehe, dans le centre de Ihusi, à Bulenga, dans la zone de santé de Minova, à Walungu dans la zone de santé de Walungu et à Kaniola.
-                            Organisation des audiences foraines, dans le souci d’approcher la justice des justiciables (pour pallier au manque des juridictions compétentes dans certains milieux) ;
-                            Mettre à la disposition des communautés des para juristes, qui sont des relais communautaires, afin de jouer le rôle d’éclaireurs pour assurer l’assistance des victimes, pour apporter  les informations nécessaires sur le droit de la femme et pour lutter contre l’impunité ;
-                            Faire fonctionner les maisons de transit pour prendre en charge le séjour des victimes et leurs accompagnateurs lors des procédures ou rendez-vous de justice ainsi qu’assurer la protection des victimes contre les représailles des présumés auteurs lors des phases préliminaires de la procédure ;
+                <div class="col-lg-9">
+                    <div class="bg-image"
+                        style="background-image: url('{{ asset('img/fp/ALHUGUET_020.jpg') }}'); background-repeat: no-repeat; ">
+                        <div class="col-lg-5 p-4 bg-white">
+                            <h2 class="font-weight-bold pl-4">Rejoignez-nous</h2>
+                            <p class="p-4">
+                                Votre experience peu aider une benefisier,
+                                Integre le programe de volonteurs de la fondation Panzi. Maintenant qu’il a grandi, vous et
+                                votre enfant allez apprendre beaucoup sur la manière dont les enfants aveugles peuvent
+                                apprendre à
+                                faire les choses. Le fait de partager vos expériences avec des parents qui ont des bébés
+                                aveugles
+                                ou malvoyants peut être d’une grande utilité pour eux.
                             </p>
-                                </div>
-                            </div></div>
+                            <div class="d-flex flex-row-reverse p-4">
+                                <button class="btn btn-primary rounded-lg btn-lg">
+                                    <h4>Devenir volontaire</h4>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 ">
+                    <div class="row activitys">
+                        <div class=" d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/mr.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Maroquinerie</h2>
+                            </div>
+                        </div>
+                        <div class=" d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/dc.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Dance</h2>
+                            </div>
+                        </div>
+                        <div class=" d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/cou.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Couture</h2>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/dr2.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">informatique</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row activitys">
+                        <div class=" d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/mot.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Motivation</h2>
+                            </div>
+                        </div>
+                        <div class=" d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/al.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Alphabétisation</h2>
+                            </div>
+                        </div>
+                        <div class=" d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/coi.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Coiffure </h2>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end rounded-lg m-2"
+                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/tra.jpg') }}');">
+                            <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
+                                <h2 class="font-weight-bold text-center">Transformation</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <h3 class=" font-weight-bold text-right">découvrez d'autre activité du "<a class=" text-warning"
+                                href="{{ url('onesc') }}">one stop center</a>"</h3>
+                    </div>
+                    <div class="bg-image rounded"
+                        style="background-image: url('{{ asset('img/fp/gh.jpg') }}'); background-size: cover; background-repeat: no-repeat; ">
+                        <div class="row">
+                            <div class="col-lg-5"></div>
+                            <div class="col-lg-5 p-4 text-white ">
+                                <h2 class="font-weight-bold pl-4 ">10 000$</h2>
+                                <h3 class="pl-4">Faire un don pour la scolarisation de 50 filles </h3>
+                                <p class="pl-4">
+                                    Votre experience peu aider une benefisier,
+                                    Integre le programe de volonteurs de la fondation Panzi. Maintenant qu’il a grandi, vous
+                                    et votre enfant allez apprendre beaucoup sur la manière dont les enfants aveugles
+                                    peuvent
+                                    apprendre à faire les choses. Le fait de partager vos expériences avec des parents qui
+                                    ont des bébés
+                                    aveugles ou malvoyants peut être d’une grande utilité pour eux.
+                                </p>
+                                <div class="pl-4 bg-warning p-2 rounded text-dark d-flex justify-content-between">
+                                    <h4><strong>Obgectif:</strong> 10.000$</h4>
+                                    <h4><strong>Obgectif:</strong> 10.000$</h4>
+                                    <h4><strong>Obgectif:</strong> 10.000$</h4>
+                                </div>
+                                <div class="d-flex flex-row-reverse p-4">
+                                    <button class="btn btn-primary rounded-lg btn-lg">
+                                        <h4>Faire un don</h4>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                        <h2 class="font-weight-bold">Histoire de survivants</h2>
+                        <p>Du cauchemar au sourire dans l'espoir d'une réparation complète</p>
+                        <div class="row">
+                            <div class="col-lg mb-1">
+                                <div class="d-flex align-items-end rounded-lg"
+                                    style="background-image: url('{{ asset('img/fp/gf.jpg') }}'); background-size:100%; height:400px;">
+                                    <div style="height: 200px"></div>
+                                    <div class="" style="background:hsla(0, 0%, 26%, 0.8); color:#FFC20C;">
+                                        <h2 class="font-weight-bold text-center">Marieta</h2>
+                                        <p class="pl-4">
+                                            Votre experience peu aider une benefisier,
+                                            Integre le programe de volonteurs de la fondation Panzi. Maintenant qu’il a grandi, vous
+                                            et votre enfant allez apprendre beaucoup sur la manière dont les enfants aveugles
+                                            peuvent apprendre à faire les choses. Le fait de partager vos expériences avec des parents qui
+                                            ont des bébés aveugles ou malvoyants peut être d’une grande utilité pour eux.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg mb-1">
+                                <div class="d-flex align-items-end rounded-lg"
+                                    style="background-image: url('{{ asset('img/fp/jo.jpg') }}'); background-size:100%; height:400px;">
+                                    <div style="height: 200px"></div>
+                                    <div class="" style="background:hsla(0, 0%, 26%, 0.8); color:#FFC20C;">
+                                        <h2 class="font-weight-bold text-center">Jolie</h2>
+                                        <p class="pl-4">
+                                            Votre experience peu aider une benefisier,
+                                            Integre le programe de volonteurs de la fondation Panzi. Maintenant qu’il a grandi, vous
+                                            et votre enfant allez apprendre beaucoup sur la manière dont les enfants aveugles
+                                            peuvent apprendre à faire les choses. Le fait de partager vos expériences avec des parents qui
+                                            ont des bébés aveugles ou malvoyants peut être d’une grande utilité pour eux.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg mb-1">
+                                <div class="d-flex align-items-end rounded-lg"
+                                    style="background-image: url('{{ asset('img/fp/ka.jpg') }}'); background-size:100%; height:400px;">
+                                    <div style="height: 200px"></div>
+                                    <div class="" style="background:hsla(0, 0%, 26%, 0.8); color:#FFC20C;">
+                                        <h2 class="font-weight-bold text-center">Zady</h2>
+                                        <p class="pl-4">
+                                            Votre experience peu aider une benefisier,
+                                            Integre le programe de volonteurs de la fondation Panzi. Maintenant qu’il a grandi, vous
+                                            et votre enfant allez apprendre beaucoup sur la manière dont les enfants aveugles
+                                            peuvent apprendre à faire les choses. Le fait de partager vos expériences avec des parents qui
+                                            ont des bébés aveugles ou malvoyants peut être d’une grande utilité pour eux.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
                 </div>
             </div>
 
