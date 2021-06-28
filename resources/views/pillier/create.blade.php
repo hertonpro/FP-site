@@ -6,7 +6,7 @@
             <div class="ibox-content">
                 <div class="row m-2">
                     <h1 class="mr-auto p-2">Gesion de pilliers</h1>
-                    <a href="{{route('pillier.index')}}"><button class="btn btn-primary btn-small" type="button">Ajouter</button></a>
+                    <a href="{{route('pillier.create')}}"><button class="btn btn-primary btn-small" type="button">Ajouter</button></a>
                     <div class="col-lg-12">
                         @if (Session::get('message'))
                             <div class="alert alert-success" role="alert">

@@ -26,9 +26,7 @@
                                 ou malvoyants peut être d’une grande utilité pour eux.
                             </p>
                             <div class="d-flex flex-row-reverse p-4">
-                                <button class="btn btn-primary rounded-lg btn-lg">
-                                    <h4>Devenir volontaire</h4>
-                                </button>
+                                <x-voluntary/>
                             </div>
                         </div>
                     </div>
@@ -110,9 +108,11 @@
                                     <h4><strong>Obgectif:</strong> 10.000$</h4>
                                 </div>
                                 <div class="d-flex flex-row-reverse p-4">
-                                    <button class="btn btn-primary rounded-lg btn-lg">
+                                    <a href="https://www.paypal.com/donate?hosted_button_id=NF7C4LD4H5CF4" onclick="window.open(this.href);return false">
+                                        <button class="btn btn-primary rounded-lg btn-lg">
                                         <h4>Faire un don</h4>
                                     </button>
+                                    </a>
                                 </div>
 
                             </div>

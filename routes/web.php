@@ -60,3 +60,4 @@ Route::get('dr', [StaticPagesController::class,'dr']);
 Route::get('eq', [StaticPagesController::class,'eq']);
 
 Route::get('contact', [ContactController::class,'contact']);
+Route::post('/voluntiry',  [ VoluntiryController::class,'store']);

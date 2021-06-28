@@ -29,7 +29,9 @@ class PillierController extends Controller
      */
     public function create()
     {
-        return view('pillier.create');
+        $pilliers =Pillier::all();
+        $projets = Projet::all();
+        return view('pillier.create',compact('pilliers','projets'));
     }
 
     /**

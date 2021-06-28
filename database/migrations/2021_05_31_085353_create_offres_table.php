@@ -22,7 +22,7 @@ class CreateOffresTable extends Migration
             $table->string('file')->nullable();
             $table->integer('projet')->nullable();
             $table->string('formulaire')->nullable();
-            $table->timestamp('deadline')->nullable;
+            $table->timestamp('deadline')->nullable();
             $table->timestamps();
         });
     }

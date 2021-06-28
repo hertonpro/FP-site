@@ -36,6 +36,24 @@
                 <li class="active">
                     <a href="{{ asset('/blogs') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Article</span></a>
                 </li>
+                <li class="">
+                    <a href="{{ asset('/blogs/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle articles</span></a>
+                </li>
+                <li class="">
+                    <a href="{{ asset('/activite') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Projet</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ asset('/pillier/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Pillier</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ asset('/projet') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Projet</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ asset('/offre') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Offres</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ asset('/offre/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle offres</span></a>
+                </li>
                 <li>
                     <a href="minor.html"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
                 </li>
@@ -154,8 +172,8 @@
     
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
-                            <button class="dropdown-item" type="submit"><i class="fa fa-sign-out"></i> Log out</button>
                             @csrf
+                            <button class="dropdown-item" type="submit"><i class="fa fa-sign-out"></i> Log out</button>
                         </form>
                     </li>
                     <li>

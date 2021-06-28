@@ -1,5 +1,5 @@
 <div>
-    <a href="">
+    <a href="https://www.paypal.com/donate?hosted_button_id=NF7C4LD4H5CF4" onclick="window.open(this.href);return false">
         <button class="btn btn-primary border border-primary btn-block my-2" style="border-radius: 10px;" type="button">
             <h1 class="font-bold">Faire un don</h1>
         </button>
@@ -24,6 +24,5 @@
                 </a>
             @endif
         @endforeach
-
     </div>
 </div>
