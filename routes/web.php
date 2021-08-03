@@ -18,6 +18,7 @@ use App\Http\Controllers\BailleurController;
 use App\Http\Controllers\PrixController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\PublicationController;
 
 
 /*
@@ -71,6 +72,7 @@ Route::get('contact', [ContactController::class,'contact']);
 Route::resource('prix', PrixController::class);
 Route::resource('award', AwardController::class);
 Route::resource('quote', QuoteController::class);
+Route::resource('publication', PublicationController::class);
 
 
 // Paypal Donation Form
