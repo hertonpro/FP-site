@@ -17,18 +17,9 @@ class CreateProjetsTable extends Migration
             $table->id();
             $table->text('denomination');
             $table->longText('description');
-<<<<<<< Updated upstream
-            $table->integer('pillier_id')->unsigned();
-            $table->integer('bailleur_id')->unsigned();
-=======
-<<<<<<< Updated upstream
-            $table->integer('pillier_id')->unsigned();;
-            $table->integer('bailleur');
-=======
+
             $table->integer('pilier_id')->unsigned();
             $table->integer('bailleur_id')->unsigned();
->>>>>>> Stashed changes
->>>>>>> Stashed changes
             $table->text('files');
             $table->timestamps();
         });

@@ -12,10 +12,10 @@
                 <a class="nav-link active" aria-current="page" href="#hp">Honneurs et Prix</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Citations</a>
+                <a class="nav-link" href="#cit">Citations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Pubications</a>
+                <a class="nav-link" href="#pub">Pubications</a>
             </li>
         </ul>
         <div class="row mt-4">
@@ -86,7 +86,7 @@
                 @endforeach
             </div>
         </section>
-        <section id="dis">
+        <section id="cit">
             <h2 class="centre m-4">Les meilleurs citations du Dr. Mukwege</h2>
             @foreach ($quotes as $quote)
                 <div class="col-4">
@@ -97,17 +97,43 @@
             @endforeach
         </section>
 
+        <section id="pub">
+            <h2 class="centre m-4">Les publications du Dr. Mukwege</h2>
+            <div class="row">
+            @foreach ($publications as $publication)
+                <div class="col-6">
+                    <div class="">
+                        <h3>
+                            <a href="{{$publication->link}}" target="_blank">{{$publication->titre}}</a>
+                        </h3>
+                        <p>{{$publication->abstract}}</p><hr class="m-0">
+                        <p class="text-success text-sm">{{$publication->datePub}} Editeurs
+                            @foreach ($publication->editeur as $editeur)
+                                {{$editeur->nom}}
+                            @endforeach
+                        </p> 
+                        
+                    </div>
+                </div>
+            @endforeach
+                
+            </div>
+        </section>
 
 
 
-        <p>suivre sur: <br>
-            <a class="btn " href="http://facebook.com/DrDenisMukwege" style="background-color: blue; color:white"><i
+        <p class="m-2">suivre sur le <strong>Dr.Denis Mukwege:</strong></p>
+        <p class="m-2">
+            <a class="btn " href="http://facebook.com/DrDenisMukwege"  target="_blank|_self|_parent|_top|framename" style="background-color: blue; color:white"><i
                     class="fa fa-facebook"></i> Facebook</a>
-            <a class="btn " href="http://twitter.com/denismukwege" style="background-color: rgb(0, 94, 201); color:white"><i
+            <a class="btn " href="http://twitter.com/denismukwege"  target="_blank|_self|_parent|_top|framename" style="background-color: rgb(0, 94, 201); color:white"><i
                     class="fa fa-twitter"></i> Twitter</a>
-            <a class="btn " href="https://www.instagram.com/drdenismukwege/"
+            <a class="btn " href="https://www.instagram.com/drdenismukwege/"  target="_blank|_self|_parent|_top|framename"
                 style="background-color: rgb(139, 15, 113); color:white"><i class="fa fa-instagram"></i>
                 Instagram</a>
+            <a class="btn " href="https://www.linkedin.com/in/dr-denis-mukwege-4732b1203/"  target="_blank|_self|_parent|_top|framename"
+                style="background-color: rgb(5, 119, 148); color:white"><i class="fa fa-linkedin"></i>
+                Linkedin</a>
         </p>
         <div class="col-3">
             <x-offre></x-offre>
