@@ -15,7 +15,6 @@ use App\Http\Controllers\OffreController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\BailleurController;
-use App\Http\Controllers\PrixController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
@@ -69,15 +68,14 @@ Route::get('dr', [StaticPagesController::class,'dr']);
 Route::get('eq', [StaticPagesController::class,'eq']);
 
 Route::get('contact', [ContactController::class,'contact']);
-Route::resource('prix', PrixController::class);
 Route::resource('award', AwardController::class);
 Route::resource('quote', QuoteController::class);
 Route::resource('publication', PublicationController::class);
 
 
 // Paypal Donation Form
-Route::get( 'donation-form',  [ DonationController::class, 'donationForm' ] );
-Route::get( 'donation/success',  [ DonationController::class, 'donationSuccess' ] )->name('donation.success');
-Route::get( 'donation/cancelled',  [ DonationController::class, 'donationCancelled' ] )->name('donation.cancelled');
-Route::get( 'donation/notify_url',  [ DonationController::class, 'donationNotify' ] )->name('donation.notify');
+Route::resource('donation',DonationController::class,);
+Route::get( 'donation/success/{transaction}',  [ DonationController::class, 'donationSuccess' ] )->name('donation.success');
+Route::get( 'donation/cancelled/{transaction}',  [ DonationController::class, 'donationCancelled' ] )->name('donation.cancelled');
+Route::get( 'donation/notify/{transaction}',  [ DonationController::class, 'donationNotify' ] )->name('donation.notify');
 

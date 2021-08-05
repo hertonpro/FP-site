@@ -21,14 +21,14 @@
                     <h4><strong>Obgectif:</strong> 10.000$</h4>
                 </div>
                 <div class="d-flex flex-row-reverse p-4">
-                    <a href=""
-                        onclick="window.open(this.href);return false">
-                        <button class="btn btn-primary rounded-lg btn-lg">
+                    <form action="donation" method="POST">
+                        @csrf
+                        <input type="text" hidden name="token" value="{{$token= sha1(mt_rand(1, 90000) . 'SALT') }}">
+                        <button type="submit" class="btn btn-primary rounded-lg btn-lg">
                             <h4>Faire un don</h4>
                         </button>
-                    </a>
+                    </form>
                 </div>
-
             </div>
         </div>
     </div>

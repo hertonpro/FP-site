@@ -27,45 +27,54 @@
                                         src="{{ asset('img/Logo-fondation-panzi-site-web.png') }}" alt="logo"
                                         class="logo"></a>
                             </div>
-                            <p class="login-card-description">Les dames de la fondation Panzi vous remercient pour ta
+                            <p class="login-card-description">Les dames de la fondation Panzi vous remercient pour votre
                                 générosité. </p>
-                            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                            <form action="/donation/{{$thisTransaction->id}}" method="POST">
+                                @method('patch')
                                 @csrf
-
-
-                                <input type="hidden" class=" form-control form-control-sm" name="cmd"
-                                    value="_donations" />
-
-                                <input type="hidden" class=" form-control form-control-sm" name="business"
-                                    value="sb-vfgb86709623@business.example.com" />
-
-                                <input type="hidden" class=" form-control form-control-sm" name="item_name"
-                                    value="Donation" />
-
                                 <label for="hidden">Montant à donnée</label>
-                                
-                                    <div class="input-group mb-3">
-                                      <div class="input-group-prepend">
-                                          <input type="number" name="amount" class="input-group-text" for="inputGroupSelect01" value="10">
-                                      </div>
-                                      <select class="custom-select" id="inputGroupSelect01">
-                                        <option value="USD">$ USD</option>
-                                        <option value="CDF">Fc CDF</option>
-                                        <option value="UER">€ UER</option>
-                                      </select>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="form-check form-switch ">
+                                            <input id="my-input" onclick="dis_ot()" class="form-check-input"
+                                                type="radio" name="amount" value="50">
+                                            <label for="my-input" class="form-check-label h3 text-warning ">50$</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input id="my-input" onclick="dis_ot()" class="form-check-input"
+                                                type="radio" name="amount" value="100">
+                                            <label for="" class="form-check-label h3 text-warning ">100$</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input id="other_up" class="form-check-input"  onclick="dis_inp()"
+                                                type="radio" name="amount" >
+                                            <label for="other_up" class="form-check-label h3 text-warning ">Autre</label>
+                                        </div>
+                                        <script>
+                                            function dis_inp() {
+                                                document.getElementById("other").disabled = false;
+                                            }
+
+                                            function dis_ot() {
+                                                document.getElementById("other").disabled = true;
+                                                document.getElementById("my-input").disabled = false;
+
+                                            }
+                                            function tap_ot(){
+                                                var saisie =document.getElementById("other").value;
+                                                document.getElementById("other_up").value=saisie;
+                                            }
+                                        </script>
                                     </div>
+                                    <br><br>
+                                        <input type="number" id="other" oninput="tap_ot()" class="input-group-text"
+                                            for="inputGroupSelect01" disabled placeholder="Autre"> 
+                                            <label class="form-label">Le montant en dollar ($ USD)</label>
+                                </div>
 
-                                <input type='hidden' class=" form-control form-control-sm" name='notify_url'
-                                    value='{{ route('donation.notify') }}'>
-
-                                <input type='hidden' class=" form-control form-control-sm" name='cancel_return'
-                                    value='{{ route('donation.cancelled') }}'>
-
-                                <input type='hidden' class=" form-control form-control-sm" name='return'
-                                    value='{{ route('donation.success') }}'>
-
-                                <label for="">Laisser un message </label>
-                                <textarea class=" form-control form-control-sm" name="custom" rows="1"></textarea>
+                                {{-- <label for="">Laisser un message </label>
+                                <textarea class=" form-control form-control-sm" name="message"></textarea> --}}
                                 <br>
                                 <input type="submit" class="btn btn-warning" value="Donation">
 
