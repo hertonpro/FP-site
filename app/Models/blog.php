@@ -19,4 +19,11 @@ class Blog extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function editeur()
+    {
+        return $this->hasOne(user::class, 'id', 'editeur');
+    }
+
+
 }

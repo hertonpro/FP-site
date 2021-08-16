@@ -1,8 +1,11 @@
 <div>
-    <a href="https://www.paypal.com/donate?hosted_button_id=NF7C4LD4H5CF4" onclick="window.open(this.href);return false">
-        <button class="btn btn-primary border border-primary btn-block my-2" style="border-radius: 10px;" type="button">
+    <form action="donation" method="POST">
+        @csrf
+        <input type="text" hidden name="token" value="{{$token= sha1(mt_rand(1, 90000) . 'SALT') }}">
+        <button class="btn btn-primary border border-primary btn-block my-2" style="border-radius: 10px;" type="submit">
             <h1 class="font-bold">Faire un don</h1>
         </button>
+    </form>
     </a>
     <h2>Les offres </h2>
     <div>

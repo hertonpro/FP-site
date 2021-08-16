@@ -98,16 +98,16 @@
                 <div class="row p-3 text-center  d-flex justify-content-center">
 
                     <div class="col-lg-3 border-right">
-                        <strong class="h1 text-warning">650434</strong>
+                        <strong class="h1 text-warning">67893</strong>
                         <p class="p-2">Bénéficiaires des programmes de fondations</p>
                     </div>
                     <div class="col-lg-3 border-right">
-                        <strong class="h1 text-warning">650434</strong>
-                        <p class="p-2">Cas de maladies traiter par la fondation</p>
+                        <strong class="h1 text-warning">50000</strong>
+                        <p class="p-2">Cas de prolapsus et fistules</p>
                     </div>
                     <div class="col-lg-3">
-                        <strong class="h1 text-warning">650434</strong>
-                        <p class="p-2">Condamnation obtenue par la clinique juridique</p>
+                        <strong class="h1 text-warning">1010</strong>
+                        <p class="p-2">Bénéficiaires du projet réparation </p>
                     </div>
                 </div>
                 <p>Pour plus d'information sur les prises en charges, veillez visiter notre portail <a href=""><strong class=" text-warning"> PIMIS-VBG</strong></a> </p>

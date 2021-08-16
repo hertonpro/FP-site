@@ -42,7 +42,7 @@
                         </a>
                         <p class="h3">Soumetre ta cadidature</p>
                         <iframe width="640px" height="480px"
-                            src="https://forms.office.com/Pages/ResponsePage.aspx?id=cc74IrBAYE2aOM46yPG_cggvU9EGUkRJhhXn5zTsV41UNlgzNDNRRjVGOTdRU0gxMVdYNDNINVUwTC4u&embed=true"
+                            src="https://forms.office.com/Pages/ResponsePage.aspx?id={{$offre->formulaire}}&embed=true"
                             frameborder="0" marginwidth="0" marginheight="0"
                             style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen
                             mozallowfullscreen msallowfullscreen> </iframe>

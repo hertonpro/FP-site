@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-lg-2">
                     <br>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">fundraising</a>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#fund">fundraising</a>
                     <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Stage</a>
                     <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">volontaire</a>
-                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="">Les offres</a>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="/offrev">Les offres</a>
                 </div>
                 <div class="col-lg-9">
                     <div class="bg-image"
@@ -25,7 +25,7 @@
                                 aveugles
                                 ou malvoyants peut être d’une grande utilité pour eux.
                             </p>
-                            <div class="d-flex flex-row-reverse p-4">
+                            <div class="d-flex flex-row-reverse p-4" id="fund">
                                 <x-voluntary/>
                             </div>
                         </div>

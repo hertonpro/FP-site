@@ -33,22 +33,25 @@
                         IN+
                     </div>
                 </li>
-                <li class="active">
+                
+                    
+                
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/blogs'){echo 'active';}@endphp">
                     <a href="{{ asset('/blogs') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Article</span></a>
                 </li>
-                <li class="">
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/blogs/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/blogs/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle articles</span></a>
                 </li>
-                <li class="active">
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/pilier/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/pilier/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">pilier</span></a>
                 </li>
-                <li class="">
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/activite'){echo 'active';}@endphp">
                     <a href="{{ asset('/activite') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Projet</span></a>
                 </li>
-                <li class="active">
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/offre'){echo 'active';}@endphp">
                     <a href="{{ asset('/offre') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Bailleur</span></a>
                 </li>
-                <li class="active">
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/offre/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/offre/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle offres</span></a>
                 </li>
                 <li>

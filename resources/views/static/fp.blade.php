@@ -12,11 +12,7 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#panzi" role="tab"
-                            aria-controls="home" aria-selected="true">Panzi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                            aria-selected="true">Le modèl de Panzi</a>
+                            aria-controls="home" aria-selected="true">Le modèl de Panzi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
@@ -29,22 +25,6 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="panzi" role="tabpanel" aria-labelledby="panzi-tab">
-                        <h1>DOMAINE D’INTERVENTION</h1>
-                        <p>
-                        <h2>L’Assistance juridique</h2>
-                        l’assistance juridique se fait à
-                        travers des activités de prévention telles que les sensibilisations des communautés sur les
-                        droits, la vulgarisation des instruments juridiques nationaux et internationaux relatifs aux
-                        droits humains en général et aux droits de la femme en particulier. Ces activités sont
-                        exécutées par les avocats, les défenseurs judiciaires et les para juristes commis au projet,
-                        chacun dans son domaine.
-                        Les paras juristes jouent à la fois un rôle de moniteurs de protection et de relais
-                        communautaires
-                        <img src="{{ asset('img/fp/jur.jpg') }}" style="width: 100%; "
-                            alt="la joie après prosses clinique juridique">
-                        </p>
-                    </div>
-                    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                         <p class="h2 text-warning">Modèle de Panzi</p>
                         <p>
@@ -328,23 +308,7 @@
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <p>
-                            La Clinique Juridique est une des quatre institutions que compte la Fondation Panzi. Elle fut
-                            créée en
-                            2008, par le Docteur Denis Mukwege, pour répondre aux demandes des survivantes qui manifestaient
-                            le
-                            désir de voir leurs bourreaux répondre de leurs actes devant la justice.
-                            <br>
-                            L’objectif de la clinique juridique est de faciliter l’accès à la justice aux victimes de
-                            violences
-                            sexuelles et basées sur le genre.
-                            <br>
-                            <strong>Sa mission est de contribuer à la lutte contre l’impunité.</strong>
-                            <br>
-                            La porte d’entrée des victimes :
-                            <br>
-                            Les victimes accèdent à l’assistance de la clinique juridique, soit à travers l’hôpital de Panzi
-                            ou à
-                            travers les cliniques juridiques locales.
+                            <!--historique--> 
                         </p>
                     </div>
                     <div class="tab-pane fade" id="eq" role="tabpanel" aria-labelledby="eq-tab">

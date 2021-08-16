@@ -2,7 +2,9 @@
 
 namespace App\View\Components;
 
+use App\Models\fundraising;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\DB;
 
 class fund extends Component
 {
@@ -23,6 +25,8 @@ class fund extends Component
      */
     public function render()
     {
-        return view('components.fund');
+        $fundraising=fundraising::all()->last();
+        $colect=DB::table('transactions')->where('fundraising' , '=', $fundraising->id)->sum('amount');
+        return view('components.fund', compact('fundraising','colect'));
     }
 }
