@@ -14,12 +14,13 @@
                 <div class="col-lg-10 ">
                     <div class="row">
 
-                        <div class="col-7">
-                            <h1 class="display-6">Le modèle de Panzi appelé également « Guichet unique » ou « <a href="">One
-                                    Stop Center</a> » est un modèle
+                        <div class="col-lg-7">
+                            <h1 class="display-6">Le modèle de Panzi appelé également « Guichet unique » ou « One
+                                    Stop Center» est un modèle
                                 qui a été mis au point par le Docteur Mukwege en 2005.
                             </h1>
-                            <p>
+                            <br><br><br><br>
+                            <p class=" font-size-18">
                                 Le Professeur Denis Mukwege définit le « One Stop Center », comme « une prise en charge
                                 holistique des survivantes de violences sexuelles et autres personnes vulnérables en les
                                 faisant bénéficier de tous les services dont ils ont besoin à la carte (selon leurs besoins
@@ -37,18 +38,10 @@
                                 poursuivre leur bourreaux et demander justice.
                             </p>
                         </div>
-<<<<<<< Updated upstream:resources/views/pillier/index.blade.php
                         <div class="col">
-                            <img src="{{ asset('files/other/pillier.svg') }}" width="380px" alt="">
+                            <img src="{{asset('files/other/pillier.png')}}" width="100%" alt="">
                         </div>
-=======
-<<<<<<< Updated upstream:resources/views/pillier/index.blade.php
-=======
-                        <div class="col">
-                            <img src="{{ asset('files/other/pilier.svg') }}" width="380px" alt="">
-                        </div>
->>>>>>> Stashed changes:resources/views/pilier/index.blade.php
->>>>>>> Stashed changes:resources/views/pilier/index.blade.php
+                        
                     </div>
                     <div class="row mt-4">
                         <div class="col-9">
@@ -94,7 +87,7 @@
                                 juridiques » avec les acteurs judiciaires et intervenants dans le domaine de la justice ;
                                 organisation des formations et informations sur les instruments juridiques qui protègent et
                                 qui réhabilitent les droits humains</p>
-
+                                    <img src="{{asset('files/other/CE.png')}}" width="100%" alt="">
                                 <h4>Autres secteurs d’intervention</h4> 
                                 <p>La Fondation Panzi intervient dans l’éducation et la formation par l’octroi des bourses
                                 d’études aux médecins en spécialisation en RDC et en dehors de la RDC ; par le paiement des
@@ -111,7 +104,7 @@
                                 gynécologiques (prolapsus, fistules et PVV) ; prestataires de soins médicaux et
                                 psycho-sociaux ; professionnelle de sexe ; femmes très vulnérables ; enfant vivant autour
                                 des mines.</p>
-                                <p><strong>Institutions :</strong>  la clinique juridique, la cité de la joie, la maison Dorcas, le centre
+                                <p><strong>Institutions :</strong>  la clinique juridique, <a href="http://fondationpanzi.org/joie">la cité de la joie</a> , <a href="http://fondationpanzi.org/md">la maison Dorcas</a> , le centre
                                 international de recherche et de formation avancée (ICART)</p>
 
                             </p>

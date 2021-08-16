@@ -50,8 +50,6 @@
                     <div class="ibox-title">
                         <h5>Articles brouillons</h5>
                         <div class="ibox-tools">
-                            <a href="/blog/create" class="btn btn-primary p-1"> <i class="fa fa-paper-plane"></i> Tout
-                                publier</a>
                         </div>
                     </div>
                     <div class="ibox-content">
@@ -66,22 +64,29 @@
                                 <tbody>
                                     @forelse ($blogs as $blog)
                                         <tr class="gradeX">
-                                            @if ($blog->editeur == auth()->user()->id)
-                                              <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                            <td>
-                                                <a href="/blogs/{{ $blog->id }}">
-                                                    <i class="fa fa-times"></i>
-                                                </a>
-                                                <a href="/blogs/{{ $blog->id }}/edit">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <a href="/blogs/{{ $blog->id }}">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-                                                <button type="submit" class="btn btn-info btn-xs">Publier</button>
-                                            </td> 
+                                            @if ($blog->editeur == auth()->user()->id && $blog->state == 0)
+                                                <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
+                                                <td>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div class="list-group list-group-horizontal">
+                                                        <a href=""
+                                                            onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();">
+                                                            <button class="btn text-danger" type="button"><i
+                                                                    class="fa fa-times "></i></button>
+                                                        </a>
+                                                        <a href="/blogs/{{ $blog->id }}/edit">
+                                                            <button class="btn text-info" type="button"><i
+                                                                    class="fa fa-edit"></i></button>
+                                                        </a>
+                                                        <a href="/blogs/{{ $blog->id }}">
+                                                            <button class="btn text-info" type="button"><i
+                                                                    class="fa fa-eye"></i></button>
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             @endif
-                                            
+
                                         @empty
                                             <td class="text-warning">Pas d'article disponible !!!</td>
                                         </tr>

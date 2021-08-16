@@ -16,9 +16,10 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\BailleurController;
 use App\Http\Controllers\AwardController;
+use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
-
+use App\Models\fundraising;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::resource('panzi', AboutController::class);
 Route::resource('Bailleur', BailleurController::class);
 Route::resource('offre', OffreController::class)->middleware(['auth']);
 Route::get('offrev/{id}', [OffreController::class, 'show']);
+Route::get('offrev', [OffreController::class, 'list']);
 
 Route::post('/files/fileupload/{article}', [FilesController::class, 'fileupload'])->name('files.fileupload');
 Route::post('/files/upload/{article}', [FilesController::class, 'upload'])->name('files.upload');
@@ -73,9 +75,12 @@ Route::resource('quote', QuoteController::class);
 Route::resource('publication', PublicationController::class);
 
 
+
 // Paypal Donation Form
 Route::resource('donation',DonationController::class,);
 Route::get( 'donation/success/{transaction}',  [ DonationController::class, 'donationSuccess' ] )->name('donation.success');
 Route::get( 'donation/cancelled/{transaction}',  [ DonationController::class, 'donationCancelled' ] )->name('donation.cancelled');
 Route::get( 'donation/notify/{transaction}',  [ DonationController::class, 'donationNotify' ] )->name('donation.notify');
+
+Route::resource('fundraising', FundraisingController::class);
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\blog;
+use App\Models\Blog;
 use App\Models\Comment;
 
 class newsController extends Controller

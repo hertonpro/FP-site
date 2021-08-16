@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->char('token');
             $table->integer('amount')->nullable();
-            $table->char('fundraising')->default('unrestricted');
+            $table->integer('fundraising')->index('fundraising')->nullable();;
             $table->integer('donor')->unsigned()->index('users')->nullable();
             $table->integer('state')->default(0);
             $table->longText('message')->nullable();

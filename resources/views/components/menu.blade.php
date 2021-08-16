@@ -22,8 +22,8 @@
                             <ul class="submenu">
                                 <li><a class="dropdown-item" href="{{ route('pilier.show', '1') }}">Médicale</a></li>
                                 <li><a class="dropdown-item" href="{{ route('pilier.show', '2') }}">Psycho-sociale</a></li>
-                                <li><a class="dropdown-item" href="{{ route('pilier.show', '3') }}">Juridique</a></li>
-                                <li><a class="dropdown-item" href="{{ route('pilier.show', '4') }}">Socio-économique</a></li>
+                                <li><a class="dropdown-item" href="{{ route('pilier.show', '4') }}">Juridique</a></li>
+                                <li><a class="dropdown-item" href="{{ route('pilier.show', '3') }}">Socio-économique</a></li>
                                 <li><a class="dropdown-item" href="{{ route('pilier.show', '5') }}">Plaidoyer</a></li>
                             </ul>
                         </li>

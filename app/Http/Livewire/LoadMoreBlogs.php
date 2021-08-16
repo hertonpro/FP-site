@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 use Livewire\Component;
-use App\Models\blog;
+use App\Models\Blog;
 
 class LoadMoreBlogs extends Component
 {

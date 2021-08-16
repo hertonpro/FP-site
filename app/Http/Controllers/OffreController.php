@@ -25,11 +25,15 @@ class OffreController extends Controller
      */
     public function index()
     {
-        //affiches les 50 dernieres articles posters
         $offres = offre::all();
-        //dd($Offres);
         return view('offre.index', compact('offres'));
     }
+
+    public function list(){
+        $offres = offre::all();
+        return view('offre.list', compact('offres'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

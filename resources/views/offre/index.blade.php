@@ -13,7 +13,7 @@
                 <div class="ibox-title">
                     <h5>Liste des articles publiées</h5>
                     <div class="ibox-tools">
-                        <a href="/offres/create" class="btn btn-primary p-1"> <i class="fa fa-plus"></i> Ajouter</a>
+                        <a href="/offre/create" class="btn btn-primary p-1"> <i class="fa fa-plus"></i> Ajouter</a>
                     </div>
                 </div>
                 <div class="ibox-content">
