@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\pilierController;
+use App\Http\Controllers\PilierController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\StaticPagesController;

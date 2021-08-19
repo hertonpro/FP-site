@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Comment;
 
-class newsController extends Controller
+class NewsController extends Controller
 {
     public function index()
     {
