@@ -6,7 +6,7 @@
 
         <div class="col-lg-12 text-dark mb-5">
             <div class="row m-md-4">
-                <x-catNews />
+                <x-catNews></x-catNews>
                 <div class="col-lg-7">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">

@@ -8,7 +8,7 @@ use App\View\Components\projet as ComponentsProjet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-class pilierController extends Controller
+class PilierController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -8,7 +8,7 @@ use App\Models\projet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-class projetController extends Controller
+class ProjetController extends Controller
 {
     /**
      * Display a listing of the resource.
