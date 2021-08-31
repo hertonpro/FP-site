@@ -20,13 +20,8 @@ $url .= $_SERVER['REQUEST_URI'];
 <head>
     <x-meta />
     <!-- You can use Open Graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-    <meta property="og:url" content="{{ $url }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fondation Panzi RDC" />
-    <meta property="og:description" content="jljdfjldsjfldjfn" />
-    <meta property="og:image" content="asset('img/Logo-fondation-panzi-site-web.gif')" />
-    <style type="text/css">
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <style>
         /* ============ desktop view ============ */
         @media all and (min-width: 992px) {
             .navbar .nav-item .dropdown-menu {
@@ -97,7 +92,31 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
                                     @endphp
                                 </div>
                                 {{-- Image relatife à l'article --}}
-                                <x-galery article="{{ $article->id }}"></x-galery>
+                                <div>
+                                    <h4>Quelques images relatives à l'article</h4>
+                                    @foreach ($scandir as $fichier)
+
+                                        @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",
+                                            strtolower($fichier)))
+                                            <a href="#{{ $fichier }}"><img
+                                                    src=" {{ asset('files/' . $article->id . '/' . $fichier) }}"
+                                                    class="img-thumbnail m-1" width="100" height="100"></a>
+                                        @elseif (is_dir($fichier) and $fichier != '.' and $fichier != '..')
+                                            {{ $fichier }}<br />
+                                        @elseif (substr(strtolower($fichier), -4, 4) == '.php')
+                                            {{ $fichier }}<br />
+                                        @endif
+                                    @endforeach
+                                    <br>
+
+                                    @foreach ($scandir as $fichier)
+                                        @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",
+                                            strtolower($fichier)))
+                                            <a href="#_1" class="lightbox trans" id="{{ $fichier }}"><img
+                                                    src=" {{ asset('files/' . $article->id . '/' . $fichier) }}"></a>
+                                        @endif
+                                    @endforeach
+                                </div>
                                 <hr>
                                 {{-- Commentaires --}}
                                 <div class="row">
@@ -120,14 +139,11 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
                                         <div class="fb-share-button mb-2" data-href="{{ $url }}"
                                             data-layout="button_count">
                                         </div><br>
-
-
                                         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
                                             class="twitter-share-button" data-text="{{ $article->tag }}"
                                             data-url="{{ $url }}" data-via="PanziFoundation"
                                             data-related="PanziFoundation" data-lang="fr"
                                             data-show-count="false">Tweet</a>
-                                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="small text-right">
@@ -323,6 +339,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
     </div>
     @livewireScripts()
 </body>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>

@@ -31,9 +31,10 @@ class NewsController extends Controller
     {
         $article = blog::find($blog);
         $comments = Comment::all()->where('blog_id', $blog)->sortByDesc('id');
-        //dd($article);
+        $scandir = array_diff(scandir('files/'.$blog), array('..', '.'));
+        //dd($scandir);
         $page = 'news';
-        return view('blog.show', compact('article','page','comments'));
+        return view('blog.show', compact('article','page','comments','scandir'));
     }
 
 }

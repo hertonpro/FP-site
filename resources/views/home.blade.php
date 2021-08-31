@@ -26,7 +26,7 @@
                                             height: 400px; 
                                             object-fit: cover;">
                                         <div class="carousel-caption d-none d-md-block carousel-res">
-                                            <a class="ja" href="{{ route('news.show', $blog->id) }}">
+                                            <a class="ja" href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}">
                                                 <h5 class="text-white">{{ $blog->titre }}</h5>
                                             </a>
                                             <p class="text-black-50"><strong>{{ date_format($blog->updated_at, 'd/m/Y H:i') }}</strong></p>
@@ -41,7 +41,7 @@
                                             height: 400px; 
                                             object-fit: cover;">
                                         <div class="carousel-caption d-none d-md-block carousel-res">
-                                            <a class="ja" href="{{ route('news.show', $blog->id) }}">
+                                            <a class="ja" href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}">
                                                 <h5 class="text-white">{{ $blog->titre }}</h5>
                                             </a>
                                             <p class="text-black-50"><strong>{{ date_format($blog->updated_at, 'd/m/Y H:i') }}</strong></p>
@@ -76,9 +76,11 @@
                         @foreach ($blogs as $blog)
                             @php
                                 $blog = (object) $blog;
+                                
+                                    
                             @endphp
                             <div class="col-lg-4  ">
-                                <a href="{{ route('news.show', $blog->id) }}">
+                                <a href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}">
                                     <img src="{{ asset('files/'.$blog->id.'/'.$blog->img) }}" class="card-img-top"
                                         alt="image-{{ $blog->titre }}">
 

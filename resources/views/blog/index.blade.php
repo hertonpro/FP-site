@@ -33,7 +33,7 @@
                                     @if ($blog->editeur == auth()->user()->id && $blog->state == 1)
                                         <tr class="gradeX">
                                             <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                            <td>{{$blog->editeur()->email}}</td>
+                                            <td></td>
                                             <td></td>
                                             <td>
                                                 @csrf

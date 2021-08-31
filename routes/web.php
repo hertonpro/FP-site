@@ -39,7 +39,9 @@ Route::get('/ok', function () {
 
 Route::resource('/user', UserController::class);
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
-Route::resource('news',NewsController::class);
+//Route::resource('news',NewsController::class);
+Route::get('nwes/', [NewsController::class,'index'])->name('news.index');
+Route::get('nwes/{news}-{slug?}', [NewsController::class,'show'])->name('news.show');
 Route::get('cat/{cat}',[NewsController::class,'media'] )->name('cat');
 Route::get('/admin', function(){
     return view('admin.index');
