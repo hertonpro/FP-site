@@ -1,68 +1,300 @@
-@extends('layouts.admin')
+@extends('admin.index')
 
 @section('content')
-    <div class="container">
+    <div class="container ">
+        <div class="d-flex justify-content-end m-1">
 
-        <!-- Title -->
-        <div class="hk-pg-header">
-            <h3 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i
-                            data-feather="user"></i></span></span> Utilisateurs</h3>
-                            dd{{$users}}
-
-                            @foreach ($users as $user)
-                                <li>{{$user->name}}</li>
-                            @endforeach
         </div>
-        <!-- /Title -->
-        <div class="row">
-            <section class="hk-sec-wrapper bg-white p-5 m-3">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="table-wrap">
-                            <table id="datable_1" class="table table-hover w-100 display pb-30">
-                                <thead>
-                                    <tr>
-                                        <th>Name Post-nom Prenom</th>
-                                        <th>E-mail</th>
-                                        <th>Rôle</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                       <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>
-                                            <a href="#"> <abbr title="Voir"><i data-feather="user" ></i></abbr> </a>
-                                        </td>
-                                        <td>
-                                            <a href="#"><abbr title="edite"><i data-feather="file"></i></abbr></a>
-                                        </td>
-                                        <td>
-                                            <a href="#"><abbr title="trash"><i data-feather="trash"></i></abbr></a>
-                                        </td>
-                                    </tr> 
-                                </tbody>
-                            </table>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Liste des utilisateurs</h5>
+                    <div class="ibox-tools">
+                        <button type="button" class="btn btn-primary p-1" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-plus"></i>Ajouter
+                        </button>
+                    </div>
+                    <!-- Add user modale -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Fonrmulaire d'ajout utilisateur</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="login-card-description">Ajouter un utilisateur</p>
+                                    <form method="POST" action="/user">
+                                        @csrf
+
+                                        <!-- Name -->
+                                        <div class="mt-4">
+                                            <x-input id="name" class="form-control border-secondary" placeholder="Nom"
+                                                type="text" name="name" :value="old('name')" required autofocus />
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <x-input id="lastname" class="form-control border-secondary"
+                                                placeholder="Post-nom" type="text" name="lastname" :value="old('lastname')"
+                                                required autofocus />
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <x-input id="nickname" class="form-control border-secondary"
+                                                placeholder="Prenom" type="text" name="nikename" :value="old('nikename')"
+                                                required autofocus />
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <select id="role_id" class="form-control border-secondary" placeholder="role"
+                                                name="role_id">
+                                                <option selected>Role...</option>
+                                                <option value="NULL">visiteur</option>
+                                                <option value="1">Full-admin</option>
+                                                <option value="2">Admin</option>
+                                                <option value="3">Editeur</option>
+                                                <option value="4">RH</option>
+                                                <option value="5">Logistique</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Email Address -->
+                                        <div class="mt-4">
+                                            <x-input id="email" class=" form-control border-secondary"
+                                                placeholder="mail@example.com" type="email" name="email"
+                                                :value="old('email')" required />
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div class="mt-4">
+
+                                            <x-input id="password" class="form-control border-secondary" type="password"
+                                                placeholder="Password" name="password" value="01passP@nz!" required
+                                                autocomplete="new-password" />
+                                        </div>
+
+                                        <!-- Confirm Password -->
+                                        <div class="mt-4">
+                                            <x-input id="password_confirmation" class="form-control border-secondary"
+                                                type="password" value="01passP@nz!" placeholder="Confirmer"
+                                                name="password_confirmation" required />
+                                        </div>
+
+                                        <div class="flex items-center justify-end mt-4">
+                                            <a class=" text-warning underline text-gray-600 hover:text-gray-900"
+                                                href="{{ route('login') }}">
+                                                {{ __('Déjà enregistré ?') }}
+                                            </a>
+
+                                            <x-button class="btn btn-warning text-secondary">
+                                                {{ __('Enregistre') }}
+                                            </x-button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="ibox-content">
 
-            <div>
-                <form method="post" action="/blog">
-                    <div class="input-group">
-                        <input class="form-control" type="text" name="" placeholder="Recipient's text" aria-label="Recipient's " aria-describedby="my-addon">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="my-addon">Text</span>
-                        </div>
+                    <div class="table-responsive">
+                        <table id="datateble" class="display compact" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Titre de l'article</th>
+                                    <th>Role</th>
+                                    <th>mail</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($users as $user)
+                                    @if (1 == 1 && 1 == 1)
+                                        <tr class="gradeX">
+                                            <td> <a href="/user/{{ $user->id }}">{{ $user->name }}</a> </td>
+                                            <td>
+                                                @if ($user->role_id == null)
+                                                    <span class="label label-secondery">Visitor</span>
+                                                @elseif ($user->role_id == 1)
+                                                    <span class="label label-danger">Full-admin</span>
+                                                @elseif ($user->role_id == 2)
+                                                    <span class="label label-info">Admin</span>
+                                                @elseif ($user->role_id == 3)
+                                                    <span class="label label-primary">Editeur</span>
+                                                @elseif ($user->role_id == 4)
+                                                    <span class="label label-success">RH</span>
+                                                @elseif ($user->role_id == 5)
+                                                    <span class="label label-success">Logistique</span>
+                                                @endif
+                                            </td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="list-group list-group-horizontal">
+                                                    <a href=""
+                                                        onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $user->id }}').submit();">
+                                                        <button class="btn text-danger" type="button"><i
+                                                                class="fa fa-times "></i></button>
+                                                    </a>
+                                                    <a href="/user/{{ $user->id }}/edit">
+                                                        <button class="btn text-info" type="button"><i
+                                                                class="fa fa-edit"></i></button>
+                                                    </a>
+                                                    <a href="/user/{{ $user->id }}">
+                                                        <button class="btn text-info" type="button"><i
+                                                                class="fa fa-eye"></i></button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                    @endif
+                                @empty
+                                    <td class="text-warning">Pas d'article disponible !!!</td>
+                                    </tr>
+
+                                @endforelse
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Titre de l'article</th>
+                                    <th>Role</th>
+                                    <th>mail</th>
+                                    <th>Options</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-                </form>
+                    <script src="{{ asset('js/jquery.dataTables.js') }}"></script>
+                    <!-- Data table script !-->
+                    <script>
+                        $(document).ready(function() {
+                            $('#datateble').DataTable();
+                        });
+                    </script>
+
+                </div>
             </div>
         </div>
+       
+        @if (url()->full() == url('user/'.$userx->id))
+            <div class="col-lg-6">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
+
+                    </div>
+                    <div class="ibox-content ">
+                        <div class="widget-head-color-box navy-bg p-lg text-center text-primary">
+                            <div class="m-b-md">
+                                <h2 class="font-bold no-margins">
+                                    {{ $userx->name }}
+                                </h2>
+                                <small>
+                                    @if ($userx->role_id == null)Visitor
+                                    @elseif ($userx->role_id == 2)Admin
+                                    @elseif ($userx->role_id == 1)Full-admin
+                                    @elseif ($userx->role_id == 3)Editeur
+                                    @elseif ($userx->role_id == 4)RH
+                                    @elseif ($userx->role_id == 5)Logistique
+                                    @endif
+                                </small>
+                            </div>
+                            <img src="{{asset('files/profile/'.$userx->image)}}" class="rounded-circle circle-border m-b-md" alt="profile">
+                            <div>
+                                <span>{{$userx->email}}</span> 
+                            </div>
+                                <a href="" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Editer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
+        <div class="col-lg-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
+                    <form method="POST" action="/user">
+                        @csrf
+
+                        <!-- Name -->
+                        <div class="mt-4">
+                            <x-input id="name" class="form-control border-secondary" placeholder="Nom"
+                                type="text" name="name" :value="old('name')" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-input id="lastname" class="form-control border-secondary"
+                                placeholder="Post-nom" type="text" name="lastname" :value="old('lastname')"
+                                required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-input id="nickname" class="form-control border-secondary"
+                                placeholder="Prenom" type="text" name="nikename" :value="old('nikename')"
+                                required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <select id="role_id" class="form-control border-secondary" placeholder="role"
+                                name="role_id">
+                                <option selected>Role...</option>
+                                <option value="NULL">visiteur</option>
+                                <option value="1">Full-admin</option>
+                                <option value="2">Admin</option>
+                                <option value="3">Editeur</option>
+                                <option value="4">RH</option>
+                                <option value="5">Logistique</option>
+                            </select>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="mt-4">
+                            <x-input id="email" class=" form-control border-secondary"
+                                placeholder="mail@example.com" type="email" name="email"
+                                :value="old('email')" required />
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mt-4">
+
+                            <x-input id="password" class="form-control border-secondary" type="password"
+                                placeholder="Password" name="password" value="01passP@nz!" required
+                                autocomplete="new-password" />
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mt-4">
+                            <x-input id="password_confirmation" class="form-control border-secondary"
+                                type="password" value="01passP@nz!" placeholder="Confirmer"
+                                name="password_confirmation" required />
+                        </div>
+
+                        <div class="flex items-center justify-end mt-4">
+                            <a class=" text-warning underline text-gray-600 hover:text-gray-900"
+                                href="{{ route('login') }}">
+                                {{ __('Déjà enregistré ?') }}
+                            </a>
+
+                            <x-button class="btn btn-warning text-secondary">
+                                {{ __('Enregistre') }}
+                            </x-button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        @endif
 
     </div>
 @endsection

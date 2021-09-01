@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     /**
@@ -37,7 +44,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'role_id' => 'required|string|max:2',
+            'nickname' => 'string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
+
+        Auth::login($user = User::create([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'nickname' => $request->nickname,
+            'role_id'=>$request->role_id,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]));
+
+        event(new Registered($user));
+
+        return redirect()->back();
     }
 
     /**
@@ -48,7 +75,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $userx = user::find($id);
+        $users = user::all()->sortByDesc('id');
+        return view('user.users', compact('userx','users'));
     }
 
     /**
@@ -59,7 +88,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $userx = user::find($id);
+        $users = user::all()->sortByDesc('id');
+        return view('user.users', compact('userx','users'));
     }
 
     /**
