@@ -185,116 +185,123 @@
                 </div>
             </div>
         </div>
-       
-        @if (url()->full() == url('user/'.$userx->id))
-            <div class="col-lg-6">
-                <div class="ibox ">
-                    <div class="ibox-title">
-                        <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
+        @if (isset($userx))
+            @if (url()->full() == url('user/' . $userx->id))
+                <div class="col-lg-6">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
 
-                    </div>
-                    <div class="ibox-content ">
-                        <div class="widget-head-color-box navy-bg p-lg text-center text-primary">
-                            <div class="m-b-md">
-                                <h2 class="font-bold no-margins">
-                                    {{ $userx->name }}
-                                </h2>
-                                <small>
-                                    @if ($userx->role_id == null)Visitor
-                                    @elseif ($userx->role_id == 2)Admin
-                                    @elseif ($userx->role_id == 1)Full-admin
-                                    @elseif ($userx->role_id == 3)Editeur
-                                    @elseif ($userx->role_id == 4)RH
-                                    @elseif ($userx->role_id == 5)Logistique
-                                    @endif
-                                </small>
-                            </div>
-                            <img src="{{asset('files/profile/'.$userx->image)}}" class="rounded-circle circle-border m-b-md" alt="profile">
-                            <div>
-                                <span>{{$userx->email}}</span> 
-                            </div>
+                        </div>
+                        <div class="ibox-content ">
+                            <div class="widget-head-color-box navy-bg p-lg text-center text-primary">
+                                <div class="m-b-md">
+                                    <h2 class="font-bold no-margins">
+                                        {{ $userx->name }}
+                                    </h2>
+                                    <small>
+                                        @if ($userx->role_id == null)Visitor
+                                        @elseif ($userx->role_id == 2)Admin
+                                        @elseif ($userx->role_id == 1)Full-admin
+                                        @elseif ($userx->role_id == 3)Editeur
+                                        @elseif ($userx->role_id == 4)RH
+                                        @elseif ($userx->role_id == 5)Logistique
+                                        @endif
+                                    </small>
+                                </div>
+                                <img src="{{ asset('files/profile/' . $userx->image) }}"
+                                    class="rounded-circle circle-border m-b-md" alt="profile">
+                                <div>
+                                    <span>{{ $userx->email }}</span>
+                                </div>
                                 <a href="" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Editer</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @else
-        <div class="col-lg-6">
-            <div class="ibox ">
-                <div class="ibox-title">
-                    <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
-                    <form method="POST" action="/user">
-                        @csrf
+            @else
+                <div class="col-lg-6">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
+                            <form method="POST" action="/user/{{ $userx->id }}/edit">
+                                @csrf
 
-                        <!-- Name -->
-                        <div class="mt-4">
-                            <x-input id="name" class="form-control border-secondary" placeholder="Nom"
-                                type="text" name="name" :value="old('name')" required autofocus />
+                                <!-- Name -->
+                                <div class="mt-4">
+                                    <x-input id="name" class="form-control border-secondary" placeholder="Nom" type="text"
+                                        name="name" value="{{ $userx->name }}" required autofocus />
+                                </div>
+
+                                <div class="mt-4">
+                                    <x-input id="lastname" class="form-control border-secondary" placeholder="Post-nom"
+                                        type="text" name="lastname" value="{{ $userx->latename }}" required autofocus />
+                                </div>
+
+                                <div class="mt-4">
+                                    <x-input id="nickname" class="form-control border-secondary" placeholder="Prenom"
+                                        type="text" name="nikename" value="{{ $userx->nikename }}" required autofocus />
+                                </div>
+
+                                <div class="mt-4">
+                                    <select id="role_id" class="form-control border-secondary" placeholder="role"
+                                        name="role_id">
+                                        <option value="{{ $userx->role }}" selected>
+                                            @if ($userx->role_id == null)Visitor
+                                            @elseif ($userx->role_id == 2)Admin
+                                            @elseif ($userx->role_id == 1)Full-admin
+                                            @elseif ($userx->role_id == 3)Editeur
+                                            @elseif ($userx->role_id == 4)RH
+                                            @elseif ($userx->role_id == 5)Logistique
+                                            @endif
+                                        </option>
+                                        <option value="NULL">visiteur</option>
+                                        <option value="1">Full-admin</option>
+                                        <option value="2">Admin</option>
+                                        <option value="3">Editeur</option>
+                                        <option value="4">RH</option>
+                                        <option value="5">Logistique</option>
+                                    </select>
+                                </div>
+
+                                <!-- Email Address -->
+                                <div class="mt-4">
+                                    <x-input id="email" class=" form-control border-secondary"
+                                        placeholder="mail@example.com" type="email" name="email"
+                                        value="{{ $userx->email }}" required />
+                                </div>
+
+                                <!-- Password -->
+                                <div class="mt-4">
+
+                                    <x-input id="password" class="form-control border-secondary" type="password"
+                                        placeholder="Password" name="password" value="{{ $userx->password }}" required
+                                        autocomplete="new-password" />
+                                </div>
+
+                                <!-- Confirm Password -->
+                                <div class="mt-4">
+                                    <x-input id="password_confirmation" class="form-control border-secondary"
+                                        type="password" value="{{ $userx->password }}" placeholder="Confirmer"
+                                        name="password_confirmation" required />
+                                </div>
+
+                                <div class="flex items-center justify-end mt-4">
+                                    <a class=" text-warning underline text-gray-600 hover:text-gray-900"
+                                        href="{{ route('login') }}">
+                                        {{ __('Déjà enregistré ?') }}
+                                    </a>
+
+                                    <x-button class="btn btn-warning text-secondary">
+                                        {{ __('metre à jour') }}
+                                    </x-button>
+                                </div>
+                            </form>
                         </div>
 
-                        <div class="mt-4">
-                            <x-input id="lastname" class="form-control border-secondary"
-                                placeholder="Post-nom" type="text" name="lastname" :value="old('lastname')"
-                                required autofocus />
-                        </div>
-
-                        <div class="mt-4">
-                            <x-input id="nickname" class="form-control border-secondary"
-                                placeholder="Prenom" type="text" name="nikename" :value="old('nikename')"
-                                required autofocus />
-                        </div>
-
-                        <div class="mt-4">
-                            <select id="role_id" class="form-control border-secondary" placeholder="role"
-                                name="role_id">
-                                <option selected>Role...</option>
-                                <option value="NULL">visiteur</option>
-                                <option value="1">Full-admin</option>
-                                <option value="2">Admin</option>
-                                <option value="3">Editeur</option>
-                                <option value="4">RH</option>
-                                <option value="5">Logistique</option>
-                            </select>
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="mt-4">
-                            <x-input id="email" class=" form-control border-secondary"
-                                placeholder="mail@example.com" type="email" name="email"
-                                :value="old('email')" required />
-                        </div>
-
-                        <!-- Password -->
-                        <div class="mt-4">
-
-                            <x-input id="password" class="form-control border-secondary" type="password"
-                                placeholder="Password" name="password" value="01passP@nz!" required
-                                autocomplete="new-password" />
-                        </div>
-
-                        <!-- Confirm Password -->
-                        <div class="mt-4">
-                            <x-input id="password_confirmation" class="form-control border-secondary"
-                                type="password" value="01passP@nz!" placeholder="Confirmer"
-                                name="password_confirmation" required />
-                        </div>
-
-                        <div class="flex items-center justify-end mt-4">
-                            <a class=" text-warning underline text-gray-600 hover:text-gray-900"
-                                href="{{ route('login') }}">
-                                {{ __('Déjà enregistré ?') }}
-                            </a>
-
-                            <x-button class="btn btn-warning text-secondary">
-                                {{ __('Enregistre') }}
-                            </x-button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-                
-            </div>
-        </div>
+            @endif
         @endif
-
     </div>
 @endsection

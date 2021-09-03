@@ -55,6 +55,9 @@
                 <li class="@php if(url()->current()== 'http://fondationpanzi.org/offre/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/offre/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle offres</span></a>
                 </li>
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/user'){echo 'active';}@endphp">
+                    <a href="{{ asset('/user') }}"><i class="fa fa-user"></i> <span class="nav-label">user</span></a>
+                </li>
                 <li>
                     <a href="minor.html"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
                 </li>
