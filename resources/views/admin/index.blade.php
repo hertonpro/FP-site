@@ -19,10 +19,18 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
+                        <img alt="image" class="rounded-circle" src="{{asset('files/profile/'.auth()->user()->image)}}"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">David Williams</span>
-                            <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                            <span class="block m-t-xs font-bold">{{auth()->user()->name}}</span>
+                            <span class="text-muted text-xs block">
+                                @if (auth()->user()->role_id == null)Visitor
+                                        @elseif (auth()->user()->role_id == 2)Admin
+                                        @elseif (auth()->user()->role_id == 1)Full-admin
+                                        @elseif (auth()->user()->role_id == 3)Editeur
+                                        @elseif (auth()->user()->role_id == 4)RH
+                                        @elseif (auth()->user()->role_id == 5)Logistique
+                                        @endif
+                                 <b class="caret"></b></span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>

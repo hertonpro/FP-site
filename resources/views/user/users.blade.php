@@ -1,6 +1,8 @@
 @extends('admin.index')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('css/croppie.css') }}">
+    <script src="{{ asset('js/croppie.js') }}"></script>
     <div class="container ">
         <div class="d-flex justify-content-end m-1">
 
@@ -209,6 +211,7 @@
                                         @endif
                                     </small>
                                 </div>
+                                
                                 <img src="{{ asset('files/profile/' . $userx->image) }}"
                                     class="rounded-circle circle-border m-b-md" alt="profile">
                                 <div>
@@ -224,9 +227,19 @@
                     <div class="ibox ">
                         <div class="ibox-title">
                             <h3><strong>Utilisateur: </strong>{{ $userx->name }}</h3>
-                            <form method="POST" action="/user/{{ $userx->id }}/edit">
+                            <form method="POST" action="/user/{{ $userx->id }}">
+                                @method('patch')
                                 @csrf
+                                <!-- Photo de profille -->
+                                <div class="col-md-4 text-center">
+                                    <div id="upload-demo"></div>
+                                </div>
+                                <div class="col-md-4" style="padding:5%;">
+                                    <input type="file" id="image_file">
 
+                                    <div class="alert alert-success" id="upload-success"
+                                        style="display: none;margin-top:10px;"></div>
+                                </div>
                                 <!-- Name -->
                                 <div class="mt-4">
                                     <x-input id="name" class="form-control border-secondary" placeholder="Nom" type="text"
@@ -235,12 +248,12 @@
 
                                 <div class="mt-4">
                                     <x-input id="lastname" class="form-control border-secondary" placeholder="Post-nom"
-                                        type="text" name="lastname" value="{{ $userx->latename }}" required autofocus />
+                                        type="text" name="lastname" value="{{ $userx->lastname }}" required autofocus />
                                 </div>
 
                                 <div class="mt-4">
                                     <x-input id="nickname" class="form-control border-secondary" placeholder="Prenom"
-                                        type="text" name="nikename" value="{{ $userx->nikename }}" required autofocus />
+                                        type="text" name="nickname" value="{{ $userx->nickname }}" required autofocus />
                                 </div>
 
                                 <div class="mt-4">
@@ -291,11 +304,12 @@
                                         href="{{ route('login') }}">
                                         {{ __('Déjà enregistré ?') }}
                                     </a>
-
-                                    <x-button class="btn btn-warning text-secondary">
+                                    <x-button class="btn btn-warning text-secondary" id="upload-image">
                                         {{ __('metre à jour') }}
                                     </x-button>
+
                                 </div>
+
                             </form>
                         </div>
 
@@ -304,4 +318,59 @@
             @endif
         @endif
     </div>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        var resize = $('#upload-demo').croppie({
+            enableExif: true,
+            enableOrientation: true,
+            viewport: { // Default { width: 100, height: 100, type: 'square' } 
+                width: 200,
+                height: 200,
+                type: 'circle' //square
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }
+        });
+
+
+        $('#image_file').on('change', function() {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                resize.croppie('bind', {
+                    url: e.target.result
+                }).then(function() {
+                    console.log('jQuery bind complete');
+                });
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+
+
+        $('#upload-image').on('click', function(ev) {
+            resize.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function(img) {
+                $.ajax({
+                    url: "{{ route('croppie.upload-image') }}",
+                    type: "POST",
+                    data: {
+                        "image": img,
+                        "id": {{ $userx->id }}
+                    },
+                    success: function(data) {
+
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

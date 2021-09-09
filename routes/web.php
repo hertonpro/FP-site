@@ -19,6 +19,7 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\ImageCropController;
 use App\Models\fundraising;
 
 /*
@@ -86,3 +87,5 @@ Route::get( 'donation/notify/{transaction}',  [ DonationController::class, 'dona
 
 Route::resource('fundraising', FundraisingController::class);
 
+Route::get('crop-image', [ImageCropController::class,'index']);
+Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
