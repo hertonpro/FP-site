@@ -62,7 +62,7 @@
                     <a href="{{ asset('/activite') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Projet</span></a>
                 </li>
                 <li class="@php if(url()->current()== 'http://fondationpanzi.org/offre'){echo 'active';}@endphp">
-                    <a href="{{ asset('/offre') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Bailleur</span></a>
+                    <a href="{{ asset('/offre') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Offres</span></a>
                 </li>
                 <li class="@php if(url()->current()== 'http://fondationpanzi.org/offre/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/offre/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle offres</span></a>

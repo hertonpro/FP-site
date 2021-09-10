@@ -38,7 +38,7 @@ Route::get('/ok', function () {
     return view('layouts.HTML5_Full_Version.ok');
 });
 
-Route::resource('/user', UserController::class);
+Route::resource('/user', UserController::class)->middleware('role');
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
 //Route::resource('news',NewsController::class);
 Route::get('nwes/', [NewsController::class,'index'])->name('news.index');
