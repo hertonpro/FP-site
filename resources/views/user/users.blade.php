@@ -211,13 +211,13 @@
                                         @endif
                                     </small>
                                 </div>
-                                
+
                                 <img src="{{ asset('files/profile/' . $userx->image) }}"
                                     class="rounded-circle circle-border m-b-md" alt="profile">
                                 <div>
                                     <span>{{ $userx->email }}</span>
                                 </div>
-                                <a href="" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Editer</a>
+                                <a href="{{url('user/'.$user->id.'edit')}}" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Editer</a>
                             </div>
                         </div>
                     </div>
@@ -258,8 +258,8 @@
 
                                 <div class="mt-4">
                                     <select id="role_id" class="form-control border-secondary" placeholder="role"
-                                        name="role_id">
-                                        <option value="{{ $userx->role }}" selected>
+                                        name="role_id" >
+                                        <option value="{{ $userx->role_id }}" selected>
                                             @if ($userx->role_id == null)Visitor
                                             @elseif ($userx->role_id == 2)Admin
                                             @elseif ($userx->role_id == 1)Full-admin
@@ -284,26 +284,7 @@
                                         value="{{ $userx->email }}" required />
                                 </div>
 
-                                <!-- Password -->
-                                <div class="mt-4">
-
-                                    <x-input id="password" class="form-control border-secondary" type="password"
-                                        placeholder="Password" name="password" value="{{ $userx->password }}" required
-                                        autocomplete="new-password" />
-                                </div>
-
-                                <!-- Confirm Password -->
-                                <div class="mt-4">
-                                    <x-input id="password_confirmation" class="form-control border-secondary"
-                                        type="password" value="{{ $userx->password }}" placeholder="Confirmer"
-                                        name="password_confirmation" required />
-                                </div>
-
                                 <div class="flex items-center justify-end mt-4">
-                                    <a class=" text-warning underline text-gray-600 hover:text-gray-900"
-                                        href="{{ route('login') }}">
-                                        {{ __('Déjà enregistré ?') }}
-                                    </a>
                                     <x-button class="btn btn-warning text-secondary" id="upload-image">
                                         {{ __('metre à jour') }}
                                     </x-button>
@@ -315,62 +296,63 @@
 
                     </div>
                 </div>
+                <script type="text/javascript">
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+            
+            
+                    var resize = $('#upload-demo').croppie({
+                        enableExif: true,
+                        enableOrientation: true,
+                        viewport: { // Default { width: 100, height: 100, type: 'square' } 
+                            width: 150,
+                            height: 150,
+                            type: 'square' //circle
+                        },
+                        boundary: {
+                            width: 200,
+                            height: 200
+                        }
+                    });
+            
+            
+                    $('#image_file').on('change', function() {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            resize.croppie('bind', {
+                                url: e.target.result
+                            }).then(function() {
+                                console.log('jQuery bind complete');
+                            });
+                        }
+                        reader.readAsDataURL(this.files[0]);
+                    });
+            
+            
+                    $('#upload-image').on('click', function(ev) {
+                        resize.croppie('result', {
+                            type: 'canvas',
+                            size: 'viewport'
+                        }).then(function(img) {
+                            $.ajax({
+                                url: "{{ route('croppie.upload-image') }}",
+                                type: "POST",
+                                data: {
+                                    "image": img,
+                                    "id":{{$userx->id}}
+                                },
+                                success: function(data) {
+            
+                                }
+                            });
+                        });
+                    });
+                </script>
             @endif
         @endif
     </div>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-
-        var resize = $('#upload-demo').croppie({
-            enableExif: true,
-            enableOrientation: true,
-            viewport: { // Default { width: 100, height: 100, type: 'square' } 
-                width: 200,
-                height: 200,
-                type: 'circle' //square
-            },
-            boundary: {
-                width: 300,
-                height: 300
-            }
-        });
-
-
-        $('#image_file').on('change', function() {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                resize.croppie('bind', {
-                    url: e.target.result
-                }).then(function() {
-                    console.log('jQuery bind complete');
-                });
-            }
-            reader.readAsDataURL(this.files[0]);
-        });
-
-
-        $('#upload-image').on('click', function(ev) {
-            resize.croppie('result', {
-                type: 'canvas',
-                size: 'viewport'
-            }).then(function(img) {
-                $.ajax({
-                    url: "{{ route('croppie.upload-image') }}",
-                    type: "POST",
-                    data: {
-                        "image": img,
-                        "id": {{ $userx->id }}
-                    },
-                    success: function(data) {
-
-                    }
-                });
-            });
-        });
-    </script>
+    
 @endsection

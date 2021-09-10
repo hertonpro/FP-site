@@ -19,7 +19,11 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="{{asset('files/profile/'.auth()->user()->image)}}"/>
+                        @if (file_exists('files/profile/'.auth()->user()->image))
+                            <img alt="image" class="rounded-circle" src="{{asset('files/profile/'.auth()->user()->image)}}"/>
+                            @else
+                            <img alt="image" class="rounded-circle" src="{{asset('files/profile/def.png')}}"/>
+                        @endif
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="block m-t-xs font-bold">{{auth()->user()->name}}</span>
                             <span class="text-muted text-xs block">

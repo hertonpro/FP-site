@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['index','show','store', 'login', 'edit', ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +63,7 @@ class UserController extends Controller
             'name' => $request->name,
             'lastname' => $request->lastname,
             'nickname' => $request->nickname,
-            'role_id'=>$request->role_id,
+            'role_id' => $request->role_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]));
@@ -79,7 +83,7 @@ class UserController extends Controller
     {
         $userx = user::find($id);
         $users = user::all()->sortByDesc('id');
-        return view('user.users', compact('userx','users'));
+        return view('user.users', compact('userx', 'users'));
     }
 
     /**
@@ -92,7 +96,7 @@ class UserController extends Controller
     {
         $userx = user::find($id);
         $users = user::all()->sortByDesc('id');
-        return view('user.users', compact('userx','users'));
+        return view('user.users', compact('userx', 'users'));
     }
 
     /**
@@ -110,7 +114,7 @@ class UserController extends Controller
         list(, $image_file)      = explode(',', $image_file);
         $image_file = base64_decode($image_file);
         $image_name = $request->id . '.png';
-        $path = public_path('files/profil/' . $image_name);
+        $path = public_path('files/profile/' . $image_name);
 
         file_put_contents($path, $image_file);
         return response()->json(['status' => true]);
@@ -125,7 +129,7 @@ class UserController extends Controller
             'nickname' => $request->nickname,
             'role_id' => $request->role_id,
             'email' => $request->email,
-            'image' => $user->id.'.png',
+            'image' => $user->id . '.png',
             'password' => Hash::make($request->password),
         ]);
         return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
