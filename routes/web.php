@@ -19,6 +19,7 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\MailController;
 use App\Models\fundraising;
 
 /*
@@ -83,4 +84,8 @@ Route::get( 'donation/cancelled/{transaction}',  [ DonationController::class, 'd
 Route::get( 'donation/notify/{transaction}',  [ DonationController::class, 'donationNotify' ] )->name('donation.notify');
 
 Route::resource('fundraising', FundraisingController::class);
+
+Route::get('sendbasicemail',[MailController::class,'basic_email']);
+Route::get('sendhtmlemail',[MailController::class,'html_email']);
+Route::get('sendattachmentemail',[MailController::class,'attachment_email']);
 
