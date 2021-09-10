@@ -10,7 +10,7 @@
                             <h5 class="mt-0">{{ $blog->titre }}</h5>
                         
                         
-                        <p>{{ date_format($blog->updated_at, 'd/m/Y H:i') }} <a href="{{ route('news.show', $blog->id) }}"><span class="badge badge-warning text-dark float-right">Lire...</span></a> </p>
+                        <p>{{ date_format($blog->updated_at, 'd/m/Y H:i') }} <a href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}"><span class="badge badge-warning text-dark float-right">Lire...</span></a> </p>
                         
                     </div>
                 </div>

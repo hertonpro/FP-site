@@ -29,11 +29,14 @@ class NewsController extends Controller
     
     public function show($blog)
     {
+        //conteur de vues et des j'aime 
+        blog::find($blog)->increment('views');
         $article = blog::find($blog);
         $comments = Comment::all()->where('blog_id', $blog)->sortByDesc('id');
-        //dd($article);
+        $scandir = array_diff(scandir('files/'.$blog), array('..', '.'));
+        //dd($scandir);
         $page = 'news';
-        return view('blog.show', compact('article','page','comments'));
+        return view('blog.show', compact('article','page','comments','scandir'));
     }
 
 }

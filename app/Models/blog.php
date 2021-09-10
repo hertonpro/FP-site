@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Comment;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Comment;
+use Illuminate\Support\Str;
 
 class Blog extends Model
 {
@@ -22,8 +23,6 @@ class Blog extends Model
 
     public function editeur()
     {
-        return $this->hasOne(user::class, 'id', 'editeur');
+        return $this->belongsTo(user::class, 'id' ,'editeur');
     }
-
-
 }

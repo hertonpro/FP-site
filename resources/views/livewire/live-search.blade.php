@@ -13,7 +13,7 @@
                 <li class="warning-element" id="task1">
                     {{ $blog->titre }}
                     <div class="agile-detail">
-                        <a href="{{ route('news.show', $blog->id) }}"
+                        <a href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}"
                             class="float-right btn btn-xs btn-primariy">Lire</a>
                         <i class="fa fa-clock-o"></i>{{ date_format($blog->updated_at, 'd/m/Y H:i') }}
                     </div>
