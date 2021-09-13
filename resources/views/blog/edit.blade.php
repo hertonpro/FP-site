@@ -18,14 +18,14 @@
                             <h2> {{ $article->titre }}</h2>
                             <hr>
                             @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="form-group">
                                 <label> <strong>Metre à jour le titre</strong> </label>
                                 <input name="titre" type="texte" placeholder="Entre titre" value="{{ $article->titre }}"
@@ -72,29 +72,7 @@
                                         value="{{ $article->img }}">
                                 </div>
                             @endif
-                            <div class="form-group">
-                                <div class="btn btn-info" type="button">
-                                    <div class="form-check">
-                                        @if ($article->state==='1')
-                                            <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
-                                            value="1" checked>
-                                            @else
-                                            <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
-                                            value="1" >
-                                        @endif
-                                        @if ($article->state === '1')
-                                            <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
-                                                value="1" checked>
-                                        @else
-                                            <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
-                                                value="1">
-                                        @endif
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Publier
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+
                             @csrf
                             <div class="pb-5 btn-group">
                                 <button class="btn btn-sm btn-info float-right m-t-n-xs">
@@ -109,6 +87,16 @@
 
                         </form>
 
+                        <form action="{{ route('blogs.publish', ['blog' => $article->id]) }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
+                                        value="1" hidden checked>
+                                </div>
+                                <button class="btn btn-info" type="submit">Publier</button>
+                            </div>
+                        </form>
 
 
                         <form id="delete-{{ $article->id }}" method="post"
@@ -162,8 +150,8 @@
                                 expace.<br>
                                 la photo doit avoir moin de <strong>2 Mb</strong>
                             </p>
-                            <form action="{{ route('files.fileupload', ['article' => $article->id]) }}" class="dropzone"
-                                id="dropzoneForm">
+                            <form action="{{ route('files.fileupload', ['article' => $article->id]) }}"
+                                class="dropzone" id="dropzoneForm">
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                 </div>
@@ -203,34 +191,34 @@
                             </thead>
                             <tbody>
                                 @forelse ($blogs as $blog)
-                                        <tr class="gradeX">
-                                            @if ($blog->editeur == auth()->user()->id && $blog->state == 0)
-                                                <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
-                                                <td>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <div class="list-group list-group-horizontal">
-                                                        <a href=""
-                                                            onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();">
-                                                            <button class="btn text-danger" type="button"><i
-                                                                    class="fa fa-times "></i></button>
-                                                        </a>
-                                                        <a href="/blogs/{{ $blog->id }}/edit">
-                                                            <button class="btn text-info" type="button"><i
-                                                                    class="fa fa-edit"></i></button>
-                                                        </a>
-                                                        <a href="/blogs/{{ $blog->id }}">
-                                                            <button class="btn text-info" type="button"><i
-                                                                    class="fa fa-eye"></i></button>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            @endif
+                                    <tr class="gradeX">
+                                        @if ($blog->editeur == auth()->user()->id && $blog->state == 0)
+                                            <td> <a href="/blogs/{{ $blog->id }}">{{ $blog->titre }}</a> </td>
+                                            <td>
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="list-group list-group-horizontal">
+                                                    <a href=""
+                                                        onclick="if(confirm('Do you want to delete this blogs?'))event.preventDefault(); document.getElementById('delete-{{ $blog->id }}').submit();">
+                                                        <button class="btn text-danger" type="button"><i
+                                                                class="fa fa-times "></i></button>
+                                                    </a>
+                                                    <a href="/blogs/{{ $blog->id }}/edit">
+                                                        <button class="btn text-info" type="button"><i
+                                                                class="fa fa-edit"></i></button>
+                                                    </a>
+                                                    <a href="/blogs/{{ $blog->id }}">
+                                                        <button class="btn text-info" type="button"><i
+                                                                class="fa fa-eye"></i></button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        @endif
 
-                                        @empty
-                                            <td class="text-warning">Pas d'article disponible !!!</td>
-                                        </tr>
-                                    @endforelse
+                                    @empty
+                                        <td class="text-warning">Pas d'article disponible !!!</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

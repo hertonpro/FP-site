@@ -38,6 +38,7 @@ class RegisteredUserController extends Controller
             'nickname' => 'string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'newsletter' => 'string|max:2',
         ]);
 
         Auth::login($user = User::create([
@@ -45,6 +46,7 @@ class RegisteredUserController extends Controller
             'lastname' => $request->lastname,
             'nickname' => $request->nickname,
             'email' => $request->email,
+            'newsletter' => $request->newsletter,
             'password' => Hash::make($request->password),
         ]));
 

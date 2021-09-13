@@ -61,6 +61,10 @@
                     <x-input id="password_confirmation" class="form-control border-secondary" type="password"
                         placeholder="Confirmer" name="password_confirmation" required />
                 </div>
+                <div class="form-check">
+                  <input type="checkbox"  class="form-check-input" id="exampleCheck1" value="1" name="newsletter">
+                  <label class="form-check-label" for="exampleCheck1">S'abonner à la newsletter</label>
+                </div>
 
                 <div class="flex items-center justify-end mt-4">
                     <a class=" text-warning underline text-gray-600 hover:text-gray-900"

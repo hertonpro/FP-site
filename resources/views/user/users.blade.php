@@ -7,11 +7,11 @@
         <div class="hk-pg-header">
             <h3 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i
                             data-feather="user"></i></span></span> Utilisateurs</h3>
-                            dd{{$users}}
+            dd{{ $users }}
 
-                            @foreach ($users as $user)
-                                <li>{{$user->name}}</li>
-                            @endforeach
+            @foreach ($users as $user)
+                <li>{{ $user->name }}</li>
+            @endforeach
         </div>
         <!-- /Title -->
         <div class="row">
@@ -31,12 +31,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                       <tr>
+                                    <tr>
                                         <td>Tiger Nixon</td>
                                         <td>System Architect</td>
                                         <td>Edinburgh</td>
                                         <td>
-                                            <a href="#"> <abbr title="Voir"><i data-feather="user" ></i></abbr> </a>
+                                            <a href="#"> <abbr title="Voir"><i data-feather="user"></i></abbr> </a>
                                         </td>
                                         <td>
                                             <a href="#"><abbr title="edite"><i data-feather="file"></i></abbr></a>
@@ -44,7 +44,7 @@
                                         <td>
                                             <a href="#"><abbr title="trash"><i data-feather="trash"></i></abbr></a>
                                         </td>
-                                    </tr> 
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -55,7 +55,8 @@
             <div>
                 <form method="post" action="/blog">
                     <div class="input-group">
-                        <input class="form-control" type="text" name="" placeholder="Recipient's text" aria-label="Recipient's " aria-describedby="my-addon">
+                        <input class="form-control" type="text" name="" placeholder="Recipient's text"
+                            aria-label="Recipient's " aria-describedby="my-addon">
                         <div class="input-group-append">
                             <span class="input-group-text" id="my-addon">Text</span>
                         </div>

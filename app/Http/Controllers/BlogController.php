@@ -130,7 +130,6 @@ class BlogController extends Controller
                 'type' => $request->type,
                 'article' => $request->article,
                 'tag' => $request->tag,
-                'state' => $request->state,
                 'editeur' => $request->editeur
             ]);
         } else {
@@ -144,7 +143,6 @@ class BlogController extends Controller
                 'type' => $request->type,
                 'article' => $request->article,
                 'tag' => $request->tag,
-                'state' => $request->state,
                 'img' => $fileName,
                 'editeur' => $request->editeur
             ]);
@@ -155,6 +153,16 @@ class BlogController extends Controller
         return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
     }
 
+    public function publish($blog, Request $request)
+    {
+        $article = blog::find($blog);
+        
+            $article->update([
+                'state' => $request->state
+            ]);
+        
+        return Redirect::back()->with('message', 'L\'article à été publié avec succès');
+    }
     /**©
      * Remove the specified resource from storage.
      *

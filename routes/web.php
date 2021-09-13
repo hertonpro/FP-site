@@ -40,6 +40,7 @@ Route::get('/ok', function () {
 
 Route::resource('/user', UserController::class);
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
+Route::post('/blogs/{blog}/publish', [BlogController::class, 'publish'])->middleware(['auth'])->name('blogs.publish');
 Route::resource('news',NewsController::class);
 Route::get('cat/{cat}',[NewsController::class,'media'] )->name('cat');
 Route::get('/admin', function(){
