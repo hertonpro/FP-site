@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 
 class BlogController extends Controller
 {
@@ -155,11 +157,21 @@ class BlogController extends Controller
 
     public function publish($blog, Request $request)
     {
-        $article = blog::find($blog);
+        $subscribers = User::where('newsletter', '1')->get(['email'])->toArray();
         
-            $article->update([
-                'state' => $request->state
-            ]);
+        $emails=array_column($subscribers, 'email');
+        $article = blog::find($blog);
+
+        $article->update([
+            'state' => $request->state
+        ]);
+                $data = array();
+   
+      Mail::send(['text'=>'mail'], $data, function($message) use ($emails){
+         $message->to($emails, 'Tutorials Point')->subject
+            ('Laravel Basic Testing Mail');
+         $message->from('info@fondationpanzi.org', 'Fondation Panzi');
+      });
         
         return Redirect::back()->with('message', 'L\'article à été publié avec succès');
     }
