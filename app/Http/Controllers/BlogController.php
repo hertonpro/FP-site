@@ -97,7 +97,6 @@ class BlogController extends Controller
     public function show($blog)
     {
         $article = blog::find($blog)->sortByDesc('id');
-        //dd($article);
         return view('blog.show', compact('article'))->with('message', 'edition');
     }
 

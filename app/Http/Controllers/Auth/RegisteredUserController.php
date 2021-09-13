@@ -45,6 +45,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'lastname' => $request->lastname,
             'nickname' => $request->nickname,
+            'role'=>$request->role,
             'email' => $request->email,
             'newsletter' => $request->newsletter,
             'password' => Hash::make($request->password),
@@ -52,6 +53,6 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->back();
     }
 }
