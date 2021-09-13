@@ -150,7 +150,7 @@ $url .= $_SERVER['REQUEST_URI'];
                                             <h5>Stats:</h5>
                                             <div> <i class="fa fa-comments-o"> </i> {{ count($comments) }} comments
                                             </div>
-                                            <i class="fa fa-eye"> </i> 144 views
+                                            <i class="fa fa-eye"> </i> {{$article->views}} views
                                         </div>
                                     </div>
                                 </div>
