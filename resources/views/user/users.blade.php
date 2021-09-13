@@ -5,7 +5,6 @@
     <script src="{{ asset('js/croppie.js') }}"></script>
     <div class="container ">
         <div class="d-flex justify-content-end m-1">
-
         </div>
     </div>
 

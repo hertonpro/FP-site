@@ -19,6 +19,7 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageCropController;
 use App\Models\fundraising;
 
@@ -40,6 +41,8 @@ Route::get('/ok', function () {
 
 Route::resource('/user', UserController::class);
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
+Route::post('/blogs/{blog}/publish', [BlogController::class, 'publish'])->middleware(['auth'])->name('blogs.publish');
+Route::resource('news',NewsController::class);
 //Route::resource('news',NewsController::class);
 Route::get('nwes/', [NewsController::class,'index'])->name('news.index');
 Route::get('nwes/{news}-{slug?}', [NewsController::class,'show'])->name('news.show');
@@ -87,5 +90,8 @@ Route::get( 'donation/notify/{transaction}',  [ DonationController::class, 'dona
 
 Route::resource('fundraising', FundraisingController::class);
 
+Route::get('sendbasicemail',[MailController::class,'basic_email']);
+Route::get('sendhtmlemail',[MailController::class,'html_email']);
+Route::get('sendattachmentemail',[MailController::class,'attachment_email']);
 Route::get('crop-image', [ImageCropController::class,'index']);
 Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
