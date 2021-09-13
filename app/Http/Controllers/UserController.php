@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only(['index','show','store', 'login', 'edit', ]);
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -129,8 +129,7 @@ class UserController extends Controller
             'nickname' => $request->nickname,
             'role_id' => $request->role_id,
             'email' => $request->email,
-            'image' => $user->id . '.png',
-            'password' => Hash::make($request->password),
+            'image' => $user->id . '.png'
         ]);
         return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
     }
