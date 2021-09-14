@@ -28,7 +28,7 @@ class BlogController extends Controller
     public function index()
     {
         //affiches les 50 dernieres articles posters
-        $blogs = blog::all()->sortByDesc('id');
+        $blogs = Blog::all()->sortByDesc('id');
         //dd($blogs);
         return view('blog.index', compact('blogs'));
     }
@@ -47,7 +47,7 @@ class BlogController extends Controller
 
     public function create()
     {
-        $blogs = blog::all()->sortByDesc('id');
+        $blogs = Blog::all()->sortByDesc('id');
         return view('blog.create', compact('blogs'));
     }
 
@@ -70,7 +70,7 @@ class BlogController extends Controller
             'editeur' => 'nullable'
         ]);
 
-        blog::create($request->all());
+        Blog::create($request->all());
 
         return redirect()->route('blogs.create')
             ->with('success', 'votre article à etais enregistre dans les brouillons');
@@ -96,7 +96,7 @@ class BlogController extends Controller
      */
     public function show($blog)
     {
-        $article = blog::find($blog)->sortByDesc('id');
+        $article = Blog::find($blog)->sortByDesc('id');
         return view('blog.show', compact('article'))->with('message', 'edition');
     }
 
@@ -109,8 +109,8 @@ class BlogController extends Controller
      */
     public function edit($blog)
     {
-        $article = blog::find($blog);
-        $blogs = blog::all()->sortByDesc('id');
+        $article = Blog::find($blog);
+        $blogs = Blog::all()->sortByDesc('id');
         return view('blog.edit', compact('article'), compact('blogs'));
     }
 
@@ -123,8 +123,8 @@ class BlogController extends Controller
      */
     public function update($blog, Request $request)
     {
-        //dd($request->img);//$post=blog::findOrFail($blog);
-        $article = blog::find($blog);
+        //dd($request->img);//$post=Blog::findOrFail($blog);
+        $article = Blog::find($blog);
         if ($request->img === NULL) {
             $article->update([
                 'titre' => $request->titre,
@@ -159,7 +159,7 @@ class BlogController extends Controller
         $subscribers = User::where('newsletter', '1')->get(['email'])->toArray();
         
         $emails=array_column($subscribers, 'email');
-        $article = blog::find($blog);
+        $article = Blog::find($blog);
 
         $article->update([
             'state' => $request->state
@@ -182,7 +182,7 @@ class BlogController extends Controller
      */
     public function destroy($blog)
     {
-        $blog = blog::findOrFail($blog);
+        $blog = Blog::findOrFail($blog);
 
         $blog->delete();
 

@@ -8,7 +8,7 @@ use App\Models\Blog;
 class Search
 {
     public static function data(){
-        return $datas = blog::all();
+        return $datas = Blog::all();
     } 
     public static function SearchBy(string $key)
     {

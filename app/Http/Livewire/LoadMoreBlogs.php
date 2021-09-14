@@ -19,7 +19,7 @@ class LoadMoreBlogs extends Component
 
     public function render()
     {
-        $blogs = blog::latest()->paginate($this->limitPerPage);
+        $blogs = Blog::latest()->paginate($this->limitPerPage);
         $this->emit('blogStore');
 
         return view('livewire.load-more-blogs', ['blogs' => $blogs]);

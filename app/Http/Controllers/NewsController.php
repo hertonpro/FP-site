@@ -11,7 +11,7 @@ class NewsController extends Controller
     public function index()
     {
         //affiches les 50 dernieres articles posters
-        $blogs = blog::all()->where('state', '1' )->sortByDesc('id')->take(7);
+        $blogs = Blog::all()->where('state', '1' )->sortByDesc('id')->take(7);
        //dd($blogs);
         $page = 'news';
         return view('blog.news', compact('blogs','page'));
@@ -20,7 +20,7 @@ class NewsController extends Controller
     public function media($cat)
     {
         //affiches les 50 dernieres articles posters
-        $blogs = blog::all()->where('state', '1')->where('type',$cat)->sortByDesc('id');
+        $blogs = Blog::all()->where('state', '1')->where('type',$cat)->sortByDesc('id');
        //dd($blogs);
         $page = 'news';
         return view('blog.news', compact('blogs','page'));
@@ -30,8 +30,8 @@ class NewsController extends Controller
     public function show($blog)
     {
         //conteur de vues et des j'aime 
-        blog::find($blog)->increment('views');
-        $article = blog::find($blog);
+        Blog::find($blog)->increment('views');
+        $article = Blog::find($blog);
         $comments = Comment::all()->where('blog_id', $blog)->sortByDesc('id');
         $scandir = array_diff(scandir('files/'.$blog), array('..', '.'));
         //dd($scandir);
