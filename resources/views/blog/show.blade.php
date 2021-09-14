@@ -60,7 +60,7 @@ $url .= $_SERVER['REQUEST_URI'];
                     <div class="col-lg-12 text-dark">
                         <div class="row">
                             <div class="col-lg-2">
-                                <x-catNews />
+                                <x-cat-news />
                             </div>
                             <div class="col-lg-7 ">
                                 @if ($article->state != 1)

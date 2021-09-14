@@ -6,7 +6,7 @@
 
         <div class="col-lg-12 text-dark mb-5">
             <div class="row">
-                <x-catNews />
+                <x-cat-news />
                 <div class="col-lg-7 ">
                     @foreach ($blogs as $blog)
                         @if ($loop->first)

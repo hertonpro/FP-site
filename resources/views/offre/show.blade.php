@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="col-lg-12 text-dark">
             <div class="row">
-                <x-catNews />
+                <x-cat-news />
                 <div class="col-lg-7 ">
                     @if ($offre->state == 0)
                         <div class="alert alert-primary" role="alert">
