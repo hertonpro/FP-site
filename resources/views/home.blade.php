@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 overflow-auto" style="height: 370px">
-                    <x-offre></x-offre>
+                    <x-offre>
                 </div>
             </div>
             <div class="row">
