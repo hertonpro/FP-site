@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\fundraising;
+use App\Models\Fundraising;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -25,12 +25,12 @@ class fund extends Component
      */
     public function render()
     {
-        if (fundraising::all()->last() === null) {
+        if (Fundraising::all()->last() === null) {
             
         }else{
-            $fundraising=fundraising::all()->last();
-        $colect=DB::table('transactions')->where('fundraising' , '=', $fundraising->id)->sum('amount');
-        return view('components.fund', compact('fundraising','colect'));
+            $Fundraising=Fundraising::all()->last();
+        $colect=DB::table('transactions')->where('Fundraising' , '=', $Fundraising->id)->sum('amount');
+        return view('components.fund', compact('Fundraising','colect'));
         }
     }
 }
