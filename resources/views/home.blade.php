@@ -2,6 +2,8 @@
 
 @section('content')
 
+                        <example-component></example-component>
+
     <div class="container-fluid">
 
         <div class="col-lg-12 text-dark mb-5">
