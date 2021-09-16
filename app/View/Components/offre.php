@@ -12,7 +12,7 @@ use Illuminate\View\Component;
 
 
 
-class offre extends Component
+class Offre extends Component
 
 {
 
