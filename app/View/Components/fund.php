@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class fund extends Component
 {
+    public $fundraising;
+        public $colect;
     /**
      * Create a new component instance.
      *
@@ -15,7 +17,8 @@ class fund extends Component
      */
     public function __construct()
     {
-        //
+        $this->fundraising = Fundraising::all()->last();
+        $this->colect = DB::table('transactions')->where('fundraising', '=', $this->fundraising->id)->sum('amount');
     }
 
     /**
@@ -25,12 +28,8 @@ class fund extends Component
      */
     public function render()
     {
-        if (Fundraising::all()->last() === null) {
-            
-        }else{
-            $fundraising=Fundraising::all()->last();
-        $colect=DB::table('transactions')->where('fundraising' , '=', $fundraising->id)->sum('amount');
-        return view('components.fund', compact('fundraising','colect'));
-        }
+        $fundraising=$this->fundraising;
+        $colect=$this->colect;
+        return view('components.fund', compact('fundraising', 'colect'));
     }
 }
