@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 overflow-auto" style="height: 370px">
-                    @include('Components.offre')
+                    @include('components.offre')
                 </div>
             </div>
             <div class="row">
