@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 
 
-use App\Models\Offre as modeloffre;
+use App\Models\offre as modeloffre;
 
 use Illuminate\View\Component;
 
