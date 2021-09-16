@@ -5,7 +5,7 @@
 
         <div class="col-lg-12 text-dark mb-5">
             <div class="row m-md-4">
-                <x-cat-news></x-cat-news>
+                @include('Components.cat-news')
                 <div class="col-lg-7">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 overflow-auto" style="height: 370px">
-                    <x-offre></x-offre>
+                    @include('Components.offre')
                 </div>
             </div>
             <div class="row">
