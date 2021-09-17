@@ -21,7 +21,7 @@
     <div>
         @foreach (alloffres() as $offre)
 
-            @if (strtotime($offre->deadline) > strtotime(date('Y-m-d H:i:s')) and $offre->state === 1)
+            @if (strtotime($offre->deadline) > strtotime(date('Y-m-d H:i:s')) and $offre->state == 1)
 
                 <a href="{{ url('offrev/' . $offre->id) }}" class=" text-primary">
 

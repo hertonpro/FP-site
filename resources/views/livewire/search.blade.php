@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         @foreach (alloffres() as $offre)
-        @if ($offre->state === 1)
+        @if ($offre->state == 1)
             <div class="col-sm-5 m-4">
                 @if (strtotime($offre->deadline) > strtotime(date('Y-m-d H:i:s')))
                     <div class="card alert-success">
