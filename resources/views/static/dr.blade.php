@@ -136,7 +136,7 @@
                 Linkedin</a>
         </p>
         <div class="col-3">
-            <x-offre></x-offre>
+            @include('components.offre')
         </div>
     </div>
 

@@ -35,7 +35,7 @@
 
                 </div>
                 <div class="col-lg-3 ">
-                    <x-offre></x-offre>
+                    @include('components.offre')
                 </div>
             </div>
 
