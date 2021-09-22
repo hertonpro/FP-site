@@ -6,6 +6,7 @@
 @livewireStyles()
 <!-- Fonts -->
 
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset() }}">
 
 <link href="{{ asset('bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
 <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">

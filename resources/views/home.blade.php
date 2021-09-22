@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <x-fund></x-fund>
+            @include('components.fund')
             <div class="text-center p-4">
                 <strong class="h1">Les chiffres clés</strong>
                 <div class="row p-3 text-center  d-flex justify-content-center">

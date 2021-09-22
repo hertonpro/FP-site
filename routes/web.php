@@ -21,6 +21,7 @@ use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageCropController;
+use App\Http\Controllers\ContactmessageController;
 use App\Models\fundraising;
 
 /*
@@ -95,3 +96,4 @@ Route::get('sendhtmlemail',[MailController::class,'html_email']);
 Route::get('sendattachmentemail',[MailController::class,'attachment_email']);
 Route::get('crop-image', [ImageCropController::class,'index']);
 Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
+Route::post('contactmessage',[ContactmessageController::class,'store']);

@@ -87,6 +87,7 @@
                                 href="{{ url('onesc') }}">one stop center</a>"</h3>
                     </div>
                     <x-fund></x-fund>
+                    @include('Components.fund')
                         <h2 class="font-weight-bold">Histoire de survivants</h2>
                         <p>Du cauchemar au sourire dans l'espoir d'une réparation complète</p>
                         <div class="row">
