@@ -138,16 +138,17 @@
 
                     <!-- Links -->
                     <h5 class="text-uppercase text-white">Contactez-nous</h5>
-                    <form action="contactmessage" method="POST">
+                    <form action="{{ route('contactmessage') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <input type="texte" placeholder="Sujet" name="sujet"
                                 class="form-control rounded form-control-sm">
-                            <input type="texte" placeholder="Nom complet" name="exp_nom"
+                            <input type="texte" id="name" placeholder="Nom" name="exp_nom"
                                 class="mt-2 form-control rounded form-control-sm">
-                            <input type="mail" placeholder="E-mail" name="exp_mail"
+                            <input type="mail" id="email" placeholder="E-mail" name="exp_mail"
                                 class=" mt-2 form-control rounded form-control-sm">
                             <textarea class="form-control rounded mt-2" placeholder="Ecrivez-votre message" id=""
-                                cols="20" rows="5"></textarea>
+                                cols="20" rows="5" name="message"></textarea>
                             <button class="btn btn-primary mt-2" type="submit">Envoyer</button>
                         </div>
                     </form>
@@ -180,5 +181,6 @@ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRk
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
 </script>
-
+<script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+@include('sweetalert::alert')
 </html>
