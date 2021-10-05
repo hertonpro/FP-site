@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Contactmessage;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\MailController;
 
 use Illuminate\Http\Request;
 
 class ContactmessageController extends Controller
 {
-    public $request;
+    public $data;
 
 
     public function store(Request $request)
@@ -22,12 +23,16 @@ class ContactmessageController extends Controller
             'message' => 'required'
         ]);
         Contactmessage::create($request->all());
-        $this->request=$request;
-
-        $data = array('name' => $request->exp_nom, );
-        Mail::send('mail', $data, function ($message) {
-            $message->to($this->request->exp_mail, 'Contact Fondation Panzi')->subject('Fondation Panzi|' . $this->request->sujet);
-            $message->from('info@fondationpanzi.org', 'Communication');
+        $data=array(
+            'sujet' => $request->sujet,
+            'exp_nom' => $request->exp_nom,
+            'exp_mail' => $request->exp_mail,
+            "mail_message"=>"Nous sommes ravies de vous informer que nous avons ressuies votre message avec succès,nous vous revenons dans un bref délai pour plus des détails."
+        );
+        $this->data=(object)$data;
+        Mail::send('layouts.mail', $data,function ($message) {
+            $message->to($this->data->exp_mail, $this->data->exp_nom)->subject('Fondation Panzi|' . $this->data->sujet);
+            $message->from('info@fondationpanzi.org', 'Fondation Panzi');
         });
         Alert::success('Success', 'Votre message a été envoyé avec succès!');
         return redirect()->back();

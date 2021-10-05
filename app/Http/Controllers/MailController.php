@@ -38,24 +38,4 @@ class MailController extends Controller {
       });
       echo "Email Sent with attachment. Check your inbox.";
    }
-   static function global_mail($request){
-      $data = array('name' => $request->name, 'message' => $request->massage);
-      Mail::send('Html.view', $data, function ($message) {
-          $message->from('info@fondationpanzirdc.com', 'service de communication');
-          $message->to($this->request->exp_mail, $this->request->exp_name);
-          if (isset($this->request->cc)) {
-            $message->cc('john@johndoe.com', 'John Doe');
-          }
-          if (isset($this->request->cc)) {
-            $message->bcc('john@johndoe.com', 'John Doe');
-          }
-          $message->replyTo('john@johndoe.com', 'John Doe');
-          $message->subject('Subject');
-          $message->priority(3);
-          foreach ($this->request->ataches as $atach) {
-             $message->attach($atach);
-          }
-          
-      });
-   }
 }

@@ -38,7 +38,7 @@ use App\Models\fundraising;
 Route::get('/', [homeController::class,'index']);
 Route::get('/home', [homeController::class,'index']);
 Route::get('/ok', function () {
-    return view('layouts.HTML5_Full_Version.ok');
+    return view('mail');
 });
 
 Route::resource('/user', UserController::class)->middleware('role');
@@ -98,3 +98,4 @@ Route::get('sendattachmentemail',[MailController::class,'attachment_email']);
 Route::get('crop-image', [ImageCropController::class,'index']);
 Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
 Route::post('/contactmessage',[ContactmessageController::class,'store'])->name('contactmessage');
+route::post('/nwesletter/{mail}', 'NewsletterController@store')->name('addOnNewsLetter');

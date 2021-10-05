@@ -87,7 +87,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li style="padding: 20px">
-                        <span class="m-r-sm text-muted welcome-message">Bienvenue sur l'interface d'administration de FP-site</span>
+                        <span class="m-r-sm text-muted welcome-message">Bienvenue sur l'interface d'administration de <a href="/home">FP-site</a> </span>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
