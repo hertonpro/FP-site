@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\fundraising;
+use App\Models\Fundraising;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\Promise\all;
@@ -59,7 +59,7 @@ class FundraisingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\fundraising  $fundraising
+     * @param  \App\Models\Fundraising  $fundraising
      * @return \Illuminate\Http\Response
      */
     public function show(fundraising $fundraising)
@@ -70,7 +70,7 @@ class FundraisingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\fundraising  $fundraising
+     * @param  \App\Models\Fundraising  $fundraising
      * @return \Illuminate\Http\Response
      */
     public function edit(fundraising $fundraising)
@@ -82,7 +82,7 @@ class FundraisingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\fundraising  $fundraising
+     * @param  \App\Models\Fundraising  $fundraising
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, fundraising $fundraising)
@@ -93,7 +93,7 @@ class FundraisingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\fundraising  $fundraising
+     * @param  \App\Models\Fundraising  $fundraising
      * @return \Illuminate\Http\Response
      */
     public function destroy(fundraising $fundraising)

@@ -142,28 +142,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#ffffff" align="left">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a
-                                                        href="#" target="_blank"
-                                                        style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Ajouter
-                                                        au Nwesletter</a></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr> <!-- COPY -->
-                    <tr>
                         <td bgcolor="#ffffff" align="left"
                             style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Cliquer sur le boutton "Ajouter au Nwesletter" pour resevoir
-                                regulierement les nouvelles de la Fondation Panzi</p>
+                            <p style="margin: 0;">Cliquer sur le lien "Ajouter au Nwesletter" pour resevoir
+                                regulierement les nouvelles de la Fondation Panzi <a href="http://origine.org/newsletter?nom={{ $exp_nom }}&mail={{ $exp_mail }}" style="color: #FFA73B;">Ajouter au Nwesletter</a></p>
                         </td>
                     </tr> <!-- COPY -->
                     <tr>

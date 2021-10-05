@@ -14,7 +14,7 @@ class homeController extends Controller
         //affiches les 50 dernieres articles posters
         $blogs = Blog::all()->where('state', '1')->where('type','!=','Médias')->sortByDesc('id')->take(8);
         $medias = Blog::all()->where('type','=','Médias')->sortByDesc('id')->take(6);
-        $fundraising = Fundraising::all()->last();
+        $fundraising = fundraising::all()->last();
         $colect = DB::table('transactions')->where('fundraising', '=', $fundraising->id)->sum('amount');
         return view('home', compact('blogs','medias','fundraising', 'colect'));
     }

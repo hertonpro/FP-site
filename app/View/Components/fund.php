@@ -25,7 +25,7 @@ class fund extends Component
      */
     public function render()
     {
-        $fundraising = Fundraising::all()->last();
+        $fundraising = fundraising::all()->last();
         $colect = DB::table('transactions')->where('fundraising', '=', $fundraising->id)->sum('amount');
         return view('components.fund', compact('fundraising', 'colect'));
     }

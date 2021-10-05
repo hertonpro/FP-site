@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
-use App\Models\Contactmessage;
+use App\Models\contactmessage;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Controllers\MailController;
 
 use Illuminate\Http\Request;
 
@@ -22,7 +21,7 @@ class ContactmessageController extends Controller
             'exp_mail' => 'required',
             'message' => 'required'
         ]);
-        Contactmessage::create($request->all());
+        contactmessage::create($request->all());
         $data=array(
             'sujet' => $request->sujet,
             'exp_nom' => $request->exp_nom,

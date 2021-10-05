@@ -16,14 +16,15 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\BailleurController;
 use App\Http\Controllers\AwardController;
-use App\Http\Controllers\FundraisingController;
+use App\Http\Controllers\fundraisingController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageCropController;
 use App\Http\Controllers\ContactmessageController;
+use App\Http\Controllers\NewsletterController;
 
-use App\Models\fundraising;
+use App\Models\Fundraising;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,5 +98,5 @@ Route::get('sendhtmlemail',[MailController::class,'html_email']);
 Route::get('sendattachmentemail',[MailController::class,'attachment_email']);
 Route::get('crop-image', [ImageCropController::class,'index']);
 Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
-Route::post('/contactmessage',[ContactmessageController::class,'store'])->name('contactmessage');
-route::post('/nwesletter/{mail}', 'NewsletterController@store')->name('addOnNewsLetter');
+Route::post('contactmessage',[ContactmessageController::class,'store']);
+Route::resource('newsletter', NewsletterController::class);

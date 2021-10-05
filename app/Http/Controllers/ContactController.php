@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class ContactController extends Controller
 {
     public function contact(){
-        $fundraising = Fundraising::all()->last();
+        $fundraising = fundraising::all()->last();
         $colect = DB::table('transactions')->where('fundraising', '=', $fundraising->id)->sum('amount');
         return view('contact.index');
     }

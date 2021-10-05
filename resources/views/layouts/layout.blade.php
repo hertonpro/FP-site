@@ -138,7 +138,7 @@
 
                     <!-- Links -->
                     <h5 class="text-uppercase text-white">Contactez-nous</h5>
-                    <form action="{{ route('contactmessage') }}" method="POST">
+                    <form action="contactmessage" method="POST">
                         @csrf
                         <div class="form-group">
                             <input type="texte" placeholder="Sujet" name="sujet"
