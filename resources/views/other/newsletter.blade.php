@@ -27,17 +27,19 @@
                                         src="{{ asset('img/Logo-fondation-panzi-site-web.png') }}" alt="logo"
                                         class="logo"></a>
                             </div>
-                            <p class="login-card-description">Merci <strong><?php echo $_GET['nom'] ?></strong>  de confirmer votre abonnement en cliquant sur le buton "<strong>confirmer</strong>"</p>
+                            <p class="login-card-description">Merci <strong><?php echo $_GET['nom']; ?></strong> de confirmer
+                                votre abonnement en cliquant sur le buton "<strong>confirmer</strong>"</p>
                             <form action="newsletter" method="POST">
                                 @csrf
-                                <input type="text" hidden name="nom" value="<?php echo $_GET['nom'] ?> ">
-                                <input type="mail" hidden name="mail" value="<?php echo $_GET['mail'] ?>">
+                                <input type="text" hidden name="nom" value="<?php echo $_GET['nom']; ?> ">
+                                <input type="mail" hidden name="mail" value="<?php echo $_GET['mail']; ?>">
 
 
                                 {{-- <label for="">Laisser un message </label>
                                 <textarea class=" form-control form-control-sm" name="message"></textarea> --}}
                                 <br>
                                 <input type="submit" class="btn btn-warning" value="Confirmer">
+                                <a class="btn btn-danger" href="/">Annuler</a>
 
                             </form>
                         </div>
