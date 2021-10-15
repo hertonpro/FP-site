@@ -30,59 +30,60 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row activitys">
-                        <div class=" d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/mr.jpg') }}');">
+
+                    <div class="row activitys mt-4 mx-auto">
+                        <div class=" d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/mr.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Maroquinerie</h2>
                             </div>
                         </div>
-                        <div class=" d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/dc.jpg') }}');">
+                        <div class=" d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/dc.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Dance</h2>
                             </div>
                         </div>
-                        <div class=" d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/cou.jpg') }}');">
+                        <div class=" d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/cou.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Couture</h2>
                             </div>
                         </div>
-                        <div class="d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/dr2.jpg') }}');">
+                        <div class="d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/dr2.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">informatique</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="row activitys">
-                        <div class=" d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/mot.jpg') }}');">
+                    <div class="row activitys mx-auto">
+                        <div class=" d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/mot.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Motivation</h2>
                             </div>
                         </div>
-                        <div class=" d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/al.jpg') }}');">
+                        <div class=" d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/al.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Alphabétisation</h2>
                             </div>
                         </div>
-                        <div class=" d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/coi.jpg') }}');">
+                        <div class=" d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/coi.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Coiffure </h2>
                             </div>
                         </div>
-                        <div class="d-flex align-items-end rounded-lg m-2"
-                            style="height:13em; width:20em; background-image: url('{{ asset('img/fp/tra.jpg') }}');">
+                        <div class="d-flex align-items-end rounded-lg m-1"
+                            style="height:10em; width:16em; background-image: url('{{ asset('img/fp/tra.jpg') }}');">
                             <div class="col-lg-12" style=" background:hsla(0, 0%, 26%, 0.6); color:#FFC20C;">
                                 <h2 class="font-weight-bold text-center">Transformation</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-10  mb-4">
                         <h3 class=" font-weight-bold text-right">découvrez d'autre activité du "<a class=" text-warning"
                                 href="{{ url('onesc') }}">one stop center</a>"</h3>
                     </div>

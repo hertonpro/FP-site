@@ -16,7 +16,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link border-right" href="/pilier">Nos activités<i class="arrow down"></i> </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="onesc">One stope center</a>
+                        <li><a class="dropdown-item" href="/onesc">One stope center</a>
                         </li>
                         <li><a class="dropdown-item" href="{{ route('pilier.show', '1') }}">Les piliers &raquo;</a>
                             <ul class="submenu">
