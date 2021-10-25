@@ -19,7 +19,7 @@ class CheckRole
         if (!auth()->check() ) {
             abort(401);
         }else{
-            if (auth()->user()->role_id !== 1) {
+            if (auth()->user()->role_id === 4) {
                 abort(401); 
             }
         }
