@@ -23,6 +23,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageCropController;
 use App\Http\Controllers\ContactmessageController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\InfogeneralController;
 
 use App\Models\Fundraising;
 
@@ -41,7 +42,6 @@ Route::get('/home', [homeController::class,'index']);
 Route::get('/ok', function () {
     return view('mail');
 });
-
 Route::resource('/user', UserController::class)->middleware('role');
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
 Route::post('/blogs/{blog}/publish', [BlogController::class, 'publish'])->middleware(['auth'])->name('blogs.publish');
@@ -51,7 +51,7 @@ Route::get('nwes/', [NewsController::class,'index'])->name('news.index');
 Route::get('nwes/{news}-{slug?}', [NewsController::class,'show'])->name('news.show');
 Route::get('cat/{cat}',[NewsController::class,'media'] )->name('cat');
 Route::get('/admin', function(){
-    return view('admin.index');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 Route::post('comment',[blogController::class,'comment'] )->middleware(['auth'])->name('comment');
 
@@ -100,3 +100,4 @@ Route::get('crop-image', [ImageCropController::class,'index']);
 Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
 Route::post('contactmessage',[ContactmessageController::class,'store']);
 Route::resource('newsletter', NewsletterController::class);
+Route::resource('general', InfogeneralController::class);

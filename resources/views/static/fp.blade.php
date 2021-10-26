@@ -19,8 +19,8 @@
                             aria-controls="profile" aria-selected="false">Historique</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="eq-tab" data-toggle="tab" href="#eq" role="tab"
-                            aria-controls="eq" aria-selected="false">Notre équipe</a>
+                        <a class="nav-link" id="eq-tab" data-toggle="tab" href="#eq" role="tab" aria-controls="eq"
+                            aria-selected="false">Notre équipe</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -307,8 +307,111 @@
                         </p>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <p>
-                            <!--historique--> 
+                        <p class="mt-4">
+                            <!--historique-->
+                            <img class=" p-2" src="{{asset('files/other/home.jpg')}}" style="width: 50%; margin-left:50px object-fit: cover;"
+                            alt="Photo une femme en joie " align="left" >
+
+                            Comme Martin Luther King, j’ai un rêve, celui de fermer le pavillon des Survivantes de Violences
+                            Sexuelles de l’Hôpital de Panzi. Ce rêve est un rêve global, il signifierait que les violences
+                            auraient
+                            cessées, il signifierait que plus jamais les salles d’opération de l’hôpital, ne devraient
+                            soigner nos
+                            précieuses femmes et filles de toute l’horreur que représente la violence sexuelle en temps de
+                            guerre.
+                            Une barbarie humaine orchestrée par une soif de profit qui dépasse toute notion de respect de
+                            l’autre,
+                            de respect de la vie humaine, de respect des valeurs élémentaires qui nous permettent de vivre
+                            ensemble.
+                            Chers partenaires, ce qui nous lie aujourd’hui ne devrait pas être. Quand pourrons-nous nous
+                            rencontrer en temps de paix ?
+                            Cette année fut marquante, la douleur des femmes congolaises a été mise en lumière partout dans
+                            le
+                            monde, une reconnaissance qui change beaucoup de choses.</p>
+                            <p>Le Prix Nobel de Paix a permis à ceux
+                            qui ignoraient encore la douleur de leurs semblables vivant à des milliers de kilomètres, mais
+                            aussi
+                            parfois à une petite dizaine de kilomètre seulement, de prendre conscience que l’impensable
+                            existe.
+                            La reconnaissance est primordiale dans le processus de guérison d’une victime de violences
+                            sexuelles.
+                            Reconnaitre la peine de l’autre, c’est avoir de la considération pour ce qu’il a vécu. La honte
+                            change
+                            alors de camps et la vie peut recommencer à être remplie d’espoir.
+                            Cette reconnaissance, constitue également les premières pierres du chemin vers la vérité
+                            historique,
+                            une histoire trop souvent cachée ou biaisée car dérangeant les plus hautes sphères. Qu’allons
+                            nous
+                            faire de ces vérités ? Dans beaucoup de pays, les enfants s’en vont à l’école, jouent, mangent à
+                            leur faim et se forment pour devenir les citoyens responsables qui, demain, prendront les
+                            décisions
+                            importantes pour la société. A l’Est de la RDC, les enfants qui ont aujourd’hui 20 ans ont, pour
+                            certains, appris à devenir des violeurs. Soit en ayant été entrainés par des milices, soit en
+                            ayant été témoins des pires sévices sur leurs mamans, leurs soeurs ou leur voisinage, ce qui les
+                            a rendus
+                            totalement schizophrènes. Ils sont devenus des tueurs, car violer, surtout avec une telle
+                            violence, c’est
+                            en fait tuer la victime dans son être, son mental, mais c’est également tuer sa famille, sa
+                            communauté
+                            et la société tout entière. Une société dont nos mamans sont les piliers depuis toujours, une
+                            société
+                            dont elles garantissent l’équilibre.
+                            Lorsque je parcours le bilan annuel de la Fondation Panzi de cette année, j’ai de l’espoir. A
+                            travers le
+                            travail de nos équipes, basé sur la mise en pratique des 4 piliers qui composent le Modèle de
+                            Panzi,
+                            nous voyons que, même dans l’adversité, chacun peut trouver la force en soi de se relever.
+                            Grâce à la générosité de personnes originaires du monde entier, la Fondation Panzi peut mener à
+                            bien ses projets d’aide à la réinsertion économique, d’aide à l’accès à la justice, d’aide
+                            psychosocial
+                            combinée avec l’aide médicale apportée par l’Hôpital de Panzi qui fêtera ses 20 ans l’année
+                            prochaine.
+                            C’est avec une vive émotion que, cette année encore, je note la réussite scolaire de nos enfants
+                            sortis
+                            des mines de Luhwindja et de Kamituga, c’est avec un grand sourire que j’écoute ces chansons
+                            puissantes et touchantes enregistrées lors des séances de musicothérapie. C’est avec joie que je
+                            reçois
+                            chaque jour chez moi, dans l’enceinte de l’Hôpital de Panzi, le fruit du labeur de ces femmes
+                            qui ont
+                            su transformer leur désespoir en une combativité hors norme en devenant un symbole de réussite
+                            par
+                            le travail dans leur communauté. Ainsi, je me régale de la production de prunes, de salades ou
+                            encore
+                            de jus de fruits frais par nos mamans, femmes de pouvoir et fierté pour la nation congolaise.
+                            Comment peut-on penser à baisser les bras lorsque l’on voit le courage avec lequel elles se
+                            relèvent.
+                            Comment peut-on penser en avoir le droit ?
+                            Le Congo ne fléchira pas tant qu’il y aura ces trésors, ces femmes combatives que rien ne peut
+                            arrêter
+                            lorsqu’elles ont repris confiance en elle et qu’elles retrouvent leur dignité.
+                            De Mwenga, à Goma, en passant par Bulenga, Bukavu et Kavumu, les projets de la Fondation Panzi
+                            génèrent aujourd’hui des milliers de succes stories qui nous encouragent chaque jour à continuer
+                            à
+                            travailler d’arrache-pied et à militer pour la vérité et pour obtenir justice et réparations.
+                            <br><br>
+                            La Fondation Panzi a été créée en 2008 par le Dr. Denis Mukwege.
+                            Située dans le quartier Panzi dans la commune d’Ibanda à Bukavu
+                            en République Démocratique du Congo, la Fondation Panzi fait le
+                            relais du travail du Dr. Denis Mukwege et de son hôpital, l’Hôpital
+                            de Panzi, afin de permettre la reconstruction psychologique et
+                            physique ainsi que la réinsertion sociale des victimes de violences
+                            sexuelles.
+                            Depuis 9 ans, la Fondation Panzi se veut être la voix des
+                            opprimées, des victimes, des filles et mamans congolaises qui
+                            subissent tous les jours l’inimaginable dans cette région du monde
+                            tant convoitée pour son sous-sol, mais dont les habitants sont
+                            laissés pour compte.
+                            Le Dr. Mukwege a mis au point un modèle de prise en charge
+                            qui permet de soigner les victimes et survivantes de violences
+                            sexuelles d’une manière holistique.
+                            Ce modèle est fondé sur 4 piliers interdépendants qui permettent
+                            aux victimes de se reconstruire d’une façon pérenne après leur
+                            passage à l’hôpital et à la Fondation Panzi. Les femmes rentrent
+                            dans un circuit complet dans lequel tout est mis en place afin
+                            de leur permettre de retrouver leur dignité perdue. Il s’agit du «
+                            Guichet Unique » également appelé « One Stop Center ».
+                            La Fondation Panzi met en application ces 4 piliers, fondamentaux
+                            pour la reconstruction des victimes, à travers plusieurs projets.
                         </p>
                     </div>
                     <div class="tab-pane fade" id="eq" role="tabpanel" aria-labelledby="eq-tab">
@@ -324,7 +427,8 @@
                                         <div class="card-block px-6">
                                             <h4 class="card-title">Dr. Denis Mukwege</h4>
                                             <p class="text-warning">Président - MD, PHD (Prix nobel)</p>
-                                            <p class="card-text">Le Dr Denis Mukwege, lauréat du prix Sakharov 2014, a fondé
+                                            <p class="card-text">Le Dr Denis Mukwege, lauréat du prix Sakharov 2014, a
+                                                fondé
                                                 l’hôpital Panzi en 1999 en réponse à la guerre dévastatrice qui a entouré sa
                                                 communauté dans les provinces orientales de la République démocratique du
                                                 Congo. L’hôpital dessert aujourd’hui une population de 400 000 habitants en
@@ -339,8 +443,9 @@
                                                 dramatiquement dans le contexte des guerres au Congo, le Dr Mukwege et le
                                                 personnel de l’hôpital Panzi ont consacré des ressources importantes au
                                                 traitement des femmes souffrant de fistule et d’autres blessures
-                                                gynécologiques complexes – traumatiques et obstétriques <a href="/dr" class="text-warning">...Lire plus</a></p>
-                                            
+                                                gynécologiques complexes – traumatiques et obstétriques <a href="/dr"
+                                                    class="text-warning">...Lire plus</a></p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -383,7 +488,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <div class="title h1 text-center m-4">Staff</div>
                         <div class="row">
@@ -391,8 +496,8 @@
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
                                         <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="{{ asset('files/4.png') }}" alt="Admin"
-                                                class="rounded-circle" width="150">
+                                            <img src="{{ asset('files/4.png') }}" alt="Admin" class="rounded-circle"
+                                                width="150">
                                             <div class="mt-3">
                                                 <h4>MARTIN OBIERO</h4>
                                                 <p class="text-secondary mb-1">Directeur Administratif & Financier</p>
@@ -404,8 +509,8 @@
                             <div class="card border-0 col">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('files/3.png') }}" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                        <img src="{{ asset('files/3.png') }}" alt="Admin" class="rounded-circle"
+                                            width="150">
                                         <div class="mt-3">
                                             <h4>BERTIN RUTEGA</h4>
                                             <p class="text-secondary mb-1">Directeur des Programmes</p>
@@ -416,8 +521,8 @@
                             <div class="card border-0 col">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('files/2.png') }}" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                        <img src="{{ asset('files/2.png') }}" alt="Admin" class="rounded-circle"
+                                            width="150">
                                         <div class="mt-3">
                                             <h4>NATHALIE BUNGILIA</h4>
                                             <p class="text-secondary mb-1">Chargé des Ressources Humaines</p>
@@ -430,8 +535,8 @@
                             <div class="card border-0 col">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('files/10.jpg')}}" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                        <img src="{{ asset('files/10.jpg') }}" alt="Admin" class="rounded-circle"
+                                            width="150">
                                         <div class="mt-3">
                                             <h4>Crispin Kashale</h4>
                                             <p class="text-secondary mb-1">Directeur de Communication</p>
@@ -442,8 +547,8 @@
                             <div class="card border-0 col">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('files/8.jpg')}}" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                        <img src="{{ asset('files/8.jpg') }}" alt="Admin" class="rounded-circle"
+                                            width="150">
                                         <div class="mt-3">
                                             <h4>Ntumba muzadi Pierrot</h4>
                                             <p class="text-secondary mb-1">Responsable logistique</p>
@@ -454,8 +559,8 @@
                             <div class="card border-0 col">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('files/9.jpg')}}" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                        <img src="{{ asset('files/9.jpg') }}" alt="Admin" class="rounded-circle"
+                                            width="150">
                                         <div class="mt-3">
                                             <h4>Patrick Musafiri</h4>
                                             <p class="text-secondary mb-1">IT Manager</p>
@@ -466,8 +571,8 @@
                             <div class="card border-0 col">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('files/11.jpg')}}" alt="Admin"
-                                            class="rounded-circle" width="150">
+                                        <img src="{{ asset('files/11.jpg') }}" alt="Admin" class="rounded-circle"
+                                            width="150">
                                         <div class="mt-3">
                                             <h4>Augustin Kulimushi</h4>
                                             <p class="text-secondary mb-1">Comptable principal</p>

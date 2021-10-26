@@ -25,6 +25,11 @@
 <link href="{{ asset('css/plugins/chosen/bootstrap-chosen.css')}}" rel="stylesheet">
 <link href="{{ asset('css/plugins/chosen/chosen.css')}}" rel="stylesheet">
 
+<!-- carousel -->
+<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+
 <!-- Mainly scripts -->
 <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
