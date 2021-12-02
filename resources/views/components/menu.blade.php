@@ -24,8 +24,8 @@
                         <li><a class="dropdown-item" href="{{ route('pilier.show', '4') }}">Juridique</a></li>
                         <li><a class="dropdown-item" href="{{ route('pilier.show', '3') }}">Socio-économique</a></li>
                         <li><a class="dropdown-item" href="{{ route('pilier.show', '5') }}">Plaidoyer</a></li>
-                        <li><a class="dropdown-item border-top" href="{{ route('pilier.show', '2') }}">Les projets</a>
-                        </li>
+                        <li><a class="dropdown-item border-top" href="{{ route('pilier.show', '2') }}">Les projets</a></li>
+                        <li><a class="dropdown-item border-top" href="{{ route('rapport.index') }}">Les rapports</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

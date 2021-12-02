@@ -26,6 +26,7 @@
                                     <option>Panzi-news</option>
                                     <option>Panzi-hébdo</option>
                                     <option>Médias</option>
+                                    <option>rapport</option>
                                     <option>vidéo</option>
                                 </select>
                             </div>

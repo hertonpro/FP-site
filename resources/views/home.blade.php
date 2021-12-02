@@ -119,6 +119,9 @@
                         echo $media->article;
                     @endphp
                 @endforeach
+                <div class="col">
+                    last rapport
+                </div>
             </div>
         </div>
     </div>

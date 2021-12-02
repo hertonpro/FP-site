@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class infogeneral extends Model
+class rapport extends Model
 {
     use HasFactory;
-    protected $fillable=['mail','phone','adresse'];
 }
