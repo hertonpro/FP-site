@@ -96,8 +96,10 @@ class BlogController extends Controller
      */
     public function show($blog)
     {
-        $article = Blog::find($blog)->sortByDesc('id');
-        return view('blog.show', compact('article'))->with('message', 'edition');
+        $article = Blog::find($blog);
+        $scandir = array_diff(scandir('files/'.$blog), array('..', '.'));
+        $comments = Comment::all()->where('blog_id', $blog)->sortByDesc('id');
+        return redirect()->route('news.edit',$article->id)->with('message', 'les modifications ont été faits avec succès');
     }
 
 
@@ -130,6 +132,7 @@ class BlogController extends Controller
                 'titre' => $request->titre,
                 'type' => $request->type,
                 'article' => $request->article,
+                'state' => $request->state,
                 'tag' => $request->tag,
                 'editeur' => $request->editeur
             ]);
@@ -143,6 +146,7 @@ class BlogController extends Controller
                 'titre' => $request->titre,
                 'type' => $request->type,
                 'article' => $request->article,
+                'state' => $request->state,
                 'tag' => $request->tag,
                 'img' => $fileName,
                 'editeur' => $request->editeur
@@ -152,27 +156,6 @@ class BlogController extends Controller
         
         
         return Redirect::back()->with('message', 'les modifications ont été faits avec succès');
-    }
-
-    public function publish($blog, Request $request)
-    {
-        $subscribers = User::where('newsletter', '1')->get(['email'])->toArray();
-        
-        $emails=array_column($subscribers, 'email');
-        $article = Blog::find($blog);
-
-        $article->update([
-            'state' => $request->state
-        ]);
-                $data = array();
-   
-      Mail::send(['text'=>'mail'], $data, function($message) use ($emails){
-         $message->to($emails, 'Tutorials Point')->subject
-            ('Laravel Basic Testing Mail');
-         $message->from('info@fondationpanzi.org', 'Fondation Panzi');
-      });
-        
-        return Redirect::back()->with('message', 'L\'article à été publié avec succès');
     }
     /**©
      * Remove the specified resource from storage.

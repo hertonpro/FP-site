@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\infogeneral;
+use App\Models\socialmedia;
 use Illuminate\Http\Request;
 
 class InfogeneralController extends Controller
@@ -14,8 +15,9 @@ class InfogeneralController extends Controller
      */
     public function index()
     {
-        $infogeneral=infogeneral::all()->last()->id;
-        return view('admin.general', compact('infogeneral'));
+        $infogeneral=infogeneral::all()->last();
+        $socials=socialmedia::all();
+        return view('admin.general', compact('infogeneral','socials'))->with('message', 'edition');
     }
 
     /**
@@ -68,17 +70,17 @@ class InfogeneralController extends Controller
      * @param  \App\Models\infogeneral  $infogeneral
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, infogeneral $infogeneral)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'mail' => 'nullable',
             'phone' => 'nullable',
             'adresse' => 'nullable',
         ]);
-        $infogeneral = infogeneral::find($infogeneral);
-        dd($infogeneral);
+        $infogeneral = infogeneral::find($id);
+        $infogeneral->update($request->all());
         return back()
-            ->with('success', 'Vous avez ajouter un nouveau prix '.$request->denomination);
+            ->with('success', 'Les contacts ont été bien mise à jours');
     }
 
     /**
@@ -90,5 +92,16 @@ class InfogeneralController extends Controller
     public function destroy(infogeneral $infogeneral)
     {
         //
+    }
+    public function social(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'link'=>'required'
+        ]);
+        socialmedia::create($request->all());
+
+        return redirect()->route('infogeneral.index')
+            ->with('success', 'votre reséau sosial a été ajouter avec succes');
     }
 }

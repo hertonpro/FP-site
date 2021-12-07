@@ -148,6 +148,4 @@
 @livewireScripts()
 <!-- SUMMERNOTE -->
 <script src="{{ asset('js/plugins/summernote/summernote-bs4.js') }}"></script>
-<script>
-    
-</script>
+
