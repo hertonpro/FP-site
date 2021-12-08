@@ -71,23 +71,6 @@
                                     <input id="my-input" class="form-file" type="file" type="text" name="img"
                                         value="{{ $article->img }}">
                                 </div>
-                                <div>
-                                    @php
-                                        if ($article->state === 1) {
-                                            $checked = 'checked';
-                                        } else {
-                                            $checked = '';
-                                        }
-                                    @endphp
-
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
-                                                value="1" {{ $checked }}>
-                                        </div>
-                                        <p class="btn btn-info">Publier</p>
-                                    </div>
-                                </div>
                             @endif
 
                             @csrf
@@ -103,6 +86,19 @@
 
 
                         </form>
+
+                        <form action="{{ route('blogs.publish', ['blog' => $article->id]) }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="state" id="flexRadioDefault1"
+                                        value="1" hidden checked>
+                                </div>
+                                <button class="btn btn-info" type="submit">Publier</button>
+                            </div>
+                        </form>
+
+
                         <form id="delete-{{ $article->id }}" method="post"
                             action="{{ route('blogs.destroy', $article->id) }}" style="display: none;">
                             @csrf

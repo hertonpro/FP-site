@@ -52,7 +52,8 @@
         </div>
     </main>
     <!-- Footer -->
-    <x-footer/>
+
+    @include('Components.foot')
     </div>
     <div class="col"></div>
     </div>
