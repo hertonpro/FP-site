@@ -52,7 +52,7 @@
         </div>
     </main>
     <!-- Footer -->
-    <x-footer/>
+    <x-Footer/>
     </div>
     <div class="col"></div>
     </div>
