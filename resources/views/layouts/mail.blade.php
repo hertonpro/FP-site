@@ -145,7 +145,13 @@
                         <td bgcolor="#ffffff" align="left"
                             style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                             <p style="margin: 0;">Cliquer sur le lien "Ajouter au Nwesletter" pour resevoir
-                                regulierement les nouvelles de la Fondation Panzi <a href="http://origine.org/newsletter?nom={{ $exp_nom }}&mail={{ $exp_mail }}" style="color: #FFA73B;">Ajouter au Nwesletter</a></p>
+                                regulierement les nouvelles de la Fondation Panzi 
+                                @if (env('APP_ENV')!='Production')
+                                <a href="http://origine.org/newsletter?nom={{ $exp_nom }}&mail={{ $exp_mail }}" style="color: #FFA73B;">Ajouter au Nwesletter</a>
+                                @else
+                                <a href="http://fondationpanzi.org/newsletter?nom={{ $exp_nom }}&mail={{ $exp_mail }}" style="color: #FFA73B;">Ajouter au Nwesletter</a>
+                                @endif
+                            </p>
                         </td>
                     </tr> <!-- COPY -->
                     <tr>
