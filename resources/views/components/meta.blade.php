@@ -9,7 +9,6 @@
 <link href="{{ asset('bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
 <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 <link rel="shortcut icon" href="{{ asset('img/logobar.png ') }}" type="image/png">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
 
 <!-- Styles -->
 <!-- Bootstrap CSS -->
