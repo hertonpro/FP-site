@@ -208,7 +208,7 @@ $url .= $_SERVER['REQUEST_URI'];
                                 </form>
                             </div>
                             <div class="col-lg-3 ">
-                                @include('components.offre')
+                                @include('Components.offre')
                             </div>
                         </div>
                     </div>
