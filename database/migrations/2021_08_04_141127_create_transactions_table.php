@@ -15,10 +15,10 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->char('token');
+            $table->string('token')->unique()->length(100);
             $table->integer('amount')->nullable();
-            $table->integer('fundraising')->index('fundraising')->nullable();;
-            $table->integer('donor')->unsigned()->index('users')->nullable();
+            $table->integer('fundraising')->index('fundraising')->nullable()->default(NULL);
+            $table->integer('donor')->unsigned()->index('users')->nullable()->default(NULL);
             $table->integer('state')->default(0);
             $table->longText('message')->nullable();
             $table->timestamps();

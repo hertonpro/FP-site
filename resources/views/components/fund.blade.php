@@ -18,8 +18,6 @@
                     <div class="d-flex flex-row-reverse p-4">
                         <form action="donation" method="POST">
                             @csrf
-                            <input type="text" hidden name="token"
-                                value="{{ $token = sha1(mt_rand(1, 90000) . 'SALT') }}">
                             <input type="number" name="fundraising" hidden value="{{ $fundraising->id }}">
                             <button type="submit" class="btn btn-primary rounded-lg btn-lg">
                                 <h4>Faire un don</h4>

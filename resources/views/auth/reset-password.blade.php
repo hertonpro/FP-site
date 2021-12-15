@@ -13,7 +13,7 @@
             @csrf
 
             <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+            <input type="hidden" name="token" value="{{ $request->route('token')->unique()->length(255) }}">
 
             <!-- Email Address -->
             <div>
