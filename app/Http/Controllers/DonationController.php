@@ -15,8 +15,9 @@ class DonationController extends Controller
 
     public function store(Request $request)
     {
-        transaction::create($request->all());
-        $transaction = transaction::where('token', $request->token)->first()->id;
+        $this->token=sha1(rand(1, 10000));
+        transaction::create(['token'=> $this->token,'fundraising'=>$request->fundraising]);
+        $transaction = transaction::where('token', $this->token)->first()->id;
         return redirect('donation/' . $transaction . '/edit');
     }
 
@@ -27,7 +28,7 @@ class DonationController extends Controller
     }
     public function update($transaction, Request $request)
     {
-        $transaction = transaction::find($transaction);
+        $transaction = transaction::find($transaction); 
         $transaction->update([
             'amount' => $request->amount,
             'message' => $request->message,
