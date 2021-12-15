@@ -63,14 +63,12 @@ $url .= $_SERVER['REQUEST_URI'];
                                 <x-cat-news />
                             </div>
                             <div class="col-lg-7 ">
-                                @if (Session::get('message'))
+                                @if ($article->state != 1)
                                     <div class="alert alert-primary" role="alert">
                                         Retourner à la page d'<a href="{{ route('blogs.edit', $article->id) }}"
                                             class="alert-link">édition</a>
                                     </div>
                                 @endif
-
-                                {{ Session::get('edition') }}
                                 <h1 class="text-warning"><strong>{{ $article->titre }}</strong></h1>
                                 <p class="blockquote-footer">{{ $article->tag }}<br>
                                     <strong><i>{{ $article->type }}</i>

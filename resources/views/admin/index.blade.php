@@ -4,7 +4,6 @@
 <head>
 
     <x-meta/>
-    <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @livewireStyles
 
@@ -72,7 +71,7 @@
                     <a href="{{ asset('/user') }}"><i class="fa fa-user"></i> <span class="nav-label">User</span></a>
                 </li>
                 <li>
-                    <a href="{{ asset('/infogeneral') }}"><i class="fa fa-cog"></i> <span class="nav-label">General</span> </a>
+                    <a href="{{ asset('/general') }}"><i class="fa fa-cog"></i> <span class="nav-label">General</span> </a>
                 </li>
             </ul>
 

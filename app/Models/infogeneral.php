@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class infogeneral extends Model
 {
     use HasFactory;
-    protected $fillable=['mail','phone','adresse'];
 }

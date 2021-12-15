@@ -7,71 +7,65 @@
                 <div class="row m-2">
                     <h1 class="mr-auto p-2">Prévisualisation</h1>
                     <div class="col-lg-12">
-                        <x-footer />
+                        @include('Components.foot')
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12">
-            @if (Session::get('success'))
-                <div class="alert alert-success  alert-dismissible fade show" role="alert">
-                    <button type="button" class="btn-close btn-success" data-bs-dismiss="alert" aria-label="Close">X</button>  {{ Session::get('success') }}
-                </div>
-            @endif
-        </div>
     </div>
-
     <div class="row">
         <div class="col-lg-4">
             <div class="ibox ">
-                <div class="ibox-title">
-                    <h5><i class="fa fa-drivers-license"></i> Contactes</h5>
-                    <div class="ibox-tools">
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div class="table-responsive">
-                        <table class="table table-sm" style="width:100%">
-                            <form action="/infogeneral/1" enctype="multipart/form-data" method="POST">
-                                @csrf
-                                @method('PATCH')
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label for="colFormLabelSm" class="col-form-label-sm">Email</label>
+                <form action="">
+                    <div class="ibox-title">
+                        <h5><i class="fa fa-drivers-license"></i> Contactes</h5>
+                        <div class="ibox-tools">
 
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <i class="fa fa-envelope input-group-text"></i>
-                                            </div>
-                                            <input type="mail" name="mail" class="form-control"
-                                                id="inlineFormInputGroupUsername" value="{{ $infogeneral->mail }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="colFormLabelSm" class="col-form-label-sm">Phone</label>
-
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <i class="fa fa-phone input-group-text"></i>
-                                            </div>
-                                            <input type="phone" name="phone" class="form-control"
-                                                id="inlineFormInputGroupUsername" value="{{ $infogeneral->phone }}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="area" class="col-form-label-sm">Adresse</label>
-                                        <textarea id="area" name="adresse" class="form-control"
-                                            rows="3">{{ $infogeneral->adresse }}</textarea>
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-sm btn-primary float-right m-t-n-xs" type="submit">
-                                            <strong>Enregistrer</strong>
-                                        </button>
-                                    </div>
-                            </form>
-                        </table>
+                        </div>
                     </div>
-                </div>
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="table table-sm" style="width:100%">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="colFormLabelSm" class="col-form-label-sm">Email</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fa fa-envelope input-group-text"></i>
+                                                </div>
+                                                <input type="mail" name="mail" class="form-control"
+                                                    id="inlineFormInputGroupUsername" placeholder="info@fondationpanzi.org">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colFormLabelSm" class="col-form-label-sm">Phone</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="fa fa-phone input-group-text"></i>
+                                                </div>
+                                                <input type="phone" name="phone" class="form-control"
+                                                    id="inlineFormInputGroupUsername" placeholder="+243 81 95 03 254">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="area" class="col-form-label-sm">Adresse</label>
+                                            <textarea id="area" name="adresse" class="form-control" rows="3"
+                                                placeholder="Bukavu, RDC, Q. Panzi, N0: 625"></textarea>
+                                        </div>
+                                        @csrf
+                                        <div>
+                                            <button class="btn btn-sm btn-primary float-right m-t-n-xs">
+                                                <strong>Enregistrer</strong>
+                                            </button>
+                                        </div>
+                                </form>
+                            </table>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="col-lg-4">
@@ -88,31 +82,28 @@
                     <div class="ibox-content">
                         <div class="table-responsive">
                             <table class="table table-sm" style="width:100%">
-                                @foreach ($socials as $social)
-                                    <form action="">
+                                <form action="">
+                                    <div class="form-group">
                                         <div class="form-group">
-                                            <div class="form-group">
-                                                <label for="colFormLabelSm"
-                                                    class="col-form-label-sm">{{ $social->name }}</label>
+                                            <label for="colFormLabelSm" class="col-form-label-sm">facebook</label>
 
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <i
-                                                            class="bi bi-{{ strtolower($social->name) }} input-group-text"></i>
-                                                    </div>
-                                                    <input type="mail" name="facebook" class="form-control"
-                                                        id="inlineFormInputGroupUsername" value="{{ $social->link }}">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <i class="bi bi-facebook input-group-text"></i>
                                                 </div>
-                                            </div>
-                                            @csrf
-                                            <div>
-                                                <button hidden class="btn btn-sm btn-primary float-right m-t-n-xs">
-                                                    <strong>Enregistrer</strong>
-                                                </button>
+                                                <input type="mail" name="facebook" class="form-control"
+                                                    id="inlineFormInputGroupUsername"
+                                                    value="https://www.facebook.com/PanziFoundationDRC/">
                                             </div>
                                         </div>
-                                    </form>
-                                @endforeach
+                                        @csrf
+                                        <div>
+                                            <button class="btn btn-sm btn-primary float-right m-t-n-xs">
+                                                <strong>Enregistrer</strong>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </table>
                         </div>
                         <!-- Modal -->
@@ -128,22 +119,22 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="socialmedia" method="POST">
-                                            @csrf
+                                        <form action="">
                                             <div class="form-group">
                                                 <div class="form-group">
-                                                    <label for="colFormLabelSm" class="col-form-label-sm">name</label>
+                                                    <label for="colFormLabelSm" class="col-form-label-sm">Nom</label>
                                                     <div class="input-group">
                                                         <input type="mail" name="name" class="form-control"
                                                             id="inlineFormInputGroupUsername" placeholder="rezosocial">
                                                     </div>
-                                                    <label for="colFormLabelSm" class="col-form-label-sm">link</label>
+                                                    <label for="colFormLabelSm" class="col-form-label-sm">Lien</label>
                                                     <div class="input-group">
                                                         <input type="mail" name="link" class="form-control"
                                                             id="inlineFormInputGroupUsername"
                                                             placeholder="https://www.rezosocial.com/PanziFoundationDRC/">
                                                     </div>
                                                 </div>
+                                                @csrf
                                                 <div>
                                                     <button class="btn btn-sm btn-primary float-right m-t-n-xs">
                                                         <strong>Enregistrer</strong>

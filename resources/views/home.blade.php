@@ -36,7 +36,7 @@
                                     <div class="carousel-item">
                                         <img class="d-block w-100" src="{{ asset('files/'.$blog->id.'/'.$blog->img) }}"
                                             alt="image-{{ $blog->titre }}"
-                                            style="width: 100px;
+                                            style="width: 100%;
                                             height: 400px; 
                                             object-fit: cover;">
                                         <div class="carousel-caption d-none d-md-block carousel-res">
@@ -74,15 +74,19 @@
                         @endphp
                         @foreach ($blogs as $blog)
                             @php
-                                $blog = (object) $blog;   
+                                $blog = (object) $blog;
+                                
+                                    
                             @endphp
-                            <div class="col-lg">
+                            <div class="col-lg-4  ">
                                 <a href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}">
                                     <img src="{{ asset('files/'.$blog->id.'/'.$blog->img) }}" class="card-img-top"
-                                        alt="image-{{ $blog->titre }}" style="width: 100%; height: 70%; object-fit: cover;">
+                                        alt="image-{{ $blog->titre }}">
+
                                     <h4 class="card-title text-warning strong">{{ $blog->titre }}</h4>
                                     <p class="card-text text-secondary"> <strong>{{$blog->type}}</strong>
                                         {{ str_replace('.000000Z', '', $blog->updated_at) }}</p><br>
+
                                 </a>
                             </div>
                         @endforeach
@@ -115,9 +119,6 @@
                         echo $media->article;
                     @endphp
                 @endforeach
-                <div class="col">
-                    last rapport
-                </div>
             </div>
         </div>
     </div>
