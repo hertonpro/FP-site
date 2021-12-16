@@ -23,6 +23,6 @@ class meta extends Component
      */
     public function render()
     {
-        return view('Components.meta');
+        return view('components.meta');
     }
 }

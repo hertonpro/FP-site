@@ -23,6 +23,6 @@ class catnews extends Component
      */
     public function render()
     {
-        return view('Components.catnews');
+        return view('components.catnews');
     }
 }

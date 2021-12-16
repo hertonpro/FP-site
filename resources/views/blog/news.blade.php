@@ -21,7 +21,7 @@
                     @endforeach
                 </div>
                 <div class="col-lg-3 ">
-                    @include('Components.offre')
+                    @include('components.offre')
                 </div>
             </div>
             <div class="row">

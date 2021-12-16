@@ -286,7 +286,7 @@
                 </section>
             </div>
             <div class="col-3">
-                @include('Components.offre')
+                @include('components.offre')
             </div>
         </div>
     </div>

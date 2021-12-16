@@ -19939,7 +19939,7 @@ var JpxImage = function JpxImageClosure() {
                   YRsiz: data[j + 1]
                 };
                 calculateComponentDimensions(component, siz);
-                Components.push(component);
+                components.push(component);
               }
               context.SIZ = siz;
               context.components = components;
@@ -20545,7 +20545,7 @@ var JpxImage = function JpxImageClosure() {
     return posX / sizeInImageScale.height + startPrecinctRowIndex;
   }
   function getPrecinctSizesInImageScale(tile) {
-    var componentsCount = tile.Components.length;
+    var componentsCount = tile.components.length;
     var minWidth = Number.MAX_VALUE;
     var minHeight = Number.MAX_VALUE;
     var maxNumWide = 0;
@@ -34639,7 +34639,7 @@ var JpegImage = function JpegImageClosure() {
       var offset = getBlockBufferOffset(component, blockRow, blockCol);
       decode(component, offset);
     }
-    var componentsLength = Components.length;
+    var componentsLength = components.length;
     var component, i, j, k, n;
     var decodeFn;
     if (progressive) {
@@ -34926,7 +34926,7 @@ var JpegImage = function JpegImageClosure() {
       function prepareComponents(frame) {
         var mcusPerLine = Math.ceil(frame.samplesPerLine / 8 / frame.maxH);
         var mcusPerColumn = Math.ceil(frame.scanLines / 8 / frame.maxV);
-        for (var i = 0; i < frame.Components.length; i++) {
+        for (var i = 0; i < frame.components.length; i++) {
           component = frame.components[i];
           var blocksPerLine = Math.ceil(Math.ceil(frame.samplesPerLine / 8) * component.h / frame.maxH);
           var blocksPerColumn = Math.ceil(Math.ceil(frame.scanLines / 8) * component.v / frame.maxV);
@@ -35053,7 +35053,7 @@ var JpegImage = function JpegImageClosure() {
                 maxV = v;
               }
               var qId = data[offset + 2];
-              l = frame.Components.push({
+              l = frame.components.push({
                 h: h,
                 v: v,
                 quantizationId: qId,
@@ -35098,7 +35098,7 @@ var JpegImage = function JpegImageClosure() {
               var tableSpec = data[offset++];
               component.huffmanTableDC = huffmanTablesDC[tableSpec >> 4];
               component.huffmanTableAC = huffmanTablesAC[tableSpec & 15];
-              Components.push(component);
+              components.push(component);
             }
             var spectralStart = data[offset++];
             var spectralEnd = data[offset++];
@@ -35125,13 +35125,13 @@ var JpegImage = function JpegImageClosure() {
       this.jfif = jfif;
       this.adobe = adobe;
       this.components = [];
-      for (i = 0; i < frame.Components.length; i++) {
+      for (i = 0; i < frame.components.length; i++) {
         component = frame.components[i];
         var quantizationTable = quantizationTables[component.quantizationId];
         if (quantizationTable) {
           component.quantizationTable = quantizationTable;
         }
-        this.Components.push({
+        this.components.push({
           output: buildComponentData(frame, component),
           scaleX: component.h / frame.maxH,
           scaleY: component.v / frame.maxV,
@@ -35139,7 +35139,7 @@ var JpegImage = function JpegImageClosure() {
           blocksPerColumn: component.blocksPerColumn
         });
       }
-      this.numComponents = this.Components.length;
+      this.numComponents = this.components.length;
     },
     _getLinearizedBlockData: function getLinearizedBlockData(width, height) {
       var scaleX = this.width / width,
@@ -35149,7 +35149,7 @@ var JpegImage = function JpegImageClosure() {
       var index;
       var offset = 0;
       var output;
-      var numComponents = this.Components.length;
+      var numComponents = this.components.length;
       var dataLength = width * height * numComponents;
       var data = new Uint8Array(dataLength);
       var xScaleBlockOffset = new Uint32Array(width);

@@ -27,6 +27,6 @@ class Footer extends Component
     {
         $infogenerals = infogeneral::all()->last();
         $socials= socialmedia::all();
-        return view('Components.footer', compact('infogenerals','socials'));
+        return view('components.footer', compact('infogenerals','socials'));
     }
 }

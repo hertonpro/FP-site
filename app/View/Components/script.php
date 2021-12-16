@@ -23,6 +23,6 @@ class script extends Component
      */
     public function render()
     {
-        return view('Components.script');
+        return view('components.script');
     }
 }

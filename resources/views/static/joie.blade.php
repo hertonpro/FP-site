@@ -25,7 +25,7 @@
                 <p>La Cité de la Joie est un projet de la Fondation Panzi (RDC) et de V-Day. <a href="https://cityofjoycongo.org/about-city-of-joy/">Lire plus sur le site de la joie</a></p>
             </div>
             <div class="col-3">
-                @include('Components.offre')
+                @include('components.offre')
             </div>
             <div class="col-dm-9">
                 <img src="{{ asset('img/fp/trifold.jpg') }}" style="width: 100%;  object-fit: cover;" alt="Cité de joie">
