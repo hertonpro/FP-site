@@ -50,7 +50,7 @@
                     </section>
                 </div>
                 <div class="col-lg-3 ">
-                    @include('components.offre')
+                    @include('Components.offre')
                 </div>
             </div>
 

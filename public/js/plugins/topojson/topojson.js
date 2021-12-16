@@ -156,7 +156,7 @@
                 var component = [],
                     neighbors = [polygon];
                 polygon._ = 1;
-                components.push(component);
+                Components.push(component);
                 while (polygon = neighbors.pop()) {
                     component.push(polygon);
                     polygon.forEach(function(ring) {
@@ -179,7 +179,7 @@
 
         return {
             type: "MultiPolygon",
-            arcs: components.map(function(polygons) {
+            arcs: Components.map(function(polygons) {
                 var arcs = [], n;
 
                 // Extract the exterior (unique) arcs.

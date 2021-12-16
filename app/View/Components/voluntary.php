@@ -34,6 +34,6 @@ class voluntary extends Component
     
     public function render()
     {
-        return view('components.voluntary');
+        return view('Components.voluntary');
     }
 }

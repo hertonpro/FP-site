@@ -50,7 +50,7 @@ class offre extends Component
 
         $offres=modeloffre::all(); 
 
-        return view('components.offre',compact('offres'));
+        return view('Components.offre',compact('offres'));
 
     }
 

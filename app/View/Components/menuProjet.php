@@ -28,6 +28,6 @@ class menuProjet extends Component
     public function render()
     {
         $piliers = pilier::with('projet')->get();
-        return view('components.menu-projet', compact('piliers'));
+        return view('Components.menu-projet', compact('piliers'));
     }
 }

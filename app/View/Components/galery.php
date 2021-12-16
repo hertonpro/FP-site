@@ -25,6 +25,6 @@ class galery extends Component
     {
         $this->path= './files/'.$this->article;
            $scandir = scandir($this->path); 
-        return view('components.galery',compact('scandir'));
+        return view('Components.galery',compact('scandir'));
     }
 }

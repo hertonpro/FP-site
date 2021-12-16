@@ -189,7 +189,7 @@
                 </p>
             </div>
             <div class="col-3">
-                @include('components.offre')
+                @include('Components.offre')
             </div>
         </div>
     </div>
