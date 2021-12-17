@@ -24,6 +24,7 @@
                 <a href="{{url('/')}}"><img src="{{asset('img/Logo-fondation-panzi-site-web.png')}}" alt="logo" class="logo"></a>
               </div>
               <p class="login-card-description">Se connecter sur ton compte</p>
+              {{Session::get('message')}} 
               <form method="POST" action="{{ route('login') }}">
                 @csrf
                   <div class="form-group">
@@ -37,6 +38,7 @@
                                 name="password"
                                 required autocomplete="current-password" />
                   </div>
+                  <input hidden type="button" value="{{$_GET['path']}}" name="path">
                   <x-button class="btn btn-warning text-secondary ml-3">
                     {{ __('Log in') }}
                 </x-button>

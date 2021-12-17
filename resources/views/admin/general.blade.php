@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('content')
+@if (auth()->user()->role_id == 1)
     <div class="row">
         <div class="col-lg-12 mb-3">
             <div class="ibox-content">
@@ -182,6 +183,8 @@
             </div>
         </div>
     </div>
-
+    @else
+    @include('components.oooops')
+@endif
 
 @endsection

@@ -69,7 +69,7 @@
                         </div>
                     </li>
                 @else
-                    <li class="nav-item"></li><a href="/login" class="nav-link" tabindex="-1"><strong
+                    <li class="nav-item"></li><a href="{{route('login',['path'=>Request::url()])}}" class="nav-link" tabindex="-1"><strong
                             class="text-warning">Se
                             connecter</strong></a>
                 @endif
