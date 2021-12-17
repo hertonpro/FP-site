@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-
+@if (auth()->user()->role_id!= NULL)
 <div id="wrapper">
 
     <nav class="navbar-default navbar-static-side" role="navigation">
@@ -227,5 +228,8 @@
 @livewireScripts
 
 </body>
-
+@else
+        @include('components.oooops')
+    @endif
 </html>
+
