@@ -42,7 +42,7 @@ Route::get('/home', [homeController::class,'index']);
 Route::get('/ok', function () {
     return view('mail');
 });
-Route::resource('/user', UserController::class)->middleware('role');
+Route::resource('/user', UserController::class);
 Route::resource('/blogs', BlogController::class)->middleware(['auth']);
 Route::post('/blogs/{blog}/publish', [BlogController::class, 'publish'])->middleware(['auth'])->name('blogs.publish');
 Route::resource('news',NewsController::class);

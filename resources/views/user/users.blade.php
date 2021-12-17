@@ -1,6 +1,7 @@
 @extends('admin.index')
 
 @section('content')
+@if (auth()->user()->role_id == 1)
     <link rel="stylesheet" href="{{ asset('css/croppie.css') }}">
     <script src="{{ asset('js/croppie.js') }}"></script>
     <div class="container ">
@@ -9,7 +10,8 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6">
+        
+            <div class="col-lg-6">
             <div class="ibox ">
                 <div class="ibox-title">
                     <h5>Liste des utilisateurs</h5>
@@ -107,7 +109,6 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-
                     <div class="table-responsive">
                         <table id="datateble" class="display compact" style="width:100%">
                             <thead>
@@ -186,6 +187,8 @@
                 </div>
             </div>
         </div>
+        
+        
         @if (isset($userx))
             @if (url()->full() == url('user/' . $userx->id))
                 <div class="col-lg-6">
@@ -353,5 +356,7 @@
             @endif
         @endif
     </div>
-    
+    @else
+        @include('components.oooops')    
+        @endif
 @endsection
