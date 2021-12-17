@@ -38,6 +38,7 @@
                                 name="password"
                                 required autocomplete="current-password" />
                   </div>
+                  <input hidden type="button" value="{{$_GET['path']}}" name="path">
                   <x-button class="btn btn-warning text-secondary ml-3">
                     {{ __('Log in') }}
                 </x-button>
