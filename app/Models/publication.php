@@ -10,7 +10,7 @@ class publication extends Model
     use HasFactory;
     protected $fillable = ['titre','link','abstract','review','doc','datePub'];
 
-    public function editeur()
+    public function editeurs()
     {
         return $this->belongsToMany(Editeur::class);
     }

@@ -94,6 +94,7 @@ $url .= $_SERVER['REQUEST_URI'];
                                 {{-- Image relatife à l'article --}}
                                 <div>
                                     <h4>Quelques images relatives à l'article</h4>
+                                    
                                     @foreach ($scandir as $fichier)
 
                                         @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",

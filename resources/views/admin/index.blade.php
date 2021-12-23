@@ -56,6 +56,9 @@
                 <li class="@php if(url()->current()== 'http://fondationpanzi.org/blogs/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/blogs/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Nouvelle articles</span></a>
                 </li>
+                <li class="@php if(url()->current()== 'http://fondationpanzi.org/publication'){echo 'active';}@endphp">
+                    <a href="{{ asset('/publication') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Publication</span></a>
+                </li>
                 <li class="@php if(url()->current()== 'http://fondationpanzi.org/pilier/create'){echo 'active';}@endphp">
                     <a href="{{ asset('/pilier/create') }}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Pilier</span></a>
                 </li>

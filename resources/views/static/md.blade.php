@@ -3,7 +3,7 @@
 @section('content')
     <div class="container align-items-center">
         <h1 class=" display-2">Maison DORCAS</h1>
-        <p class="h2 text-warning">Centre de transit et d’autonomisation des femmes</p>
+        <p class="h2 text-warning" id="intro">Centre de transit et d’autonomisation des femmes</p>
         <img src="{{ asset('img/fp/dr.jpg') }}" style="width: 100%; height: 270px; object-fit: cover;"
             alt="la joie après prosses clinique juridique">
         <div class="row mt-4">
@@ -16,7 +16,7 @@
             </div>
             <div class="col-7">
                 <p>
-                <p id="intro"> La Maison Dorcas un Centre de Transit et d’Autonomisation de la femme est l’une des 4
+                <p> La Maison Dorcas un Centre de Transit et d’Autonomisation de la femme est l’une des 4
                     institutions à
                     cheval de trois piliers (Psychosocial, Réinsertion Socio-Economique et médical parmi les 4 piliers de la
                     Fondation Panzi.
@@ -85,6 +85,29 @@
                 <ol start="2">
                     <li>Département D’Apprentissage :</li>
                 </ol>
+                {{-- Image relatife à l'article --}}
+                <div>
+                    <h4>Quelques images relatives à l'article</h4>
+                    @php
+                    $dir=asset('files/dorcas/');
+                    $scandir=scandir($dir);
+                                    @endphp
+                    @foreach ($scandir as $fichier)
+
+                        @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",
+                            strtolower($fichier)))
+                            <a href="#{{ $fichier }}"><img
+                                    src=" {{ asset('files/dorcas/' . $fichier) }}"
+                                    class="img-thumbnail m-1" width="100" height="100"></a>
+                        @elseif (is_dir($fichier) and $fichier != '.' and $fichier != '..')
+                            {{ $fichier }}<br />
+                        @elseif (substr(strtolower($fichier), -4, 4) == '.php')
+                            {{ $fichier }}<br />
+                        @endif
+                    @endforeach
+                    <br>
+                </div>
+                <hr>
                 Le département organise des formations suivantes : La coupe et Couture, La broderie, Saponification,
                 Informatique, Pâtisserie, soins de beauté, vannerie, et l’alphabétisation, étant donné que la plupart des
                 femmes et filles qui nous arrivent ne savent ni lire et écrire. La durée est fonction de la filière choisie
@@ -157,7 +180,7 @@
                     <li>Département technique</li>
                 </ol>
                 Le Maintien du centre dans un état normal est notre objectif en vue de rendre le programme DORCAS le plus
-                durable possible.
+                durable possible. <br>
                 <strong>- Service de sécurité :</strong> le service de sécurité est l’un des services les plus sensibles de
                 la Maison DORCAS. Il s’agit de sécuriser l’enclot et tout ce qui se trouve dedans. Le service est composé de
                 7 personnes actuellement y compris leur superviseur et 5 chiens de gardes qui renforce la sécurité pendant

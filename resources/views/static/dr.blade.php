@@ -63,8 +63,7 @@
                         services exceptionnels aux victimes de viol.
                     </div>
                     <div class="col-md-6">
-                        <iframe width="555" height="314"
-                            src="https://www.youtube.com/embed/JQ8CVeHb1KY?list=TLGGEwqRpCKNm_MxOTA3MjAyMQ"
+                        <iframe width="555" height="315" src="https://www.youtube.com/embed/CLqjyOoHsQg"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -72,6 +71,9 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container">
         <section id="hp">
             <h2 class="centre m-4">Honneurs et Prix</h2>
             <div class="row text-center align-items-center">
@@ -87,57 +89,69 @@
             </div>
         </section>
         <section id="cit">
-            <h2 class="centre m-4">Les meilleurs citations du Dr. Mukwege</h2>
-            @foreach ($quotes as $quote)
-                <div class="col-4">
-                    @php
-                        echo $quote->code;
-                    @endphp
+            <div class="row">
+                <div class="col-9">
+                    <h2 class="centre m-4">Les meilleurs citations du Dr. Mukwege</h2>
+                    @foreach ($quotes as $quote)
+                        <div class="row">
+                            <div class="col-4">
+                                @php
+                                    echo $quote->code;
+                                @endphp
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
+                <div class="col">
+                        @include('Components.offre')
+                </div>
+            </div>
+
         </section>
 
         <section id="pub">
             <h2 class="centre m-4">Les publications du Dr. Mukwege</h2>
             <div class="row">
-            @foreach ($publications as $publication)
-                <div class="col-6">
-                    <div class="">
-                        <h3>
-                            <a href="{{$publication->link}}" target="_blank">{{$publication->titre}}</a>
-                        </h3>
-                        <p>{{$publication->abstract}}</p><hr class="m-0">
-                        <p class="text-success text-sm">{{$publication->datePub}} Editeurs
-                            @foreach ($publication->editeur as $editeur)
-                                {{$editeur->nom}}
-                            @endforeach
-                        </p> 
-                        
-                    </div>
-                </div>
-            @endforeach
-                
+                @foreach ($publications as $publication)
+                    @foreach ($publication->editeurs as $editeur)
+                        @if ($editeur->id == 3)
+                            <div class="col-3">
+
+
+                                <a href="{{ $publication->link }}" target="_blank">
+                                    <h2>{{ $publication->titre }}</h2>
+                                </a>
+                                <p>{{ $publication->abstract }}</p>
+                                <p>{{ $publication->datePub }} <strong>| Editeur:</strong>
+                                    @foreach ($publication->editeurs as $editeur)
+                                        {{ $editeur->Nom }},
+                                    @endforeach
+                                </p>
+
+
+                            </div>
+                        @endif
+                    @endforeach
+                @endforeach
             </div>
         </section>
 
 
 
-        <p class="m-2">suivre sur le <strong>Dr.Denis Mukwege:</strong></p>
+        <h2 class="centre m-4">suivre sur le <strong>Dr.Denis Mukwege:</strong></h2>
         <p class="m-2">
-            <a class="btn " href="http://facebook.com/DrDenisMukwege"  target="_blank|_self|_parent|_top|framename" style="background-color: blue; color:white"><i
-                    class="fa fa-facebook"></i> Facebook</a>
-            <a class="btn " href="http://twitter.com/denismukwege"  target="_blank|_self|_parent|_top|framename" style="background-color: rgb(0, 94, 201); color:white"><i
-                    class="fa fa-twitter"></i> Twitter</a>
-            <a class="btn " href="https://www.instagram.com/drdenismukwege/"  target="_blank|_self|_parent|_top|framename"
-                style="background-color: rgb(139, 15, 113); color:white"><i class="fa fa-instagram"></i>
+            <a class="btn " href="http://facebook.com/DrDenisMukwege" target="_blank|_self|_parent|_top|framename"
+                style="background-color: blue; color:white"><i class="fa fa-facebook"></i> Facebook</a>
+            <a class="btn " href="http://twitter.com/denismukwege" target="_blank|_self|_parent|_top|framename"
+                style="background-color: rgb(0, 94, 201); color:white"><i class="fa fa-twitter"></i> Twitter</a>
+            <a class="btn " href="https://www.instagram.com/drdenismukwege/"
+                target="_blank|_self|_parent|_top|framename" style="background-color: rgb(139, 15, 113); color:white"><i
+                    class="fa fa-instagram"></i>
                 Instagram</a>
-            <a class="btn " href="https://www.linkedin.com/in/dr-denis-mukwege-4732b1203/"  target="_blank|_self|_parent|_top|framename"
-                style="background-color: rgb(5, 119, 148); color:white"><i class="fa fa-linkedin"></i>
+            <a class="btn " href="https://www.linkedin.com/in/dr-denis-mukwege-4732b1203/"
+                target="_blank|_self|_parent|_top|framename" style="background-color: rgb(5, 119, 148); color:white"><i
+                    class="fa fa-linkedin"></i>
                 Linkedin</a>
         </p>
-        <div class="col-3">
-            @include('Components.offre')
-        </div>
     </div>
-
 @endsection

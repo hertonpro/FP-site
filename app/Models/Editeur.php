@@ -9,4 +9,8 @@ class Editeur extends Model
 {
     use HasFactory;
     protected $fillable = ['nom'];
+    public function publications()
+    {
+        return $this->belongsToMany(publication::class);
+    }
 }

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\award;
+use App\Models\editeur;
+use App\Models\editeurPublication;
 use App\Models\publication;
 use App\Models\quote;
 use Illuminate\Http\Request;
+
+use function GuzzleHttp\Promise\all;
 
 class StaticPagesController extends Controller
 {
@@ -16,7 +20,10 @@ class StaticPagesController extends Controller
         return view('static.cj');
     }
     public function icart(){
-        return view('static.icart');
+        $awards=award::all();
+        $quotes=quote::all();
+        $publications=publication::with('editeurs')->get();
+        return view('static.icart',compact('awards','quotes','publications'));
     }
     public function md(){
         return view('static.md');
@@ -30,7 +37,7 @@ class StaticPagesController extends Controller
     public function dr(){
         $awards=award::all();
         $quotes=quote::all();
-        $publications=publication::with('editeur')->get();
+        $publications=publication::with('editeurs')->get();
         return view('static.dr',compact('awards','quotes','publications'));
     }
     public function eq(){
@@ -38,4 +45,3 @@ class StaticPagesController extends Controller
     }
 
 }
-
