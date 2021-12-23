@@ -24,8 +24,6 @@ use App\Http\Controllers\ImageCropController;
 use App\Http\Controllers\ContactmessageController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\InfogeneralController;
-use App\Http\Controllers\RapportController;
-use App\Http\Controllers\GalerieController;
 
 use App\Models\Fundraising;
 
@@ -51,7 +49,6 @@ Route::resource('news',NewsController::class);
 //Route::resource('news',NewsController::class);
 Route::get('nwes/', [NewsController::class,'index'])->name('news.index');
 Route::get('nwes/{news}-{slug?}', [NewsController::class,'show'])->name('news.show');
-Route::get('nwes/{news}', [NewsController::class,'show'])->name('news.edit');
 Route::get('cat/{cat}',[NewsController::class,'media'] )->name('cat');
 Route::get('/admin', function(){
     return view('admin.dashboard');
@@ -103,6 +100,4 @@ Route::get('crop-image', [ImageCropController::class,'index']);
 Route::post('crop-image',[UserController::class,'imageCrop'])->name('croppie.upload-image');
 Route::post('contactmessage',[ContactmessageController::class,'store']);
 Route::resource('newsletter', NewsletterController::class);
-Route::resource('rapport', RapportController::class);
-Route::get('galerie', [GalerieController::class,'index']);
-Route::post('socialmedia',[InfogeneralController::class, 'social']);
+Route::resource('general', InfogeneralController::class);
