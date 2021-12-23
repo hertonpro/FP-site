@@ -41,10 +41,10 @@
                         <div class="col-9">
                             <div class="row d-flex align-items-center">
                                 <div class="col">
-                                    <img class="img-thumbnail" src="{{ asset('img/fp/pr1.jpg') }}" width="100%" alt="">
-                                    <p class="card-text"><small class="text-muted">Professeur Kanigula
-                                            Mubagwa</small>
-                                    </p>
+                                    <figure class="figure">
+                                          <img class="figure-img img-fluid" src="{{ asset('img/fp/pr1.jpg') }}" width="100%" alt="">
+                                        <figcaption class="figure-caption"><small class="text-muted">Professeur Kanigula Mubagwa</small></figcaption>
+                                      </figure>
                                 </div>
                                 <div class="col-8 p-10">
                                     <p>
@@ -93,9 +93,15 @@
                         facilitant l'analyse quantitative de la variation des processus physiologiques.
                         Le professeur Harlow a été remplacé par le professeur Marie Hatem de l’Université de Montréal en
                         2020.
-                    </p><img src="{{ asset('img/fp/pr2.png') }}" alt="">
-                    <p class="card-text"><small class="text-muted">Professeur Sioban Harlow</small>
-                </p>
+                    </p>
+                    <figure class="figure">
+                          <img class="figure-img img-fluid" src="{{ asset('img/fp/pr2.jpg') }}"  alt=" Photo Professeur Sioban Harlow">
+                        <figcaption class="figure-caption"><small class="text-muted">Professeur Sioban Harlow</small></figcaption>
+                    </figure>
+                    <figure class="figure">
+                          <img class="figure-img img-fluid" src="{{ asset('img/fp/pr3.jpg') }}"  alt=" Photo Professeur Marie Hatem">
+                        <figcaption class="figure-caption"><small class="text-muted">Professeur Marie Hatem</small></figcaption>
+                    </figure>
 
                 </div>
             </div>
