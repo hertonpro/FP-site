@@ -12,6 +12,7 @@
                     <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#intro">Introduction</a>
                     <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#org">Organisation</a>
                     <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#cible">Cible</a>
+                    <a class="btn btn-block btn-primary btn-xs rounded-lg" href="#image">Images</a>
                 </div>
             </div>
             <div class="col-7">
@@ -76,7 +77,7 @@
                         permettent une reconstruction physique qui débouche sur une décharge émotionnelle.
                     </li>
                 </ul>
-                <strong>c) Service Médical :</strong> <br><br>
+                <strong id="image">c) Service Médical :</strong> <br><br>
                 Les bénéficiaires des activités de la Maison DORCAS sont suivis médicalement par une unité médicale. Trois
                 infirmières sont disponibles et le service fonctionne 24/24h chaque jour mais cette année l’unité a
                 fonctionné avec une infirmière accompagnée par une assistante psycho sociale. Les examens de base sont
@@ -87,26 +88,32 @@
                 </ol>
                 {{-- Image relatife à l'article --}}
                 <div>
-                    <h4>Quelques images relatives à l'article</h4>
-                    @php
-                    $dir=asset('files/dorcas/');
-                    $scandir=scandir($dir);
-                                    @endphp
+                    <h4>Quelques images relatives aux activités de la maison Dorcas</h4>
                     @foreach ($scandir as $fichier)
 
-                        @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",
-                            strtolower($fichier)))
-                            <a href="#{{ $fichier }}"><img
-                                    src=" {{ asset('files/dorcas/' . $fichier) }}"
-                                    class="img-thumbnail m-1" width="100" height="100"></a>
-                        @elseif (is_dir($fichier) and $fichier != '.' and $fichier != '..')
-                            {{ $fichier }}<br />
-                        @elseif (substr(strtolower($fichier), -4, 4) == '.php')
-                            {{ $fichier }}<br />
-                        @endif
-                    @endforeach
+                                        @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",
+                                            strtolower($fichier)))
+                                            <a href="#{{ $fichier }}"><img
+                                                    src=" {{ asset('files/dorcas/' . $fichier) }}"
+                                                    class="img-thumbnail m-1" width="100" height="100"></a>
+                                        @elseif (is_dir($fichier) and $fichier != '.' and $fichier != '..')
+                                            {{ $fichier }}<br />
+                                        @elseif (substr(strtolower($fichier), -4, 4) == '.php')
+                                            {{ $fichier }}<br />
+                                        @endif
+                                    @endforeach
+                                    <br>
+
+                                    @foreach ($scandir as $fichier)
+                                        @if (preg_match(" #\.(jpg|jpeg|png|gif|bmp|tif)$#",
+                                            strtolower($fichier)))
+                                            <a href="#_1" class="lightbox trans" id="{{ $fichier }}"><img
+                                                    src=" {{ asset('files/dorcas/' . $fichier) }}"></a>
+                                        @endif
+                                    @endforeach
                     <br>
                 </div>
+
                 <hr>
                 Le département organise des formations suivantes : La coupe et Couture, La broderie, Saponification,
                 Informatique, Pâtisserie, soins de beauté, vannerie, et l’alphabétisation, étant donné que la plupart des

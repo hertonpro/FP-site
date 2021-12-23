@@ -26,7 +26,8 @@ class StaticPagesController extends Controller
         return view('static.icart',compact('awards','quotes','publications'));
     }
     public function md(){
-        return view('static.md');
+        $scandir = array_diff(scandir('files/dorcas'), array('..', '.'));
+        return view('static.md',compact('scandir'));
     }
     public function joie(){
         return view('static.joie');
