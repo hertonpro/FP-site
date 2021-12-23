@@ -37,7 +37,6 @@
                 class="h-50" alt="drapeau pays">
                 <abbr title="english">{{ str_replace('_', '-', app()->getLocale()) }}</abbr> </a>
         </div>
-        
         <div class="container-fluid">
             <div class="row">
                 <div class="col"></div>

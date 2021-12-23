@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<title>Fondation Panzi </title>
+<title>Fondation Panzi RDC </title>
 
 @livewireStyles()
 <!-- Fonts -->
@@ -12,7 +12,7 @@
 
 <!-- Styles -->
 <!-- Bootstrap CSS -->
-<link href="{{ asset('img/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
