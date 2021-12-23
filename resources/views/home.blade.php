@@ -81,7 +81,7 @@
                             <div class="col-lg-4  ">
                                 <a href="{{ url("nwes/".$blog->id."-".slug($blog->titre))}}">
                                     <img src="{{ asset('files/'.$blog->id.'/'.$blog->img) }}" class="card-img-top"
-                                        alt="image-{{ $blog->titre }}">
+                                        alt="image-{{ $blog->titre }}" height="65%" style="object-fit: cover;" >
 
                                     <h4 class="card-title text-warning strong">{{ $blog->titre }}</h4>
                                     <p class="card-text text-secondary"> <strong>{{$blog->type}}</strong>
